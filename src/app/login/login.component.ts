@@ -11,14 +11,13 @@ import { User }    from './user';
 export class LoginComponent implements OnInit {
 
     constructor(private http: Http) {}
-
     ngOnInit() {
 
     }
-
     model = new User('', '');
     submitted = false;
 	errorMessage = "";
+	
     onSubmit() {
         this.submitted = true;
 		this.authenticate(this.model.username, this.model.password);

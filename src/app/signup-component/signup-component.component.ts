@@ -15,7 +15,7 @@ export class SignupComponentComponent implements OnInit {
   ngOnInit() {
   }
     
-  model = new RegisterUser('', '');
+  model = new RegisterUser('','','','','','','');
   submitted = false;
   errorMessage = "";
   onSubmit() {

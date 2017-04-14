@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" [disabled]="!loginForm.form.valid" [ngClass]="{'btn-active':loginForm.form.valid, 'btn-inactive':!loginForm.form.valid}">Log me in</button>
+            <button type="submit" [disabled]="!loginForm.form.valid || submitted" [ngClass]="{'btn-active':loginForm.form.valid || !submitted , 'btn-inactive':!loginForm.form.valid || submitted }" >Log me in</button>
         </div>
     </form>
 </div>

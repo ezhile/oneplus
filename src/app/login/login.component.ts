@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 	  let options = new RequestOptions({ headers: headers });
 	
 	  this.http
-		.post('http://46.38.242.27:8082/api/login', body)
+		.post('http://46.38.242.27:8082/api/login', body, options)
 		.map(response => response.json())
 		.subscribe(
 		  response  => console.log(response),

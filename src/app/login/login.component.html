@@ -18,7 +18,7 @@
         <div class="form-group">
             <input type="password" placeholder="Password" class="login_password form-control" required
                [(ngModel)]="model.password" name="pwd"
-               #pwd="ngModel"/> 
+               #pwd="ngModel" pattern="[a-zA-Z0-9]*"/> 
             <div class="alert alert-danger text-left" *ngIf="!pwd.pristine && pwd.errors && pwd.errors.required">
               Password is required
             </div>

@@ -1,4 +1,4 @@
-<h2>log in</h2>
+<h2>{{ 'loginTitle' | translate }}</h2>
 <div class="error_message" id="login_error">
 
 </div>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" [disabled]="!loginForm.form.valid || submitted" [ngClass]="{'btn-active':loginForm.form.valid || !submitted , 'btn-inactive':!loginForm.form.valid || submitted }" >Log me in</button>
+            <button type="submit" [disabled]="!loginForm.form.valid || submitted" [ngClass]="{'btn-active':loginForm.form.valid || !submitted , 'btn-inactive':!loginForm.form.valid || submitted }" >{{ 'loginBtn' | translate }}</button>
         </div>
 		<div *ngIf="submitted"> Logging in.....<img class="imageLoader" src="assets/images/loader.gif" ></div>		
     </form>
@@ -34,36 +34,3 @@
     <img src="assets/images/x.png" alt="" />
 </div>
 
-
-<!-- <div class="container">
-  <div [hidden]="submitted">
-    <h1>Hero Form</h1>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name"
-               required
-               [(ngModel)]="model.username" name="name"
-               #name="ngModel">
-        <div [hidden]="name.valid || name.pristine"
-             class="alert alert-danger">
-          Name is required
-        </div>
-      </div>
-      <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
-    </form>
-  </div>
-  <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Name</div>
-      <div class="col-xs-9  pull-left">{{ model.username }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Alter Ego</div>
-      <div class="col-xs-9 pull-left">{{ model.password }}</div>
-    </div>
-    <br>
-    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-  </div>
-</div> -->

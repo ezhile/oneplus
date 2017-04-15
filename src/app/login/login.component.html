@@ -18,12 +18,9 @@
         <div class="form-group">
             <input type="password" placeholder="Password" class="login_password form-control" required
                [(ngModel)]="model.password" name="pwd"
-               #pwd="ngModel" pattern="[a-zA-Z0-9]*"/> 
+               #pwd="ngModel" pwdValidator/> 
             <div class="alert alert-danger text-left" *ngIf="!pwd.pristine && pwd.errors && pwd.errors.required">
               Password is required
-            </div>
-            <div class="alert alert-danger text-left" *ngIf="pwd.errors && pwd.errors.pattern">
-                Password didn't match the expected criteria (alphanumeric, min 1 Uppercase, min 1 cipher)
             </div>
         </div>
         <div class="form-group">

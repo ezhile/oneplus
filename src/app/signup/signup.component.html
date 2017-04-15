@@ -16,11 +16,11 @@
 									     		</div>
 									     		<div class="form-group">
 									     			<input type="password" placeholder="Password" id="sign_ưp_password" class="password form-control signup-input" required [(ngModel)]="model.password" name="pwd"
-                                                    #pwd="ngModel" pattern="[a-zA-Z0-9]*"/>
+                                                    #pwd="ngModel" pwdValidator/>
                                                     <div class="alert alert-danger text-left" *ngIf="!pwd.pristine && pwd.errors && pwd.errors.required">
                                                       Password is required
                                                     </div>
-                                                    <div class="alert alert-danger text-left" *ngIf="pwd.errors && pwd.errors.pattern">
+                                                    <div class="alert alert-danger text-left" *ngIf="pwd.dirty && pwd.errors && pwd.errors.criteriaMatch">
                                                         Password didn't match the expected criteria (alphanumeric, min 1 Uppercase, min 1 cipher)
                                                     </div>
 									     		</div>

@@ -69,7 +69,7 @@
 													</div>
 												</div>	
 									     		<div class="form-group signup-btn-bot">
-									     			<button type="submit" [disabled]="!signupForm.form.valid ||  submitted" [ngClass]="{'btn-active':signupForm.form.valid || !submitted, 'btn-inactive':!signupForm.form.valid || submitted}" class="signup-box-second-button">Sign Up</button>
+									     			<button type="submit" [disabled]="!signupForm.form.valid ||  submitted || (model.password !== model.confirmPassword)" [ngClass]="{'btn-active':signupForm.form.valid || !submitted, 'btn-inactive':!signupForm.form.valid || submitted || (model.password !== model.confirmPassword)}" class="signup-box-second-button">Sign Up</button>
 									     		</div>
 												<div *ngIf="submitted" class="text-center"> signing up.....<img class="imageLoader" src="assets/images/loader.gif" ></div>
 									     	</form>

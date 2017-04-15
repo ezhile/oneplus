@@ -24,7 +24,6 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.authenticate(this.model.email, this.model.password,this.model.month,this.model.day,this.model.year);
-	alert(this.model.month);
   }
   authenticate(userEmail, password, month, day, year) {
 	  let body = { 

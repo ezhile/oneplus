@@ -39,16 +39,16 @@
 												<div class="form-group">
 													<label class="title_edit_page clearfix" for="">Nickname</label><br>
 													<div class="clearfix">
-														<select required name="userMonth" ngModel id="" class="signup-select month" >
+														<select required name="userMonth" [(ngModel)]="model.month" id="" class="signup-select month" >
 															<option selected disabled  value="">Month</option>
 															<option *ngFor="let month of userMonths" [value]="month">{{month}}</option>
 														</select>
 		  
-														<select name="userDate" ngModel id="" class="signup-select day" required >
+														<select name="userDate" [(ngModel)]="model.day" id="" class="signup-select day" required >
 															<option selected disabled value="">Day</option>
 															<option *ngFor="let date of userDate" [value]="date">{{date}}</option>
 														</select>
-														<select name="userYear" ngModel id="" class="signup-select year" style="margin-right: 0px;" required >
+														<select name="userYear" [(ngModel)]="model.year" id="" class="signup-select year" style="margin-right: 0px;" required >
 															<option selected disabled value="">Year</option>
 															<option *ngFor="let year of userYear" [value]="year">{{year}}</option>
 														</select>

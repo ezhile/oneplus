@@ -23,15 +23,25 @@ export class SignupComponent implements OnInit {
   errorMessage = "";
   onSubmit() {
     this.submitted = true;
-    this.authenticate(this.model.email, this.model.password);
+    this.authenticate(this.model.email, this.model.password,this.model.month,this.model.day,this.model.year);
+	alert(this.model.month);
   }
-  authenticate(userEmail,password) {
-	  let body = { "username" : userEmail, "password" : password};
+  authenticate(userEmail, password, month, day, year) {
+	  let body = { 
+		  "email" : userEmail,
+		  "password" : password,
+		  "birthdate" : {
+			   "year" : year,
+			   "month" : month,
+			   "day" : day
+			},
+			"userType" : "CUSTOMER"
+		}
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
 	
 	  this.http
-		.post('http://46.38.242.27:8082/api/login', body, options)
+		.post('http://46.38.242.27:8082/api/register', body, options)
 		.map(response => response.json())
 		.subscribe(
 		  response  => {console.log(response);this.submitted = false;},

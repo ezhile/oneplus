@@ -18,7 +18,7 @@
         <div class="form-group">
             <input type="password" placeholder="Password" class="login_password form-control" required
                [(ngModel)]="model.password" name="pwd"
-               #pwd="ngModel" pwdValidator/> 
+               #pwd="ngModel"/> 
             <div class="alert alert-danger text-left" *ngIf="!pwd.pristine && pwd.errors && pwd.errors.required">
               Password is required
             </div>
@@ -26,6 +26,7 @@
         <div class="form-group">
             <button type="submit" [disabled]="!loginForm.form.valid || submitted" [ngClass]="{'btn-active':loginForm.form.valid || !submitted , 'btn-inactive':!loginForm.form.valid || submitted }" >Log me in</button>
         </div>
+		<div *ngIf="submitted"> Logging in.....<img class="imageLoader" src="assets/images/loader.gif" ></div>		
     </form>
 </div>
 <p><a href="">Forgot password? We can help!</a></p>

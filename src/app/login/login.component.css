@@ -7,3 +7,7 @@
 input{
     color: #555 !important;
 }
+.imageLoader{
+	width:30px;
+	height:30px;
+}

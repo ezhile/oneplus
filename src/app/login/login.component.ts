@@ -20,12 +20,11 @@ export class LoginComponent implements OnInit {
 	
     onSubmit() {
         this.submitted = true;
-		this.authenticate(this.model.username, this.model.password);
+		this.authenticate(this.model.username, this.model.password);		
     }
 	
 	authenticate(username, password) {
-	  /* let body = `username=${username}&password=${password}`; */
-	  let body = { "username" : "test123@example.com", "password" : "123456789"}; 
+	  let body = { "username" : username, "password" : password}; 
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
 	
@@ -33,8 +32,8 @@ export class LoginComponent implements OnInit {
 		.post('http://46.38.242.27:8082/api/login', body, options)
 		.map(response => response.json())
 		.subscribe(
-		  response  => console.log(response),
-          error =>  this.errorMessage = <any>error
+		  response  => {console.log(response);this.submitted = false;},
+          error =>  {this.errorMessage = <any>error;this.submitted = false;}
 		);
 	}
  

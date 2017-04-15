@@ -10,6 +10,10 @@ import { SignupComponent } from './signup/signup.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { PwdValidator } from '../validators/password.validator';
 
+export function createTranslateLoader(http: Http) {
+    return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,7 @@ import { PwdValidator } from '../validators/password.validator';
     HttpModule,
     TranslateModule.forRoot({
         provide: TranslateLoader,
-        useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+        useFactory: (createTranslateLoader),
         deps: [Http]
     })
   ], 
@@ -32,3 +36,5 @@ import { PwdValidator } from '../validators/password.validator';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

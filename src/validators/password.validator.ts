@@ -6,8 +6,12 @@ import { FormControl, NG_VALIDATORS, AbstractControl, ValidatorFn, Validator } f
 function validatePwdMatch() : ValidatorFn {
   return (c: AbstractControl) => {
     
-    let isValid = c.value.match("^(?=.*[A-Z])(?=.*[0])")!== null;
+    let isValid = false;
     
+    if(c.value){
+        isValid = c.value.match("^(?=.*[A-Z])(?=.*[0])")!== null;
+    }
+      
     if(isValid) {
       return null;
     } else {

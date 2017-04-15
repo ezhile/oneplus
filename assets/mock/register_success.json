@@ -1,0 +1,7 @@
+{
+  "status": "BAD_REQUEST",
+  "code": "ERR_USER_ALREADY_EXISTS",
+  "errors": [
+    "User with email test3@example.com already exists"
+  ]
+}

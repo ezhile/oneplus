@@ -1,0 +1,13 @@
+{
+  "access_token": "ab828cca-1cb7-4b43-b9c0-7a020afa9f96",
+  "token_type": "bearer",
+  "refresh_token": "c06d0da0-9ddb-426f-907f-fd194bbe5f32",
+  "expires_in": 3313,
+  "scope": "read write",
+  "user-id": "6e9e9864-866d-42de-bd57-42a0a394a004",
+  "user-username": "roy",
+  "user-roles": [
+    "ROLE_ADMIN",
+    "ROLE_CUSTOMER"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status": "BAD_REQUEST",
+  "code": "ERR_SUBSCRIPTION_ALREADY_EXISTS",
+  "errors": [
+    "Subscription for email test3@example.com already exists"
+  ]
+}

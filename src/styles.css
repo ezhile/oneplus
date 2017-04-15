@@ -2209,3 +2209,7 @@ footer .one-plus-logo {
 .spe-inline {
     display: inline !important;
 }
+.imageLoader{
+	width:30px;
+	height:30px;
+}

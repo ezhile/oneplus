@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { User }    from './user';
+import { environment } from '../../environments/environment';
+import { User } from './user';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +11,16 @@ import { User }    from './user';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private http: Http) {}
-    ngOnInit() {
-
-    }
     model = new User('', '');
     submitted = false;
 	errorMessage = "";
-	
+    
+    constructor(private http: Http) {
+        
+    }
+    ngOnInit() {
+        
+    }	
     onSubmit() {
         this.submitted = true;
 		this.authenticate(this.model.username, this.model.password);		
@@ -28,8 +31,8 @@ export class LoginComponent implements OnInit {
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
 	
-	  this.http
-		.post('http://46.38.242.27:8082/api/login', body, options)
+	  this.http[environment.api.login.method]
+        (environment.api.login.url, JSON.stringify(body), options)
 		.map(response => response.json())
 		.subscribe(
 		  response  => {console.log(response);this.submitted = false;},

@@ -13,6 +13,7 @@ export class SubscribeComponent implements OnInit {
   }
     
   submitted = false;
+  subscribeEmail = "";
 	
   onSubmit() {
     this.submitted = true;

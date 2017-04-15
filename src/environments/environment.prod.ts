@@ -1,3 +1,17 @@
 export const environment = {
-  production: true
+  production: true,
+  api:{
+      login:{
+          method : "post",
+          url : "http://46.38.242.27:8082/api/login"
+      },
+      register:{
+          method : "post",
+          url : "http://46.38.242.27:8082/api/register"
+      },
+      subscribe:{
+          method : "post",
+          url : "http://46.38.242.27:8082/api/subscribe"
+      }
+  }
 };

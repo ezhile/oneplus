@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "./node_modules/.bin/deploy"
+    "gitbuild" : "ng build --prod --base-href=https://ezhile.github.io/oneplus/"
   },
   "private": true,
   "dependencies": {

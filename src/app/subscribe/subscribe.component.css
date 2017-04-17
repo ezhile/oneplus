@@ -4,3 +4,8 @@
 .btn-inactive{
     opacity: 0.5;
 }
+
+.emailSubscribeSucessTxt{
+margin-top: 10px;
+font-size:18px;
+}

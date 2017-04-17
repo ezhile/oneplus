@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers, RequestOptions  } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { emailSubscribe }    from './emailSubscribe';
 
 @Component({
   selector: 'app-subscribe',
@@ -7,16 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubscribeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
-    
+  model = new emailSubscribe('');  
   submitted = false;
-  subscribeEmail = "";
+  errorMessage = "";
 	
   onSubmit() {
     this.submitted = true;
+	this.authenticate(this.model.email);
   }
+  
+  authenticate(userEmail) {
+	  let body = { 
+		  "email" : userEmail
+		}
+	  let headers = new Headers({ 'Content-Type': 'application/json' });
+	  let options = new RequestOptions({ headers: headers });
+	
+	  this.http
+		.post('http://46.38.242.27:8082/api/subscribe', body, options)
+		.map(response => response.json())
+		.subscribe(
+		  response  => {console.log(response);this.submitted = false;},
+          error =>  {this.errorMessage = <any>error;this.submitted = false;}
+		);
+	}
 
 }

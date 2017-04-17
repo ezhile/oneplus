@@ -6,7 +6,7 @@
 						<div class="col-md-4 col-md-offset-3">
 							<input type="text" placeholder="Email your email here.." class="email form-control" required [(ngModel)]="model.email" name="email"
                                                     #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" (ngModelChange)="onChangeEmailSubcrbibeInp()"/>
-								<!--<div class="alert-danger" *ngIf="!email.pristine && email.errors && email.errors.required">
+								<!-- <div class="alert-danger" *ngIf="!email.pristine && email.errors && email.errors.required">
 								  Email is required
 								</div>
 								<div class="alert-danger" *ngIf="email.errors && email.errors.pattern">

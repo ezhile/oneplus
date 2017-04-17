@@ -15,6 +15,7 @@ export class SubscribeComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   model = new emailSubscribe('');  
   submitted = false;
   errorMessage = "";
@@ -23,10 +24,10 @@ export class SubscribeComponent implements OnInit {
 	
   onSubmit() {
     this.submitted = true;
-	this.authenticate(this.model.email);
+	this.subscribeEmail(this.model.email);
   }
   
-  authenticate(userEmail) {
+  subscribeEmail(userEmail) {
 	  let body = { "email" : userEmail };
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });

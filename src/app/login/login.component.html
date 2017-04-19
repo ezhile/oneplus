@@ -7,7 +7,7 @@
         <div class="form-group">
 		<input type="text" placeholder="Email" class="login_username form-control" required
                [(ngModel)]="model.username" name="name"
-               #name="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+               #name="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" (ngModelChange)="onChangeInput()" />
 		<div class="alert alert-danger text-left" *ngIf="!name.pristine && name.errors && name.errors.required">
           Email is required
         </div>
@@ -26,7 +26,8 @@
         <div class="form-group">
             <button type="submit" [disabled]="!loginForm.form.valid || submitted" [ngClass]="{'btn-active':loginForm.form.valid || !submitted , 'btn-inactive':!loginForm.form.valid || submitted }" >{{ 'loginBtn' | translate }}</button>
         </div>
-		<div *ngIf="submitted"> Logging in.....<img class="imageLoader" src="assets/images/loader.gif" ></div>		
+		<div *ngIf="submitted"> Logging in.....<img class="imageLoader" src="assets/images/loader.gif" ></div>
+		<div *ngIf="errorMessage !== ''"> {{errorMessage}}</div>	
     </form>
 </div>
 <p><a href="">Forgot password? We can help!</a></p>

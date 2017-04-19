@@ -9,7 +9,7 @@ function validatePwdMatch() : ValidatorFn {
     let isValid = false;
     
     if(c.value){
-        isValid = c.value.match("^(?=.*[A-Z])(?=.*[0])")!== null;
+        isValid = c.value.match("^(?=.*[A-Z])(?=.*[0-9]).{8,}")!== null;
     }
       
     if(isValid) {

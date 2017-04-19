@@ -1,81 +1,95 @@
-								     	<h2>sign up to <span class="red-text">one +</span></h2>
-										<div class="error_message" id="signup_error" >
+								     	<div *ngIf="!submitted"><h2>sign up to <span class="red-text">one +</span></h2>
+											<div class="error_message" id="signup_error" >
 
-										</div>
-								     	<div class="form-login" >
-								     		<form id="signup_form" (ngSubmit)="onSubmit()" #signupForm="ngForm">
-									     		<div class="form-group">
-									     			<input type="text" placeholder="Email" class="email form-control signup-input" required [(ngModel)]="model.email" name="email"
-                                                    #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
-                                                    <div class="alert alert-danger text-left" *ngIf="!email.pristine && email.errors && email.errors.required">
-                                                      Email is required
-                                                    </div>
-                                                    <div class="alert alert-danger text-left" *ngIf="email.errors && email.errors.pattern">
-                                                        Email is invalid
-                                                    </div>
-									     		</div>
-									     		<div class="form-group">
-									     			<input type="password" placeholder="Password" id="sign_ưp_password" class="password form-control signup-input" required [(ngModel)]="model.password" name="pwd"
-                                                    #pwd="ngModel" pwdValidator/>
-                                                    <div class="alert alert-danger text-left" *ngIf="!pwd.pristine && pwd.errors && pwd.errors.required">
-                                                      Password is required
-                                                    </div>
-                                                    <div class="alert alert-danger text-left" *ngIf="pwd.dirty && pwd.errors && pwd.errors.criteriaMatch">
-                                                        Password didn't match the expected criteria (alphanumeric, min 1 Uppercase, min 1 cipher)
-                                                    </div>
-									     		</div>
-									     		<div class="form-group">
-									     			<input type="password" placeholder="Repeat Password" id="sign_up_confirm_password" class="password_repeat form-control signup-input" required [(ngModel)]="model.confirmPassword" name="confirmPwd"
-                                                    #confirmPwd="ngModel"/>
-                                                    <div [hidden]="confirmPwd.valid || confirmPwd.pristine"
-                                                        class="alert alert-danger text-left">
-                                                        Password is required
-                                                    </div>
-                                                    <div *ngIf="!confirmPwd.pristine && (model.password !== model.confirmPassword)"
-                                                        class="alert alert-danger text-left">
-                                                        Passwords aren't the same
-                                                    </div>
-									     		</div>
-												<div class="form-group">
-													<label class="title_edit_page clearfix" for="">Nickname</label><br>
-													<div class="clearfix">
-														<select required name="userMonth" [(ngModel)]="model.month" id="" class="signup-select month" >
-															<option selected disabled  value="">Month</option>
-															<option *ngFor="let month of userMonths" [value]="month">{{month}}</option>
-														</select>
-		  
-														<select name="userDate" [(ngModel)]="model.day" id="" class="signup-select day" required >
-															<option selected disabled value="">Day</option>
-															<option *ngFor="let date of userDate" [value]="date">{{date}}</option>
-														</select>
-														<select name="userYear" [(ngModel)]="model.year" id="" class="signup-select year" style="margin-right: 0px;" required >
-															<option selected disabled value="">Year</option>
-															<option *ngFor="let year of userYear" [value]="year">{{year}}</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group">
-													<label class="title_edit_page clearfix" for="">Choose the kind of profile that you want to have.</label><br>
-													<div class="clearfix form-check" style="text-align: left">
-														<div class="form-group">
-															<div class="col-md-6">
-																<input type="radio" checked id="kind_professional" name="kind" value="PROFESSIONAL"/> <label for="kind_professional">Professional</label>
-															</div>
-															<div class="col-md-6">
-																<input type="radio" name="kind" id="kind_customer" class="kind" value="CUSTOMER"/> <label for="kind_customer" >Customer</label>
-															</div>
-															<!--<input type="radio" id="male" name="gender" /> <label for="male">Professional</label>-->
+											</div>
+											<div class="form-login" >
+												<form id="signup_form" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+													<div class="form-group">
+														<input type="text" placeholder="Email" class="email form-control signup-input" required [(ngModel)]="model.email" name="email"
+														#email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" (ngModelChange)="onChangeInput()"/>
+														<div class="alert alert-danger text-left" *ngIf="!email.pristine && email.errors && email.errors.required">
+														  Email is required
+														</div>
+														<div class="alert alert-danger text-left" *ngIf="email.errors && email.errors.pattern">
+															Email is invalid
 														</div>
 													</div>
-												</div>	
-									     		<div class="form-group signup-btn-bot">
-									     			<button type="submit" [disabled]="!signupForm.form.valid ||  submitted || (model.password !== model.confirmPassword)" [ngClass]="{'btn-active':signupForm.form.valid || !submitted, 'btn-inactive':!signupForm.form.valid || submitted || (model.password !== model.confirmPassword)}" class="signup-box-second-button">Sign Up</button>
-									     		</div>
-												<div *ngIf="submitted" class="text-center"> signing up.....<img class="imageLoader" src="assets/images/loader.gif" ></div>
-									     	</form>
-									     
-								     	</div>
-								     	<p class="text-bot">By clicking Sign Up, you agree with our <span class="red-text">Terms of Service</span> & <span class="red-text">Privacy Policy</span>, including our <span class="red-text">Cookie Use</span>.</p>
-								     	<div class="close" data-dismiss="modal">
-								     		<img src="assets/images/x.png" alt=""/>
-								     	</div>
+													<div class="form-group">
+														<input type="password" placeholder="Password" id="sign_ưp_password" class="password form-control signup-input" required min="8" [(ngModel)]="model.password" name="pwd"
+														#pwd="ngModel" pwdValidator/>
+														<div class="alert alert-danger text-left" *ngIf="!pwd.pristine && pwd.errors && pwd.errors.required">
+														  Password is required
+														</div>
+														<div class="alert alert-danger text-left" *ngIf="pwd.dirty && pwd.errors && pwd.errors.criteriaMatch">
+															Password didn't match the expected criteria (alphanumeric, min 1 Uppercase, min 1 cipher, min 8 characters)
+														</div>
+													</div>
+													<div class="form-group">
+														<input type="password" placeholder="Repeat Password" id="sign_up_confirm_password" class="password_repeat form-control signup-input" required [(ngModel)]="model.confirmPassword" name="confirmPwd"
+														#confirmPwd="ngModel"/>
+														<div [hidden]="confirmPwd.valid || confirmPwd.pristine"
+															class="alert alert-danger text-left">
+															Password is required
+														</div>
+														<div *ngIf="!confirmPwd.pristine && (model.password !== model.confirmPassword)"
+															class="alert alert-danger text-left">
+															Passwords aren't the same
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="title_edit_page clearfix" for="">Nickname</label><br>
+														<div class="clearfix">
+															<select required name="userMonth" [(ngModel)]="model.month" id="" class="signup-select month" >
+																<option selected disabled  value="">Month</option>
+																<option *ngFor="let month of userMonths" [value]="month">{{month}}</option>
+															</select>
+			  
+															<select name="userDate" [(ngModel)]="model.day" id="" class="signup-select day" required >
+																<option selected disabled value="">Day</option>
+																<option *ngFor="let date of userDate" [value]="date">{{date}}</option>
+															</select>
+															<select name="userYear" [(ngModel)]="model.year" id="" class="signup-select year" style="margin-right: 0px;" required >
+																<option selected disabled value="">Year</option>
+																<option *ngFor="let year of userYear" [value]="year">{{year}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="title_edit_page clearfix" for="">Choose the kind of profile that you want to have.</label><br>
+														<div class="clearfix form-check" style="text-align: left">
+															<div class="form-group">
+																<div class="col-md-6">
+																	<input type="radio" id="kind_professional" name="kind" value="PROFESSIONAL" [(ngModel)]="model.profile"/> <label for="kind_professional">Professional</label>
+																</div>
+																<div class="col-md-6">
+																	<input type="radio" name="kind" id="kind_customer" class="kind" value="CUSTOMER"[(ngModel)]="model.profile" /> <label for="kind_customer" >Customer</label>
+																</div>
+																<!--<input type="radio" id="male" name="gender" /> <label for="male">Professional</label>-->
+															</div>
+														</div>
+													</div>	
+													<div class="form-group signup-btn-bot">
+														<button type="submit" [disabled]="!signupForm.form.valid ||  submitted || (model.password !== model.confirmPassword)" [ngClass]="{'btn-active':signupForm.form.valid || !submitted, 'btn-inactive':!signupForm.form.valid || submitted || (model.password !== model.confirmPassword)}" class="signup-box-second-button">Sign Up</button>
+													</div>
+													<div *ngIf="submitted" class="text-center"> signing up.....<img class="imageLoader" src="assets/images/loader.gif" ></div>
+													<div class="text-center" *ngIf="errorMessage !== ''"> {{errorMessage}}</div>
+												</form>
+											 
+											</div>
+											<p class="text-bot">By clicking Sign Up, you agree with our <span class="red-text">Terms of Service</span> & <span class="red-text">Privacy Policy</span>, including our <span class="red-text">Cookie Use</span>.</p>
+											<div class="close" data-dismiss="modal">
+												<img src="assets/images/x.png" alt=""/>
+											</div>
+										</div>
+										<div *ngIf="submitted">
+											<div class="form-login">
+													<h2>thank you for joining <span class="red-text">one +</span></h2>
+													<p>{{onsucsessMsg}}</p>
+													<div class="form-group signup-btn-bot">
+														<button type="button" (click)="openLoginPopup()" >Go for it</button>
+													</div>
+													<div class="close" data-dismiss="modal">
+													<img src="assets/images/x.png" alt=""/>
+											</div>
+											</div>
+										</div>

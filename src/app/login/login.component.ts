@@ -35,9 +35,23 @@ export class LoginComponent implements OnInit {
         (environment.api.login.url, JSON.stringify(body), options)
 		.map(response => response.json())
 		.subscribe(
-		  response  => {console.log(response);this.submitted = false;},
-          error =>  {this.errorMessage = <any>error;this.submitted = false;}
+		  response  => {
+			  this.errorMessage="";
+			  this.submitted = false;
+			  alert(response["user-username"]);
+			  if(response["user-username"]){
+				  window.location.href="https://www.google.co.in";
+			  }  
+			  if(response.code==="ERR_ACCESS_DENIED"){
+				  this.errorMessage = response.errors[0];
+			  }		  
+		  },
+          error =>  {this.errorMessage = "Network Error";this.submitted = false;}
 		);
+	}
+	
+	onChangeInput(){
+		this.errorMessage="";
 	}
  
 }

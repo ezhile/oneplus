@@ -11,9 +11,10 @@ import { RegisterUser } from './registerUser';
 })
 export class SignupComponent implements OnInit {
 
- model = new RegisterUser('','','','','','','');
+ model = new RegisterUser('','','','','','','PROFESSIONAL');
  submitted = false;
  errorMessage = "";
+ onsucsessMsg="";
     
  constructor(private http: Http) { }
 	userMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November','December'];
@@ -25,10 +26,14 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    this.register(this.model.email,this.model.password,this.model.month,this.model.day,this.model.year);
+    this.register(this.model.email,this.model.password,this.model.month,this.model.day,this.model.year, this.model.profile);
+	if(this.model.profile==="PROFESSIONAL"){
+		this.onsucsessMsg="Edit your profile and upload some fotos and videos for a better experiencies";
+	}else{
+		this.onsucsessMsg="Set your preferences for a better experience";
+	}
   }
-  register(userEmail, password, month, day, year) {
+  register(userEmail, password, month, day, year, profile) {
 	  let body = { 
 		  "email" : userEmail,
 		  "password" : password,
@@ -37,18 +42,30 @@ export class SignupComponent implements OnInit {
 			   "month" : month,
 			   "day" : day
 			},
-			"userType" : "CUSTOMER"
+			"userType" : profile
 		}
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
 	
 	  this.http[environment.api.register.method]
 		(environment.api.register.url, JSON.stringify(body), options)
-		.map(response => response.json())
+		.map(response =>response.json())
 		.subscribe(
-		  response  => {console.log(response);this.submitted = false;},
-          error =>  {this.errorMessage = <any>error;this.submitted = false;}
+		  response  => {console.log(response);
+				if(response.status == "BAD_REQUEST"){
+					this.errorMessage = response.errors[0];
+				}else{
+					this.submitted = true;					
+				}
+		  },
+          error =>  {this.errorMessage = '';this.submitted = false;}
 		);
+	}
+	onChangeInput(){
+		this.errorMessage="";
+	}
+	openLoginPopup(){
+		//alert('s');
 	}
 
 }

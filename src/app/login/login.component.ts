@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
 		  response  => {
 			  this.errorMessage="";
 			  this.submitted = false;
-			  alert(response["user-username"]);
 			  if(response["user-username"]){
 				  window.location.href="https://www.google.co.in";
 			  }  

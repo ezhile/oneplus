@@ -19,8 +19,7 @@ export class SubscribeComponent implements OnInit {
   model = new emailSubscribe('');  
   submitted = false;
   errorMessage = "";
-  isEmailSubscribed= false;
-  isEmailSubscribedError= false;
+  isServiceHitted= false;
 	
   onSubmit() {
     this.submitted = true;
@@ -35,13 +34,22 @@ export class SubscribeComponent implements OnInit {
 		(environment.api.subscribe.url, JSON.stringify(body), options)
 		.map(response => response.json())
 		.subscribe(
-		  response  => {console.log(response);this.submitted = false;this.isEmailSubscribed= true;this.isEmailSubscribedError= false;},
-		  error =>  {this.errorMessage = <any>error;this.submitted = false;this.isEmailSubscribed= false;this.isEmailSubscribedError= true;}
+		  response  => {
+				  this.errorMessage="";
+				  this.isServiceHitted=true;
+				  this.submitted = false;
+				  if(response.status==="BAD_REQUEST"){
+					  if(response.code==="ERR_SUBSCRIPTION_ALREADY_EXISTS"){
+						  this.errorMessage = response.errors[0];
+					  }	
+				  }
+		   },
+		  error =>  {this.errorMessage = "Network Error";this.submitted = false;}
 		);
 	}
 	onChangeEmailSubcrbibeInp(){
-		this.isEmailSubscribed= false;
-		this.isEmailSubscribedError= false;
+		this.errorMessage="";
+		this.isServiceHitted=false;
 	}
 
 }

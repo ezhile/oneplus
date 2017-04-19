@@ -18,8 +18,8 @@
 							<button type="submit" [disabled]="!subscribeForm.form.valid || submitted" [ngClass]="{'btn-active':subscribeForm.form.valid || !submitted , 'btn-inactive':!subscribeForm.form.valid || submitted }" class="form-control btn">Subscribe</button>
 							
 						</div>
-						<div class="col-md-4 col-md-offset-3 mt10 emailSubscribeSucessTxt text-success" *ngIf="isEmailSubscribed">Your Email has been subscribed</div>
-						<div class="col-md-4 col-md-offset-3 mt10 emailSubscribeSucessTxt text-danger" *ngIf="isEmailSubscribedError">Your Email is already exist</div>
+						<div class="col-md-4 col-md-offset-3 mt10 emailSubscribeSucessTxt text-success" *ngIf="errorMessage === '' && isServiceHitted">Your Email has been subscribed</div>
+						<div class="col-md-4 col-md-offset-3 mt10 emailSubscribeSucessTxt text-danger" *ngIf="errorMessage !== ''"> {{errorMessage}}</div>
 						
 					</form>
 					

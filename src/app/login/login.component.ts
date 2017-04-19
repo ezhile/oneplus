@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 			  this.errorMessage="";
 			  this.submitted = false;
 			  if(response["user-username"]){
-				  window.location.href="https://www.google.co.in";
+				  window.location.href="src/pages/profile.html";
 			  }  
 			  if(response.code==="ERR_ACCESS_DENIED"){
 				  this.errorMessage = response.errors[0];

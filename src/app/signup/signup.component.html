@@ -41,7 +41,7 @@
 														<div class="clearfix">
 															<select required name="userMonth" [(ngModel)]="model.month" id="" class="signup-select month" >
 																<option selected disabled  value="">Month</option>
-																<option *ngFor="let month of userMonths" [value]="month">{{month}}</option>
+																<option *ngFor="let month of userMonths" [value]="month.id">{{month.key}}</option>
 															</select>
 			  
 															<select name="userDate" [(ngModel)]="model.day" id="" class="signup-select day" required >

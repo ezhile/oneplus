@@ -5,9 +5,10 @@ import { Http, HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component'; 
-import { SignupComponent } from './signup/signup.component';
-import { SubscribeComponent } from './subscribe/subscribe.component';
+import { HomePage } from './pages/home/home.page';
+import { LoginComponent } from './components/login/login.component'; 
+import { SignupComponent } from './components/signup/signup.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { PwdValidator } from '../validators/password.validator';
 
 export function createTranslateLoader(http: Http) {
@@ -17,6 +18,7 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
+    HomePage,  
     LoginComponent,
     SignupComponent,
     SubscribeComponent,

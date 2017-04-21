@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { RegisterUser } from './registerUser';
 declare  var $:any;
 

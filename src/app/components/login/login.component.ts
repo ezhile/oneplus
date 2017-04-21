@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
 import { User } from './user';
+declare  var $:any;
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
     submitted = false;
 	errorMessage = "";
     
-    constructor(private http: Http) {
+    constructor(private http: Http, private router: Router) {
         
     }
     ngOnInit() {
@@ -39,7 +41,9 @@ export class LoginComponent implements OnInit {
 			  this.errorMessage="";
 			  this.submitted = false;
 			  if(response["user-username"]){
-				  window.location.href="src/pages/profile.html";
+                  $(".login-modal-box").modal("hide");
+                  this.router.navigate(['/profile'],
+         {queryParams: {}});
 			  }  
 			  if(response.code==="ERR_ACCESS_DENIED"){
 				  this.errorMessage = response.errors[0];

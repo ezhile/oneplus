@@ -3,7 +3,8 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
-import { LoginUser } from '../../../models/login-user.model'; 
+import { LoginUser } from '../../../models/login-user.model';
+import { UserInfoService } from '../../../services/user-info.service'; 
 declare  var $:any;
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     submitted = false;
 	errorMessage = "";
     
-    constructor(private http: Http, private router: Router) {
+    constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         
     }
     ngOnInit() {
@@ -41,9 +42,9 @@ export class LoginComponent implements OnInit {
 			  this.errorMessage="";
 			  this.submitted = false;
 			  if(response["user-username"]){
+                  this.userInfoService.userInfo = response;
                   $(".login-modal-box").modal("hide");
-                  this.router.navigate(['/profile'],
-         {queryParams: {}});
+                  this.router.navigate(['/profile']);
 			  }  
 			  if(response.code==="ERR_ACCESS_DENIED"){
 				  this.errorMessage = response.errors[0];

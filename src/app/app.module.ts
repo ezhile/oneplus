@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { PwdValidator } from '../validators/password.validator';
+import { UserInfoService } from '../services/user-info.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { PwdValidator } from '../validators/password.validator';
         deps: [Http]
     })
   ], 
-  providers: [],
+  providers: [UserInfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

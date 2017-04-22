@@ -17,6 +17,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { PwdValidator } from '../validators/password.validator';
 import { UserInfoService } from '../services/user-info.service';
+import { DirectivesModule } from '../modules/directives.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserInfoService } from '../services/user-info.service';
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [Http]
-    })
+    }),
+    DirectivesModule
   ], 
   providers: [UserInfoService],
   bootstrap: [AppComponent]

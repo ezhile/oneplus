@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
-import { User } from './user';
+import { LoginUser } from '../../../models/login-user.model'; 
 declare  var $:any;
 
 @Component({
@@ -13,7 +13,7 @@ declare  var $:any;
 })
 export class LoginComponent implements OnInit {
 
-    model = new User('', '');
+    model = new LoginUser('', '');
     submitted = false;
 	errorMessage = "";
     

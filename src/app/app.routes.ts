@@ -15,6 +15,6 @@ export const appRoutes: Routes = [
           { path: 'edit', component: EditPage }
       ]
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: HomePage }
 ];

@@ -5,12 +5,13 @@ import { Http, HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from 'ng2-translate';
 
+import { createTranslateLoader } from './app.lang.loader';
 import { appRoutes } from './app.routes'; 
-import { createTranslateLoader } from './app.lang.loader'; 
 import { AppComponent } from './app.component';
 import { HomePage } from './pages/home/home.page';
-import { ViewProfilePage } from './pages/viewprofile/viewprofile.page';
-import { EditProfilePage } from './pages/editprofile/editprofile.page';
+import { ProfilePage } from './pages/profile/profile.page';
+import { ViewPage } from './pages/view/view.page'; 
+import { EditPage } from './pages/edit/edit.page';
 import { LoginComponent } from './components/login/login.component'; 
 import { SignupComponent } from './components/signup/signup.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
@@ -20,8 +21,9 @@ import { PwdValidator } from '../validators/password.validator';
   declarations: [
     AppComponent,
     HomePage, 
-	ViewProfilePage,
-	EditProfilePage,
+	ProfilePage,
+	ViewPage,
+	EditPage,
     LoginComponent,
     SignupComponent,
     SubscribeComponent,

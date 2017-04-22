@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'view-profile-page',
-  templateUrl: 'viewprofile.page.html',
-  styleUrls: ['viewprofile.page.css']
+  selector: 'view-page',
+  templateUrl: 'view.page.html',
+  styleUrls: ['view.page.css']
 })
-export class ViewProfilePage implements OnInit {
+export class ViewPage implements OnInit {
     
     constructor() {
         

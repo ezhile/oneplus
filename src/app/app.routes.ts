@@ -1,12 +1,19 @@
 import { Routes } from '@angular/router';
 import { HomePage } from './pages/home/home.page';
-import { ViewProfilePage } from './pages/viewprofile/viewprofile.page';
-import { EditProfilePage } from './pages/editprofile/editprofile.page';
+import { ProfilePage } from './pages/profile/profile.page';
+import { ViewPage } from './pages/view/view.page'; 
+import { EditPage } from './pages/edit/edit.page';
 
 export const appRoutes: Routes = [
   { path: 'home', component: HomePage },
-  { path: 'viewprofile', component: ViewProfilePage },
-  { path: 'editprofile', component: EditProfilePage },
+  { 
+      path: 'profile', 
+      component: ProfilePage,
+      children:[
+          { path: 'view', component: ViewPage },
+          { path: 'edit', component: EditPage }
+      ]
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: HomePage }
 ];

@@ -10,6 +10,7 @@ export const appRoutes: Routes = [
       path: 'profile', 
       component: ProfilePage,
       children:[
+          { path: '', redirectTo: 'view', pathMatch: 'full'},
           { path: 'view', component: ViewPage },
           { path: 'edit', component: EditPage }
       ]

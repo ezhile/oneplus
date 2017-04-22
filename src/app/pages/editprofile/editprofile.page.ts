@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'editprofile-page',
+  selector: 'edit-profile-page', 
   templateUrl: 'editprofile.page.html',
   styleUrls: ['editprofile.page.css']
 })
-export class EditprofilePage implements OnInit {
+export class EditProfilePage implements OnInit {
     
     constructor() {
         

@@ -9,8 +9,8 @@ import { appRoutes } from './app.routes';
 import { createTranslateLoader } from './app.lang.loader'; 
 import { AppComponent } from './app.component';
 import { HomePage } from './pages/home/home.page';
-import { ProfilePage } from './pages/profile/profile.page';
-import { EditprofilePage } from './pages/editprofile/editprofile.page';
+import { ViewProfilePage } from './pages/viewprofile/viewprofile.page';
+import { EditProfilePage } from './pages/editprofile/editprofile.page';
 import { LoginComponent } from './components/login/login.component'; 
 import { SignupComponent } from './components/signup/signup.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
@@ -20,8 +20,8 @@ import { PwdValidator } from '../validators/password.validator';
   declarations: [
     AppComponent,
     HomePage, 
-    ProfilePage,
-	EditprofilePage,
+	ViewProfilePage,
+	EditProfilePage,
     LoginComponent,
     SignupComponent,
     SubscribeComponent,

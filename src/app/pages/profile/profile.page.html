@@ -1,1 +1,172 @@
-<div><h1>Successfully Logged In</h1></div>
+	<div id="wrapper">
+		<div class="container">
+			<header class="profile-header">
+				<div class="header ">
+						<a href="" class="logo">one+</a>
+						<ul class="main-menu">
+							<li>
+								<a href="" class="">Feed</a>
+							</li>
+							<li>
+								<a href="">search</a>
+							</li>
+							<li>
+								<a href="" class="active">my profile</a>
+							</li>
+							<li>
+								<a href="">contact us</a>
+							</li>
+							<li>
+								<a href="">log out</a>
+							</li>
+						</ul>
+				</div>
+			</header>
+		</div>
+		<div class="container-content">
+			<div class="main-profile">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 content-profile">
+							<div class="row">
+								<div class="col-md-3 left">
+									<div class="avatar">
+										<div class="main-avatar avatar-image">
+											<p><img src="assets/images/img_001.png" alt=""></p>
+											<div class="clearfix"></div>
+											
+										</div>
+
+									</div>
+									<p class="star">
+											<span><i class="md-icon md-24 checked">star</i></span>
+											<span><i class="md-icon md-24 checked">star</i></span>
+											<span><i class="md-icon md-24 checked">star</i></span>
+											<span><i class="md-icon md-24 checked">star</i></span>
+											<span><i class="md-icon md-24 ">star</i></span>
+										</p>
+								</div>
+								<div class="col-md-7 right">
+									<p class="name">Nicola Foster</p>
+									<p class="address">Berlin, DE</p>
+									<div class="row bottom">
+										<div class="col-md-6">
+											<a href="" >Contact</a>
+											</div>
+										</div>
+										<div class="col-md-6">
+										</div>
+									<div class="favorite">
+										<p><i class="md-icon md-48">favorite</i></p>
+										<p>30</p>
+									</div>
+								</div>
+							</div>
+							<div class="more-profile">
+								<p class="title">About</p>
+								<p class="des">hey I'm Nico, a happy guy currently living in Berlin. I work in a business management world often really stressful. That's why some time I am looking here for some fun, as usual with girls but I'm am open mind.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-list-profile fix-height-bottom">
+				<div class="container">
+					<div class="menu-list">
+						<ul>
+							<li><a href="#all" class="active">All</a></li>
+							<li><a href="#photos">Photos</a></li>
+							<li><a href="#videos">Videos</a></li>
+							<li><a href="#booking">Booking</a></li>
+						</ul>
+					</div>
+					<div class="main-content-list-profile all-profile">
+						<div class="row item-list" id="all">
+							<div class="col-md-10 col-md-offset-1">
+								<div class="row item">
+									<div class="col-md-3">
+										<div class="add-pic">
+											<img src="assets/images/img_01.gif" alt="" >
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="add-pic">
+											<img src="assets/images/img_03.gif" alt="" >
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="add-pic">
+											<img src="assets/images/img_05.gif" alt="" >
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="add-pic">
+											<img src="assets/images/img_07.gif" alt="" >
+										</div>
+									</div>
+								</div>
+								<div class="row item">
+									<div class="col-md-3">
+										<div class="add-pic">
+											<p class="img-gallery">
+												<img src="assets/images/img_13.gif" alt="" >
+											</p>
+											<p><a href="">User <br>Photo</a></p>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="add-pic">
+											<p class="img-gallery">
+												<img src="assets/images/img_15.gif" alt="" >
+											</p>
+											<p><a href="">User <br>Photo</a></p>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="add-pic">
+											<p class="img-gallery">
+												<img src="assets/images/img_16.gif" alt="" >
+											</p>
+											<p><a href="">User <br>Photo</a></p>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="add-pic">
+											<p class="img-gallery">
+												<img src="assets/images/img_17.gif" alt="" >
+											</p>
+											<p><a href="">User <br>Photo</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row item-list " id="photos">
+						Photos
+						</div>
+						<div class="row item-list " id="videos">
+						Videos
+						</div>
+						<div class="row item-list " id="booking">
+						Booking
+						</div>	
+						<script>
+						$(document).ready(function(){
+							$(".menu-list ul li a").click(function(e){
+								e.preventDefault();
+								var id = $(this).attr('href');
+								$(".menu-list ul li a").removeClass('active');
+								$(this).addClass('active');
+								$(".item-list").hide();
+								$(id).show();
+							})
+						})
+					</script>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
+	</div>

@@ -17,6 +17,10 @@ export const environment = {
       subscribe:{
           method : "get",
           url : "../assets/mock/subscribe_success.json"
+      },
+      profileView:{
+          method : "get",
+          url : "../assets/mock/profile_view_success.json"
       }
   }
 };

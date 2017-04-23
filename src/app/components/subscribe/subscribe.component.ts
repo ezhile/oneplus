@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
-import { emailSubscribe }    from '../../../models/email-subscribe.model';
+import { emailSubscribe }    from '../../models/email-subscribe.model';
 
 @Component({
   selector: 'app-subscribe',

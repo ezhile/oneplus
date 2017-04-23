@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
-import { RegisterUser } from '../../../models/register-user.model';
+import { RegisterUser } from '../../models/register-user.model'; 
 declare  var $:any;
 
 @Component({

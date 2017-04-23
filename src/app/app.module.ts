@@ -15,9 +15,9 @@ import { EditPage } from './pages/edit/edit.page';
 import { LoginComponent } from './components/login/login.component'; 
 import { SignupComponent } from './components/signup/signup.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
-import { PwdValidator } from '../validators/password.validator';
-import { UserInfoService } from '../services/user-info.service';
-import { DirectivesModule } from '../modules/directives.module';
+import { PwdValidator } from './validators/password.validator';
+import { UserInfoService } from './services/user-info.service';
+import { DirectivesModule } from './modules/directives.module'; 
 
 @NgModule({
   declarations: [

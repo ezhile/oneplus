@@ -3,8 +3,8 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
-import { LoginUser } from '../../../models/login-user.model';
-import { UserInfoService } from '../../../services/user-info.service'; 
+import { LoginUser } from '../../models/login-user.model';
+import { UserInfoService } from '../../services/user-info.service'; 
 declare  var $:any;
 
 @Component({

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from 'ng2-translate';
+import { GooglePlaceModule } from 'ng2-google-place-autocomplete';
 
 import { createTranslateLoader } from './app.lang.loader';
 import { appRoutes } from './app.routes'; 
@@ -41,6 +42,7 @@ import { DirectivesModule } from './modules/directives.module';
         useFactory: (createTranslateLoader),
         deps: [Http]
     }),
+    GooglePlaceModule,
     DirectivesModule
   ], 
   providers: [UserInfoService],

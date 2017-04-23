@@ -989,8 +989,8 @@ button.add_time {
 .ui-widget-header{
   background: #ed5d5d;
 }
-#location{
-  background:#fff url("assets/images/location.png") no-repeat right 10px center;
+.map-pointer{
+  background:#fff url("assets/images/location.png") no-repeat right 10px center !important;
 }
 .change-preference form>.form-group:nth-child(1){
   margin-bottom: 40px;
@@ -1055,6 +1055,9 @@ p.des {font-size: 14px;}
 }
 .hire-box #location {
     background: #fff;
+}
+.hire-box .map-pointer {
+    background: #fff !important;
 }
 .content-profile .right .name {
     font-family: inherit;
@@ -2212,4 +2215,8 @@ footer .one-plus-logo {
 .imageLoader{
 	width:30px;
 	height:30px;
+}
+/* Google map auto complete container */
+.pac-container{
+    z-index: 9999;
 }

@@ -2,7 +2,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 content-profile">
-						<p class="top-icon" *ngIf="!isCustomer">35€/h</p>
+						<p class="top-icon" *ngIf="!isCustomer">{{this.userViewRate.amount}}€/h</p>
 							<div class="row">
 								<div class="col-md-3 left">
 									<div class="avatar">
@@ -13,7 +13,7 @@
 										</div>
 
 									</div>
-									<p class="star" [starRating]="3">
+									<p class="star" [starRating]='userViewObj.rating' >
 											<span><i class="md-icon md-24">star</i></span>
 											<span><i class="md-icon md-24">star</i></span>
 											<span><i class="md-icon md-24">star</i></span>
@@ -22,8 +22,8 @@
 										</p>
 								</div>
 								<div class="col-md-7 right">
-									<p class="name">Maya Sweet<span>Trans</span></p>
-									<p class="address">Berlin, DE</p>
+									<p class="name">{{this.userViewProfile.nickname}}<span>Trans</span></p>
+									<p class="address">{{this.userViewLocation.address}}</p>
 									<p class="address" *ngIf="!isCustomer" >Mor-Fr<span> 10am-11pm</span></p>
 									<div class="row bottom">
 										<div class="col-md-6">
@@ -137,17 +137,17 @@
 										</div>
 									<div class="favorite">
 										<p><i class="md-icon md-48">favorite</i></p>
-										<p>230</p>
+										<p  [innerText]="userViewObj.favoritesCount"></p>
 									</div>
 								</div>
 							</div>
 							<div class="more-profile">
 								<p class="title">About</p>
-								<p class="des">Hello, I’m Maya, 24. If you are looking for some fun contact me.</p>
+								<p class="des">{{this.userViewProfile.about}}</p>
 							</div>
 							<div class="more-profile" *ngIf="!isCustomer">
 								<p class="title">Services</p>
-								<p class="des">erotic massages, fetish, bodykisses, sex with protection, anal, french, Don’t <br>
+								<p class="des">{{userServiceMsgText}}, Don’t <br>
 								ask for something I did not mention.</p>
 							</div>
 

@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
 
  model = new RegisterUser('','','','','','','PROFESSIONAL');
  submitted = false;
+ signupLoading = false;
  errorMessage = "";
  onsucsessMsg="";
  constructor(private http: Http) { }
@@ -46,6 +47,7 @@ export class SignupComponent implements OnInit {
 	}
   }
   register(userEmail, password, month, day, year, profile) {
+		this.signupLoading = true;
 	  let body = { 
 		  "email" : userEmail,
 		  "password" : password,
@@ -61,16 +63,28 @@ export class SignupComponent implements OnInit {
 	
 	  this.http[environment.api.register.method]
 		(environment.api.register.url, JSON.stringify(body), options)
-		.map(response =>response.json())
+		.map(response =>response)
 		.subscribe(
-		  response  => {	
-                if(response.status == "BAD_REQUEST"){
-					this.errorMessage = response.errors[0];
-				}else{
+		  response  => {	  
+                if(response.status == 201){
 					this.submitted = true;					
+				}else{
+					this.errorMessage = "User already exists";					
 				}
+				this.signupLoading = false;
 		  },
-          error =>  {this.errorMessage = '';this.submitted = false;}
+          error =>  {
+			this.submitted = false;
+			this.signupLoading = false;
+			let errorData = JSON.parse(error._body);
+		  if(errorData){
+		      if(errorData.code==="ERR_USER_ALREADY_EXISTS"){
+				  this.errorMessage = errorData.errors[0];
+			  }
+			}else if(error.status===400){
+				this.errorMessage = "User already exists";
+			}
+		  }
 		);
 	}
 	onChangeInput(){
@@ -80,6 +94,7 @@ export class SignupComponent implements OnInit {
 		$(".signup-modal-box").modal("hide");
         $(".login-modal-box").modal("show");
         this.submitted = false;
+		this.signupLoading = false;
 	}
 
 }

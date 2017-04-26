@@ -32,19 +32,28 @@ export class SubscribeComponent implements OnInit {
 	  let options = new RequestOptions({ headers: headers });
 	   this.http[environment.api.subscribe.method]
 		(environment.api.subscribe.url, JSON.stringify(body), options)
-		.map(response => response.json())
+		.map(response => response)
 		.subscribe(
 		  response  => {
-				  this.errorMessage="";
 				  this.isServiceHitted=true;
 				  this.submitted = false;
-				  if(response.status==="BAD_REQUEST"){
-					  if(response.code==="ERR_SUBSCRIPTION_ALREADY_EXISTS"){
-						  this.errorMessage = response.errors[0];
-					  }	
+				  if(response.status===201){
+					  this.errorMessage="";
 				  }
 		   },
-		  error =>  {this.errorMessage = "Network Error";this.submitted = false;}
+		  error =>  {
+		  let errorData = JSON.parse(error._body);
+		  if(errorData){
+			if(errorData.status==="BAD_REQUEST"){
+				  if(errorData.code==="ERR_SUBSCRIPTION_ALREADY_EXISTS"){
+					  this.errorMessage = errorData.errors[0];
+				  }	
+			  }
+			}else if(error.status===400){
+				this.errorMessage = "This email already exists";
+			}
+			this.submitted = false;
+		  }
 		);
 	}
 	onChangeEmailSubcrbibeInp(){

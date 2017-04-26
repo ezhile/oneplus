@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 		  response  => {
 			  this.errorMessage="";
 			  this.submitted = false;
-			  if(response["user-username"]){
+			  if(response["user-id"]){
                   this.userInfoService.userInfo = response;
                   $(".login-modal-box").modal("hide");
                   this.router.navigate(['/profile']);
@@ -50,7 +50,17 @@ export class LoginComponent implements OnInit {
 				  this.errorMessage = response.errors[0];
 			  }		  
 		  },
-          error =>  {this.errorMessage = "Network Error";this.submitted = false;}
+          error =>  {
+		  let errorData = JSON.parse(error._body);
+		  if(errorData){
+		      if(errorData.code==="ERR_ACCESS_DENIED"){
+				  this.errorMessage = errorData.errors[0];
+			  }
+			}else if(error.status==403){
+				this.errorMessage = "Access denied";
+			}
+			  this.submitted = false;
+		  } 
 		);
 	}
 	

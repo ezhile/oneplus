@@ -2,7 +2,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 content-profile">
-						<p class="top-icon" *ngIf="!isCustomer">{{this.userViewRate.amount}}€/h</p>
+						<p class="top-icon" *ngIf="!isCustomer">{{userViewRate.amount}}€/h</p>
 							<div class="row">
 								<div class="col-md-3 left">
 									<div class="avatar">
@@ -22,9 +22,9 @@
 										</p>
 								</div>
 								<div class="col-md-7 right">
-									<p class="name">{{this.userViewProfile.nickname}}<span>Trans</span></p>
-									<p class="address">{{this.userViewLocation.address}}</p>
-									<p class="address" *ngIf="!isCustomer" >Mor-Fr<span> 10am-11pm</span></p>
+									<p class="name">{{userViewProfile.nickname}}<span>Trans</span></p>
+									<p class="address">{{userViewLocation.address}}</p>
+									<p class="address" *ngIf="!isCustomer" >Mor-Fr<span> {{userWorkingHours}}</span></p>
 									<div class="row bottom">
 										<div class="col-md-6">
 											<a href="" >Contact</a>
@@ -143,7 +143,7 @@
 							</div>
 							<div class="more-profile">
 								<p class="title">About</p>
-								<p class="des">{{this.userViewProfile.about}}</p>
+								<p class="des">{{userViewProfile.about}}</p>
 							</div>
 							<div class="more-profile" *ngIf="!isCustomer">
 								<p class="title">Services</p>
@@ -235,18 +235,6 @@
 						<div class="row item-list " id="booking">
 						Booking
 						</div>	
-						<script>
-						$(document).ready(function(){
-							$(".menu-list ul li a").click(function(e){
-								e.preventDefault();
-								var id = $(this).attr('href');
-								$(".menu-list ul li a").removeClass('active');
-								$(this).addClass('active');
-								$(".item-list").hide();
-								$(id).show();
-							})
-						})
-					</script>
 					</div>
 				</div>
 			</div>

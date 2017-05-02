@@ -24,7 +24,9 @@ export class ViewPage implements OnInit {
 	userViewRate={};
 	isCustomer=false;
 	userServiceMessages={};
+	userWorkingHours='';
 	userServiceMsgText='';
+	workingHours=[];
 	loadViewPage(){
 		 this.http[environment.api.profileView.method]
         (environment.api.profileView.url)
@@ -37,6 +39,7 @@ export class ViewPage implements OnInit {
 				this.userViewLocation=response.profile.location;
 				this.userServiceMessages=response.profile.services;
 				this.userViewRate=response.profile.rate;
+				this.workingHours = response.profile.workingHours
 				this.updateUserServiceMessage();
 				
 		  },
@@ -46,12 +49,17 @@ export class ViewPage implements OnInit {
 	updateUserServiceMessage(){
 		const obj=this.userServiceMessages;
 		this.userServiceMsgText='';
-		//category name
 		for(let i in obj){
 		
 				this.userServiceMsgText=this.userServiceMsgText + obj[i].category+' '+obj[i].name+' ';
 			
 		}
-		console.log(this.userServiceMsgText);
+		let UserWorkingHourArr=[]
+		for(let j in this.workingHours){
+			var timesrt=' ';
+			timesrt=timesrt+this.workingHours[j]['from']+'-'+this.workingHours[j]['to'];
+			UserWorkingHourArr.push(timesrt);
+		}
+		this.userWorkingHours=UserWorkingHourArr.join();
 	}
 }

@@ -15,7 +15,7 @@
     "nickname" : "profi",
     "about" : "All about me",
     "rate" : {
-      "amount" : 15.0,
+      "amount" : 435.0,
       "currency" : "EUR"
     },
     "workingHours" : [ {
@@ -53,6 +53,6 @@
   }, {
     "favouredUser" : "zzzzzzzzz678d015b70c47f88000a"
   } ],
-  "favoritesCount" : 3,
-  "rating" : 5
+  "favoritesCount" : 22,
+  "rating" : 3
 }

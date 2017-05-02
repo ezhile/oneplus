@@ -1,13 +1,13 @@
-import { Directive, ElementRef, Input, Renderer } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer, OnChanges} from '@angular/core';
 
 @Directive({ selector: '[starRating]' })
-export class StarRatingDirective {
+export class StarRatingDirective implements OnChanges {
 
     constructor(public el: ElementRef, public renderer: Renderer) {}
 
     @Input() starRating: number;
 
-    ngOnInit(){
+    ngOnChanges(){
         if(this.starRating) {
             var starElems = this.el.nativeElement.getElementsByTagName("i");
             

@@ -25,7 +25,7 @@ export class ViewPage implements OnInit {
 	isCustomer=false;
 	userServiceMessages={};
 	userWorkingHours='';
-	userServiceMsgText='';
+	userServiceMsgText=''; 
 	workingHours=[];
 	loadViewPage(){
 		 this.http[environment.api.profileView.method]

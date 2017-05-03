@@ -6,7 +6,9 @@
 								<div class="col-md-3 left">
 									<div class="avatar">
 										<div class="main-avatar">
-											<p><a href="">+Add <br>a profile <br> picture</a></p>
+											<p><a href="javascript:void(0);" (click)="imageUpload($event)">+Add <br>a profile <br> picture</a></p>
+                                            <input type="file" id="filePicker" (change)="imageUpload($event)"/>
+                                            {{base64textString}}
 											<div class="clearfix"></div>
 											
 										</div>

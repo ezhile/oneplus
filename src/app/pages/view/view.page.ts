@@ -34,6 +34,7 @@ export class ViewPage implements OnInit {
 		.subscribe(
 		  response  => {
 			    
+				//this.userViewObj=JSON.parse(response);
 				this.userViewObj=response;
 				this.userViewProfile=response.profile;	
 				this.userViewLocation=response.profile.location;

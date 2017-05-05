@@ -21,6 +21,10 @@ export const environment = {
       profileView:{
           method : "get",
           url : "../assets/mock/profile_view_success.json"
+      },
+      profileEdit:{
+          method : "get",
+          url : "../assets/mock/profile_view_success.json"
       }
   }
 };

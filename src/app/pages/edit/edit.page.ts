@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EditCustomer } from '../../models/edit-customer.model';
+import { UserInfoService } from '../../services/user-info.service';
+import { Http, Headers, RequestOptions  } from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/map';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'edit-page', 
@@ -13,13 +18,13 @@ export class EditPage implements OnInit {
     public lng:any;
     public address:any;
     public getAdrress:string;
-    constructor() {
+    constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         
     }
 
     model = new EditCustomer('', '','','');
     ngOnInit() {
-        
+
     }
     imageUpload(evt){
         var files = evt.target.files;
@@ -44,17 +49,35 @@ export class EditPage implements OnInit {
     }
 
     editCustomerSend(){
-         console.log(this.address);
-         console.log(this.getAdrress);
-          console.log(this.lat);
-          console.log(this.model.nickname);
-          console.log(this.model.genderType);
-          console.log(this.model.about);
+        
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
             "latitude" : this.lat
           }
-          console.log(this.model.location);
+          this.customerEditSubmit();
     }
+    customerEditSubmit() {
+	  let body = {
+            "nickname" : this.getAdrress,
+            "gender" : this.model.genderType,
+            "about" : this.model.about,
+            "location" : this.model.location
+        } 
+        console.log(body);
+	  let headers = new Headers({ 'Content-Type': 'application/json' });
+	  let options = new RequestOptions({ headers: headers });
+	
+	  this.http[environment.api.profileEdit.method]
+        (environment.api.profileEdit.url, JSON.stringify(body), options)
+		.map(response => response.json())
+		.subscribe(
+		  response  => {
+              console.log(response)	  
+		  },
+          error =>  {
+		  alert('error');
+		  } 
+		);
+	}
 }

@@ -24,7 +24,8 @@ export class ViewPage implements OnInit {
 	};
 	userViewProfile={
 		nickname:"",
-		about:""
+		about:"",
+		gender:""
 	};
 	userViewLocation={
 		address:""

@@ -18,9 +18,17 @@ export class ViewPage implements OnInit {
     ngOnInit() {
         this.loadViewPage();
     }	
-	userViewObj={};
-	userViewProfile={};
-	userViewLocation={};
+	userViewObj={
+		rating: "",
+		favoritesCount:""
+	};
+	userViewProfile={
+		nickname:"",
+		about:""
+	};
+	userViewLocation={
+		address:""
+	};
 	userViewRate={};
 	isCustomer=false;
 	userServiceMessages={};

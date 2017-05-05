@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 
 import { StarRatingDirective } from '../directives/star-rating.directive';
+import { PhotoUploadDirective } from '../directives/photo-upload.directive';
 
 @NgModule({
     declarations: [
-        StarRatingDirective
+        StarRatingDirective,
+        PhotoUploadDirective
     ],
     exports: [
-        StarRatingDirective
+        StarRatingDirective,
+        PhotoUploadDirective
     ]
 })
 export class DirectivesModule{}

@@ -8,11 +8,11 @@ import { EditCustomer } from '../../models/edit-customer.model';
 })
 export class EditPage implements OnInit {
     
-    private base64textString:String="";
-    private lat:any;
-    private lng:any;
-    private address:any;
-    private getAdrress:string;
+    public base64textString:String="";
+    public lat:any;
+    public lng:any;
+    public address:any;
+    public getAdrress:string;
     constructor() {
         
     }

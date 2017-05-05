@@ -43,8 +43,7 @@ export class EditPage implements OnInit {
         this.base64textString= btoa(binaryString); 
     }
     onAddressChange(e){
-        console.log(this.address);
-        console.log(e);
+        
         this.getAdrress = e.formatted_address;
     }
 
@@ -59,7 +58,7 @@ export class EditPage implements OnInit {
     }
     customerEditSubmit() {
 	  let body = {
-            "nickname" : this.getAdrress,
+            "nickname" : this.model.nickname,
             "gender" : this.model.genderType,
             "about" : this.model.about,
             "location" : this.model.location

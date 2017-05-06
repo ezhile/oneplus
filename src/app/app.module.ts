@@ -13,6 +13,7 @@ import { HomePage } from './pages/home/home.page';
 import { ProfilePage } from './pages/profile/profile.page';
 import { ViewPage } from './pages/view/view.page'; 
 import { EditPage } from './pages/edit/edit.page';
+import { EditProfessionalPage } from './pages/edit-professional/edit-professional.page';
 import { LoginComponent } from './components/login/login.component'; 
 import { SignupComponent } from './components/signup/signup.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
@@ -30,6 +31,7 @@ import { DirectivesModule } from './modules/directives.module';
 	  ProfilePage,
 	  ViewPage,
 	  EditPage,
+    EditProfessionalPage,
     LoginComponent,
     SignupComponent,
     SubscribeComponent,

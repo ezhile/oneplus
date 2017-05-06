@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+import { UserInfoService } from '../../services/user-info.service';
 
 
 
@@ -12,7 +13,7 @@ import { environment } from '../../../environments/environment';
 })
 export class ViewPage implements OnInit {
     
-    constructor(private http: Http) {
+    constructor(private http: Http, private userInfoService: UserInfoService) {
         
     }
     ngOnInit() {
@@ -36,9 +37,11 @@ export class ViewPage implements OnInit {
 	userWorkingHours='';
 	userServiceMsgText=''; 
 	workingHours=[];
-	loadViewPage(){
+	
+	loadViewPage(){		
+		let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
 		 this.http[environment.api.profileView.method]
-        (environment.api.profileView.url)
+        (apiUrl)
 		.map(response => response.json())
 		.subscribe(
 		  response  => {

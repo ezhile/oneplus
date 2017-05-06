@@ -1,0 +1,755 @@
+
+		
+		<div class="container-content">
+			<div class="main-profile">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 content-profile">
+							<p class="top-icon">- €/h</p>
+							<div class="row">
+								<div class="col-md-3 left">
+									<div class="avatar">
+										<div class="main-avatar">
+											<p><a href="">+Add <br>a profile <br> picture</a></p>
+											<div class="clearfix"></div>
+											
+										</div>
+
+									</div>
+									<p class="star">
+											<span><i class="md-icon md-24 ">star</i></span>
+											<span><i class="md-icon md-24 ">star</i></span>
+											<span><i class="md-icon md-24 ">star</i></span>
+											<span><i class="md-icon md-24 ">star</i></span>
+											<span><i class="md-icon md-24 ">star</i></span>
+										</p>
+								</div>
+
+								<div class="col-md-7 right">
+									<p class="name">Nickname <span>Gender</span></p>
+									<p class="age">Age</p>
+									<p class="address">City, Country</p>
+									<p class="address">Working hours</p>
+									<div class="row bottom">
+										<div class="col-md-6">
+											<a href="" data-toggle="modal" data-target=".change-profile-boxs">Edit profile</a>
+
+											<div class="modal fade login-box change-profile-box change-profile-boxs" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+											  <div class="modal-dialog modal-smd" role="document">
+											    <div class="modal-content">
+											     	<h2>Edit profile</h2>
+											     	<div class="form-login">
+											     		<form action="">
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Nickname</label>
+												     			<input type="text" placeholder="name" class="form-control">
+												     		</div>
+												     		<!-- new-code -->
+															<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Age</label>
+												     			<div class="row gender">
+												     				<div class="form-group form_age">
+												     					<div class="col-md-4">
+													     					<input type="radio" id="show" name="age" > <label for="show">Show</label>
+													     				</div>
+												     				</div>
+												     				
+												     			</div>
+												     		</div>
+												     		<!-- end new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Location</label>
+												     			<input type="text" id="location" placeholder="Enter your location" class="form-control"> 
+												     		</div>
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Gender</label>
+												     			<div class="row gender">
+												     				<div class="form-group">
+												     					<div class="col-md-4">
+													     					<input type="radio" id="male" name="gender" > <label for="male">Male</label>
+													     				</div>
+													     				<div class="col-md-4">
+													     					<input type="radio" id="female" name="gender" > <label for="female">FeMale</label>
+													     				</div>
+													     				<div class="col-md-4">
+													     					<input type="radio" id="trans" name="gender" > <label for="trans" >Trans</label>
+													     				</div>
+												     				</div>
+												     				<div class="form-group">
+													     				<div class="col-md-4" >
+													     					<input type="radio" id="orthers" name="gender" > <label for="orthers">Others</label>
+													     				</div>
+													     				<div class="col-md-4 not_spec">
+													     					<input type="radio" id="specifiled" name="gender" ><label for="specifiled">Not specifiled</label>
+													     				</div>
+												     				</div>
+												     			</div>
+												     		</div>
+												     		<!-- new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page" for="" style="color:#4b4b4b; font-weight: 700;">Work days</label>
+												     			<div class="row gender">
+												     				<div class="form-group form_work">
+													     				<div class="col-md-2 col-hire">
+													     					<input type="radio" id="female2" name="work_days1" > <label for="female2">Mo</label>
+													     				</div>
+													     				<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans2" name="work_days2" > <label for="trans2" >Tu</label>
+													     				</div>
+													     				<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans3" name="work_days3" > <label for="trans3" >We</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans4" name="work_days4" > <label for="trans4" >Th</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans5" name="work_days5" > <label for="trans5" >Fr</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans6" name="work_days6" > <label for="trans6" >Sa</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans7" name="work_days7" > <label for="trans7" >Su</label>
+													     				</div>
+																						
+												     				</div>
+												     				
+												     			</div>
+												     		</div>
+												     		<div class="form-group clearfix">
+												     			<label class="title_edit_page b-title" for="" >Work hours</label><br>
+												     			<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label><input type="text" class="form-control" style="width:50px;float:left"> 
+												     			<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label><input type="text" class="form-control" style="width:50px;float:left"> 
+												     			<button type="submit" class="add_time">+ add time slot</button>
+												     		</div>
+												     		<!-- end new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">About</label>
+												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you"></textarea>
+												     		</div>
+												     		<!-- new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Service</label>
+												     			<textarea name="" id="" rows="7" class="form-control" placeholder="List the services you are offering"></textarea>
+												     		</div>
+												     		<!-- end new-code -->
+												     		<div class="form-group button-form">
+												     			<button type="submit">Done</button>
+												     		</div>
+												     	</form>
+											     	</div>
+											     	<div class="close">
+											     		<img src="images/x.png" alt="">
+											     	</div>
+											    </div>
+											  </div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<a href="" data-toggle="modal" data-target=".change-preference">Change preference</a>
+											<!-- MODAL -->
+											<div class="modal fade login-box change-profile-box change-preference " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+											  <div class="modal-dialog modal-smd" role="document">
+											    <div class="modal-content">
+											     	<h2 class="title_popup_pre">preference</h2>
+											     	<p class="under_h2" style="color:#000; margin:0px;margin-bottom: 15px;">choose who can see you</p>
+											     	<div class="form-login">
+											     		<form action="">
+												     		<div class="form-group">
+												     			<label for="">Location <span style="color:#afafaf">Everybody</span></label>
+												     			<input type="text" id="location" placeholder="Enter your location" class="form-control"> 
+												     		</div>
+												     		<div class="form-group">
+												     			<label for="age">Age range </label>
+												     			<input type="hidden" id="age" class="form-control"> 
+												     			<div id="slider-range"></div>
+												     		</div>
+												     		<div class="form-group">
+												     			<label for="">Gender <span style="color:#afafaf">All</span></label>
+												     			<div class="row gender">
+												     				<div class="form-group">
+												     					<div class="col-md-4">
+													     					<input type="radio" id="male2" name="gender" > <label for="male2">Male</label>
+													     				</div>
+													     				<div class="col-md-4">
+													     					<input type="radio" id="female2" name="gender" > <label for="female2">FeMale</label>
+													     				</div>
+													     				<div class="col-md-4">
+													     					<input type="radio" id="trans2" name="gender" > <label for="trans2" >Trans</label>
+													     				</div>
+												     				</div>
+												     				<div class="form-group">
+													     				<div class="col-md-4" >
+													     					<input type="radio" id="orthers2" name="gender" > <label for="orthers2">Others</label>
+													     				</div>
+													     				<div class="col-md-4" style="display:none">
+													     					<input type="radio" id="specifiled2" name="gender" ><label for="specifiled2">Not specifiled</label>
+													     				</div>
+												     				</div>
+												     			</div>
+												     		</div>
+												     		<div class="form-group button-form">
+												     			<button type="submit">Done</button>
+												     		</div>
+												     	</form>
+											     	</div>
+											     	<div class="close">
+											     		<img src="images/x.png" alt="">
+											     	</div>
+											    </div>
+											  </div>
+											</div>
+											<!-- END MODAL -->
+										</div>
+									</div>
+									<div class="favorite">
+										<p><i class="md-icon md-48">favorite</i></p>
+										<p>0</p>
+									</div>
+								</div>
+							</div>
+							<div class="more-profile">
+								<p class="title">About</p>
+								<p class="des">Add a description about you</p>
+							</div>
+							<div class="more-profile">
+								<p class="title">Services</p>
+								<p class="des">Add the services that you offer</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-list-profile fix-height-bottom">
+				<div class="container">
+					<div class="menu-list">
+						<ul>
+							<li><a href="#gallery" class="active">Gallery</a></li>
+							<li><a href="#favorites">Favorites</a></li>
+							<li><a href="#chats">Chats</a></li>
+							<li><a href="#booking">Booking<span class="booking-number">10</span></a></li>
+						</ul>
+					</div>
+					<div class="main-content-list-profile">
+						<div class="row item-list" id="gallery">
+							<div class="col-md-10 col-md-offset-1">
+								<div class="row">
+									<div class="col-md-3">
+										<div class="add-picture">
+											<p><a href="">+Add <br>a picture</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row item-list " id="favorites">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="row">
+											<div class="item">
+												<div class="col-md-4">
+													<div class="avatar">
+														<p>
+															<img src="images/blondprofile02.png" alt="">
+														</p>
+													</div>
+												</div>
+												<div class="col-md-8">
+													<div class="item-content">
+														<p class="name">Nickname <span>35 poeple more like this person too</span></p>
+														<p class="his-profile-text">Nick edited his profile</p>
+														<p class="button">
+															
+															<a href="#">contact</a>
+														</p>
+														<div class="favorite">
+															<i class="md-icon md-48">favorite</i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-5 pull-right">
+										<div class="row">
+											<div class="item">
+												<div class="col-md-4">
+													<div class="avatar">
+														<p>
+															<img src="images/blondprofile02.png" alt="">
+														</p>
+													</div>
+												</div>
+												<div class="col-md-8">
+													<div class="item-content">
+														<p class="name">Nickname <span>35 poeple more like this person too</span></p>
+														<p class="button">
+															
+															<a href="#">contact</a>
+														</p>
+														<div class="favorite">
+															<i class="md-icon md-48">favorite</i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="row">
+											<div class="item">
+												<div class="col-md-4">
+													<div class="avatar">
+														<p>
+															<img src="images/blondprofile02.png" alt="">
+														</p>
+													</div>
+												</div>
+												<div class="col-md-8">
+													<div class="item-content">
+														<p class="name">Nickname <span>35 poeple more like this person too</span></p>
+														<p class="button">
+															
+															<a href="#">contact</a>
+														</p>
+														<div class="favorite">
+															<i class="md-icon md-48">favorite</i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-5 pull-right">
+										<div class="row">
+											<div class="item">
+												<div class="col-md-4">
+													<div class="avatar">
+														<p>
+															<img src="images/blondprofile02.png" alt="">
+														</p>
+													</div>
+												</div>
+												<div class="col-md-8">
+													<div class="item-content">
+														<p class="name">Nickname <span>35 poeple more like this person too</span></p>
+														<p class="button">
+															
+															<a href="#">contact</a>
+														</p>
+														<div class="favorite">
+															<i class="md-icon md-48">favorite</i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row item-list " id="chats">
+							<div class="main-chats">
+								<div class="col-md-6">
+									<div class="row search-box">
+										<div class="col-md-11">
+											<div class="col-md-2">
+												<p><i class="md-icon md-48">search</i></p>
+											</div>
+											<div class="col-md-10">
+												<input type="text" class="form-control" placeholder="Search">
+											</div>
+										</div>
+									</div>
+									<div class="space-x"></div>
+									<div class="row left">
+										<div class="item">
+											<div class="col-md-3">
+												<div class="avatar">
+													<p>
+														<img src="images/blondprofile02.png" alt="">
+													</p>
+												</div>
+											</div>
+											<div class="col-md-9">
+												<div class="item-content">
+													<p class="name">Nickname <span>yesterday</span></p>
+													<p class="des">Last messsage text text text text text text text text text text text text text text text text</p>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="col-md-3">
+												<div class="avatar">
+													<p>
+														<img src="images/blondprofile02.png" alt="">
+													</p>
+												</div>
+											</div>
+											<div class="col-md-9">
+												<div class="item-content">
+													<p class="name">Nickname <span>yesterday</span></p>
+													<p class="des">Last messsage text text text text text text text text text text text text text text text text</p>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="col-md-3">
+												<div class="avatar">
+													<p>
+														<img src="images/blondprofile02.png" alt="">
+													</p>
+												</div>
+											</div>
+											<div class="col-md-9">
+												<div class="item-content">
+													<p class="name">Nickname <span>last week</span></p>
+													<p class="des">Last messsage text text text text text text text text text text text text text text text text</p>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="col-md-3">
+												<div class="avatar">
+													<p>
+														<img src="images/blondprofile02.png" alt="">
+													</p>
+												</div>
+											</div>
+											<div class="col-md-9">
+												<div class="item-content">
+													<p class="name">Nickname <span>last week</span></p>
+													<p class="des">Last messsage text text text text text text text text text text text text text text text text</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="row right">
+										<p class="time time-2">Friday 1A14 PM</p>
+										<div class="col-md-12">
+											<div class="bubble">
+												<p>Hey Robin! tonight? :P</p>
+											</div>
+										</div>
+										<div class="clearfix"></div>
+										<div class="col-md-12">
+											<div class="bubble-alt">
+												<p>Just chillinʼ. I work only this
+												weekend. Just have some days off
+												for x-mas days. But thanks! ;)</p>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<p class="read">Read Friday</p>
+										</div>
+										<div class="send-message-box col-md-12">
+											<div class="row">
+												<div class="col-md-1">
+													<p><i class="md-icon md-48">tag_faces</i></p>
+												</div>
+												<div class="col-md-10 message-input">
+													<input type="text" class="form-control" placeholder="Type a message">
+												</div>
+												<button class="send-message btn btn-default" type="submit">Send</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row item-list " id="booking">
+							<div class="col-md-6 col-md-offset-3">
+								<div class="choose-booking">
+									<a href="" class="active">Active</a>
+									<a href="">Archive</a>
+								</div> 
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-md-12">
+								<div class="item-booking">
+									<div class="col-md-1 box-1">
+										<div class="avatar">
+											<p>
+												<img src="images/blondprofile02.png" alt="">
+											</p>
+										</div>
+									</div>
+									<div class="col-md-5 box-2">
+										<div class="content-item-booking">
+											<p class="name">Nickname <span>New request 11:00 PM</span></p>
+											<p class="des">B&B Hotel , kurfurstendamm 67, Berlin 10963</p>
+											<p class="des">Saturday 10 / 12 / 2016 from 22h to 23:30h</p>
+										</div>
+									</div>
+									<div class="col-md-1 box-3 box">
+											<p class="title-item-booking">Price</p>
+											<p class="price-booking">€43</p>
+									</div>
+									<div class="col-md-1 box-4 box">
+											<p class="title-item-booking">Status</p>
+											<p class="status-booking"><span>Pending</span></p>
+									</div>
+									<div class="col-md-4 box-5 box">
+										<div class="row">
+												<div class="col-md-6">
+												<a href="" data-toggle="modal" data-target=".accerpt-box" class="button">Accept</a>
+												</div>
+												<div class="col-md-6">
+													<a href="" class="button" data-toggle="modal" data-target=".decline-box">Decline</a>
+												</div>
+											</div>
+											<div class="login-box modal fade in accerpt-box" id="accerpt-box" role="dialog">
+											    <div class="modal-dialog modal-lg">
+											      <div class="modal-content">
+											        <div class="item">
+											        	<div class="row">
+											        		<div class="col-md-3">
+											        			<p class="icon"><i class="md-icon md-48">done</i></p>
+											        		</div>
+											        		<div class="col-md-8">
+											        			<p class="title">THE PAYMENT HAS BEEN DONE CORRECTLY</p>
+											        			<p class="des">Please remind that a tranference can take a few days</p>
+											        			<p class="title">RATE YOUR COSTUMER</p>
+											        			<p class="star">
+												        			<span>
+												        				<i class="no-active md-icon md-48">star_border</i>
+												        				<i class="active hide md-icon md-48">star</i>
+												        			</span>
+												        			<span>
+												        				<i class="no-active md-icon md-48">star_border</i>
+												        				<i class="active hide md-icon md-48">star</i>
+												        			</span>
+												        			<span>
+												        				<i class="no-active md-icon md-48">star_border</i>
+												        				<i class="active hide md-icon md-48">star</i>
+												        			</span>
+												        			<span>
+												        				<i class="no-active md-icon md-48">star_border</i>
+												        				<i class="active hide md-icon md-48">star</i>
+												        			</span>
+												        			<span>
+												        				<i class="no-active md-icon md-48">star_border</i>
+												        				<i class="active hide md-icon md-48">star</i>
+												        			</span>
+												        		</p>
+											        			<p class="bottom-popup-booking"><a href="" class="no-thank">No. Thank You</a></p>
+											        		</div>
+											        	</div>
+											        	
+											        </div>
+											        <div class="close">
+											     		<img src="images/x.png" alt="">
+											    	 </div>
+											      </div>												      
+											    </div>
+											</div><!-- accerpt-box -->
+											<div class="login-box modal fade in decline-box change-profile-box" id="accerpt-box" role="dialog">
+											    <div class="modal-dialog modal-lg">
+											      <div class="modal-content">
+											        <div class="item">
+											        	<div class="row">
+											        		<div class="col-md-3">
+											        			<p class="icon"><i class="md-icon md-48">email</i></p>
+											        		</div>
+											        		<div class="col-md-8">
+											        			<p class="title" style="margin-bottom: 20px;">TELL NICKNAME WHY YOU HAVE DECLINED THE REQUEST</p>
+											        			<p class="des" style="margin-bottom: 20px;">Choose an option:</p>
+											        			<form action="">
+												        			<div class="form-group">
+														     			<input type="radio" id="already" name="gender"> 
+														     			<label for="already">Already booked for this time</label>
+												        			</div>
+												        			<div class="form-group">
+														     			<input type="radio" id="reason2" name="gender"> 
+														     			<label for="reason2">Reason 2</label>
+												        			</div>
+												        			<div class="form-group">
+														     			<input type="radio" id="reason3" name="gender"> 
+														     			<label for="reason3">Reason 3</label>
+												        			</div>
+											 		   <div class="bottom-popup-booking fix">
+											        				<button class="submit" class="button">Send</button>
+											        				<a class="contact" href="">Contact</a>
+											        				<a href="" class="no-thank">No. Thank You</a></div>
+											        			</form>
+											        		</div>
+											        	</div>
+											        	
+											        </div>
+											        <div class="close">
+											     		<img src="images/x.png" alt="">
+											    	 </div>
+											      </div>												      
+											    </div>
+											</div><!-- accerpt-box -->
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="item-booking">
+									<div class="col-md-1 box-1">
+										<div class="avatar">
+											<p>
+												<img src="images/blondprofile02.png" alt="">
+											</p>
+										</div>
+									</div>
+									<div class="col-md-5 box-2">
+										<div class="content-item-booking">
+											<p class="name">Nickname <span> yesterday</span></p>
+											<p class="des">Obentratustr. 75, Berlin 10863</p>
+											<p class="des">Saturday 10 / 12 / 2016 from 12:00h to 13:30h</p>
+										</div>
+									</div>
+									<div class="col-md-1 box-3 box">
+											<p class="title-item-booking">Price</p>
+											<p class="price-booking">€105</p>
+									</div>
+									<div class="col-md-1 box-4 box">
+											<p class="title-item-booking">Status</p>
+											<p class="status-booking accepted"><span>Accepted</span></p>
+									</div>
+									<div class="col-md-4 box-5 box">
+											<div class="row">
+												<div class="col-md-6">
+													<a href="" class="button">Contact</a>
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="item-booking">
+									<div class="col-md-1 box-1">
+										<div class="avatar">
+											<p>
+												<img src="images/blondprofile02.png" alt="">
+											</p>
+										</div>
+									</div>
+									<div class="col-md-5 box-2">
+										<div class="content-item-booking">
+											<p class="name">Nickname <span>yesterday</span></p>
+											<p class="des">Mimu Hotel , charlsstr 6, Berlin 19963</p>
+											<p class="des">Saturday 10 / 12 / 2016 from 22h to 23:30h</p>
+										</div>
+									</div>
+									<div class="col-md-1 box-3 box">
+											<p class="title-item-booking">Price</p>
+											<p class="price-booking">€35</p>
+									</div>
+									<div class="col-md-1 box-4 box">
+											<p class="title-item-booking">Status</p>
+											<p class="status-booking declined"><span>Declined</span><span></span></p>
+									</div>
+									<div class="col-md-4 box-5 box">
+											<div class="row">
+												<div class="col-md-6">
+													<a href="" class="button" data-toggle="modal" data-target=".delete-box">Remove</a>
+													<div class="login-box modal fade in delete-box" id="accerpt-box" role="dialog">
+													    <div class="modal-dialog modal-lg">
+													      <div class="modal-content">
+													        <div class="item">
+													        	<div class="row">
+													        		<div class="col-md-2">
+													        			<p class="icon"><i class="md-icon md-48">delete_forever</i></p>
+													        		</div>
+													        		<div class="col-md-9">
+													        			<p class="title comfim-popup-box-title">ARE YOU SURE YOU WANT TO DELETE IT FOREVER?</p>
+													        		</div>
+													        		<div class="col-md-12">
+													        			<p class="bottom-popup-booking">
+													        			<a href="" class="no-cancel">No, cancel</a>
+													        			<a href="" class="no-thank">Yes, delete</a></p>
+													        		</div>
+													        	</div>
+													        	
+													        </div>
+													        <div class="close">
+													     		<img src="images/x.png" alt="">
+													    	 </div>
+													      </div>												      
+													    </div>
+													</div><!-- accerpt-box -->
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="item-booking">
+									<div class="col-md-1 box-1">
+										<div class="avatar">
+											<p>
+												<img src="images/blondprofile02.png" alt="">
+											</p>
+										</div>
+									</div>
+									<div class="col-md-5 box-2">
+										<div class="content-item-booking">
+											<p class="name">Nickname <span>last week</span></p>
+											<p class="des">B&B Hotel , kurfurstendamm 67, Berlin 10963</p>
+											<p class="des">Saturday 10 / 12 / 2016 from 22h to 23K30h</p>
+										</div>
+									</div>
+									<div class="col-md-1 box-3 box">
+											<p class="title-item-booking">Price</p>
+											<p class="price-booking">€75</p>
+									</div>
+									<div class="col-md-1 box-4 box">
+											<p class="title-item-booking">Status</p>
+											<p class="status-booking waiting-payment"><span>Waiting payment</span><span></span></p>
+									</div>
+									<div class="col-md-4 box-5 box">
+											<div class="row">
+												<div class="col-md-6">
+													<a href="" class="button">Get paied</a>
+												</div>
+												
+											</div>
+									</div>
+								</div>
+								<div class="item-booking">
+									<div class="col-md-1 box-1">
+										<div class="avatar">
+											<p>
+												<img src="images/blondprofile02.png" alt="">
+											</p>
+										</div>
+									</div>
+									<div class="col-md-5 box-2">
+										<div class="content-item-booking">
+											<p class="name">Nickname <span>last week</span></p>
+											<p class="des">B&B Hotel , kurfurstendamm 67, Berlin 10963</p>
+											<p class="des">Saturday 10 / 12 / 2016 from 22h to 23K30h</p>
+										</div>
+									</div>
+									<div class="col-md-1 box-3 box">
+											<p class="title-item-booking">Price</p>
+											<p class="price-booking">€75</p>
+									</div>
+									<div class="col-md-1 box-4 box">
+											<p class="title-item-booking">Status</p>
+											<p class="status-booking waiting-payment"><span>Paied</span></p>
+									</div>
+									<div class="col-md-4 box-5 box">
+											<div class="row">
+												<div class="col-md-6">
+													<a href="" class="button">Archive</a>
+												</div>
+												<div class="col-md-6">
+													<a href="" class="button">Remove</a>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	

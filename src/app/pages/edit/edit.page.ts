@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EditCustomer } from '../../models/edit-customer.model';
-import { UserInfoService } from '../../services/user-info.service';
 import { Http, Headers, RequestOptions  } from '@angular/http';
-import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
-declare  var $:any;
+import { UserInfoService } from '../../services/user-info.service';
 
 @Component({
   selector: 'edit-page', 
@@ -16,33 +13,32 @@ export class EditPage implements OnInit {
     
     public base64textString:String="";
 
-    constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
+    constructor(private http: Http, private userInfoService: UserInfoService) {
         
     }
 
-    model = new EditCustomer('', '','','');
     ngOnInit() {
 
     }
-    triggerImageUpload(e){
-         e.preventDefault();
-         $("#profilePic:hidden").trigger('click');
-    }
-    imageUpload(evt){
-        var files = evt.target.files;
-        var file = files[0];
-    
-        if (files && file) {
-            var reader = new FileReader();
 
-            reader.onload =this._handleReaderLoaded.bind(this);
-
-            reader.readAsBinaryString(file);
-        }
-    }
-    _handleReaderLoaded(readerEvt) {
-
-        var binaryString = readerEvt.target.result;
-        this.base64textString= btoa(binaryString);
-    }  
+    imageUpload(event) {
+      this.base64textString = event;
+	  let body = { "base64Content" : this.base64textString}; 
+	  let headers = new Headers({ 'Content-Type': 'application/json' });
+	  let options = new RequestOptions({ headers: headers });
+      let apiUrl = environment.api.photoUpload.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+      console.log(this.userInfoService);
+	
+	  this.http[environment.api.photoUpload.method]
+        (apiUrl, JSON.stringify(body), options)
+		.map(response => response.json())
+		.subscribe(
+		  response  => {
+			  console.log(response); 
+		  },
+          error =>  {
+		  
+		  } 
+		);
+	}  
 }

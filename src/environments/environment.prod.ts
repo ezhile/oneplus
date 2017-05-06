@@ -20,6 +20,10 @@ export const environment = {
       profileEdit:{
           method : "post",
           url : "http://46.38.242.27:8082/api/user/profile"
+      },
+      photoUpload:{
+          method : "post",
+          url : "http://46.38.242.27:8082/api/user/{uuid}/profile/picture"
       }
   }
 };

@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+declare  var $:any;
 
 @Component({
   selector: 'edit-page', 
@@ -25,6 +26,10 @@ export class EditPage implements OnInit {
     model = new EditCustomer('', '','','');
     ngOnInit() {
 
+    }
+    triggerImageUpload(e){
+         e.preventDefault();
+         $("#profilePic:hidden").trigger('click');
     }
     imageUpload(evt){
         var files = evt.target.files;

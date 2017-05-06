@@ -2220,3 +2220,8 @@ footer .one-plus-logo {
 .pac-container{
     z-index: 9999;
 }
+
+/* File picker style */
+.filePicker{
+    display: none !important;
+}

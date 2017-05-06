@@ -16,20 +16,26 @@ import { EditPage } from './pages/edit/edit.page';
 import { LoginComponent } from './components/login/login.component'; 
 import { SignupComponent } from './components/signup/signup.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
+import { EditProfessionalComponent } from './components/edit-professional/edit-professional.component';
+import { PreferenceCustomerComponent } from './components/preference-customer/preference-customer.component';
 import { PwdValidator } from './validators/password.validator';
 import { UserInfoService } from './services/user-info.service';
 import { DirectivesModule } from './modules/directives.module'; 
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
     HomePage, 
-	ProfilePage,
-	ViewPage,
-	EditPage,
+	  ProfilePage,
+	  ViewPage,
+	  EditPage,
     LoginComponent,
     SignupComponent,
     SubscribeComponent,
+    EditCustomerComponent,
+    EditProfessionalComponent,
+    PreferenceCustomerComponent,
     PwdValidator
   ],
   imports: [

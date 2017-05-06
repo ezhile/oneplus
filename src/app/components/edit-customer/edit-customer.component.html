@@ -1,0 +1,47 @@
+<h2>Edit profile</h2>
+											     	<div class="form-login">
+											     		<form action="" (ngSubmit)="editCustomerSend()" #editCustomerForm="ngForm">
+												     		<div class="form-group">
+												     			<label for="" class="b-title">Nickname</label>
+												     			<input type="text" placeholder="Name" class="form-control"  [(ngModel)]="model.nickname" name="nickname" #name="ngModel" >
+												     		</div>
+												     		<div class="form-group">
+												     			<label for="" class="b-title">Location</label>
+												     			<input type="text" placeholder="Enter your location" name="address" class="form-control map-pointer" [(ngModel)] = "address" (setAddress)="onAddressChange($event)" (lat)='lat=$event' (lng)='lng=$event'  ng2-google-place-autocomplete> 
+												     		</div>
+												     		<div class="form-group">
+												     			<label for="" class="b-title">Gender</label>
+												     			<div class="row gender">
+												     				<div class="form-group">
+												     					<div class="col-md-4">
+													     					<input type="radio" id="male" name="gender" [(ngModel)]="model.genderType" value="Male" > <label for="male">Male</label>
+													     				</div>
+													     				<div class="col-md-4">
+													     					<input type="radio" id="female" name="gender" [(ngModel)]="model.genderType" value="FeMale"  > <label for="female">FeMale</label>
+													     				</div>
+													     				<div class="col-md-4">
+													     					<input type="radio" id="trans" name="gender" [(ngModel)]="model.genderType" value="Trans" > <label for="trans" >Trans</label>
+													     				</div>
+												     				</div> 
+												     				<div class="form-group">
+													     				<div class="col-md-4" >
+													     					<input type="radio" id="orthers" name="gender" [(ngModel)]="model.genderType" value="Others" > <label for="orthers">Others</label>
+													     				</div>
+													     				<div class="col-md-4">
+													     					<input type="radio" id="specifiled" name="gender" [(ngModel)]="model.genderType" value="Not specifiled" ><label for="specifiled" class="spe-inline">Not specifiled</label>
+													     				</div>
+												     				</div>
+												     			</div>
+												     		</div>
+												     		<div class="form-group">
+												     			<label for="" class="b-title">About</label>
+												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you" [(ngModel)]="model.about" name="about" #name="ngModel"></textarea>
+												     		</div>
+												     		<div class="form-group button-form">
+												     			<button type="submit" >Done</button>
+												     		</div>
+												     	</form>
+											     	</div>
+											     	<div data-dismiss="modal" class="close">
+											     		<img src="assets/images/x.png" alt="">
+											     	</div>

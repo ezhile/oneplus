@@ -32,106 +32,17 @@
 											<div class="modal fade login-box change-profile-box change-profile-boxs" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 											  <div class="modal-dialog modal-smd" role="document">
 											    <div class="modal-content">
-											     	<h2>Edit profile</h2>
-											     	<div class="form-login">
-											     		<form action="" (ngSubmit)="editCustomerSend()" #editCustomerForm="ngForm">
-												     		<div class="form-group">
-												     			<label for="" class="b-title">Nickname</label>
-												     			<input type="text" placeholder="Name" class="form-control"  [(ngModel)]="model.nickname" name="nickname" #name="ngModel" >
-												     		</div>
-												     		<div class="form-group">
-												     			<label for="" class="b-title">Location</label>
-												     			<input type="text" placeholder="Enter your location" name="address" class="form-control map-pointer" [(ngModel)] = "address" (setAddress)="onAddressChange($event)" (lat)='lat=$event' (lng)='lng=$event'  ng2-google-place-autocomplete> 
-												     		</div>
-												     		<div class="form-group">
-												     			<label for="" class="b-title">Gender</label>
-												     			<div class="row gender">
-												     				<div class="form-group">
-												     					<div class="col-md-4">
-													     					<input type="radio" id="male" name="gender" [(ngModel)]="model.genderType" value="Male" > <label for="male">Male</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="female" name="gender" [(ngModel)]="model.genderType" value="FeMale"  > <label for="female">FeMale</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="trans" name="gender" [(ngModel)]="model.genderType" value="Trans" > <label for="trans" >Trans</label>
-													     				</div>
-												     				</div> 
-												     				<div class="form-group">
-													     				<div class="col-md-4" >
-													     					<input type="radio" id="orthers" name="gender" [(ngModel)]="model.genderType" value="Others" > <label for="orthers">Others</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="specifiled" name="gender" [(ngModel)]="model.genderType" value="Not specifiled" ><label for="specifiled" class="spe-inline">Not specifiled</label>
-													     				</div>
-												     				</div>
-												     			</div>
-												     		</div>
-												     		<div class="form-group">
-												     			<label for="" class="b-title">About</label>
-												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you" [(ngModel)]="model.about" name="about" #name="ngModel"></textarea>
-												     		</div>
-												     		<div class="form-group button-form">
-												     			<button type="submit" >Done</button>
-												     		</div>
-												     	</form>
-											     	</div>
-											     	<div data-dismiss="modal" class="close">
-											     		<img src="assets/images/x.png" alt="">
-											     	</div>
+											     	<app-edit-customer></app-edit-customer>
 											    </div>
 											  </div>
-											</div>
+											</div> 
 										</div>
 										<div class="col-md-6">
 											<a href="" data-toggle="modal" data-target=".change-preference">Change preference</a>
 											<div class="modal fade login-box change-profile-box change-preference" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 											  <div class="modal-dialog modal-smd" role="document">
 											    <div class="modal-content">
-											     	<h2>preference</h2>
-											     	<div class="form-login">
-											     		<form action="">
-												     		<div class="form-group">
-												     			<label for="">Location</label>
-												     			<input type="text" placeholder="Enter your location" class="form-control map-pointer" ng2-google-place-autocomplete/> 
-												     		</div>
-												     		<div class="form-group">
-												     			<label for="age">Age range </label>
-												     			<input type="hidden" id="age" class="form-control"> 
-												     			<div id="slider-range"></div>
-												     		</div>
-												     		<div class="form-group">
-												     			<label for="">Gender</label>
-												     			<div class="row gender">
-												     				<div class="form-group">
-												     					<div class="col-md-4">
-													     					<input type="radio" id="male2" name="gender" > <label for="male2">Male</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="female2" name="gender" > <label for="female2">FeMale</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="trans2" name="gender" > <label for="trans2" >Trans</label>
-													     				</div>
-												     				</div>
-												     				<div class="form-group">
-													     				<div class="col-md-4" >
-													     					<input type="radio" id="orthers2" name="gender" > <label for="orthers2">Others</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="specifiled2" name="gender" ><label for="specifiled2">Not specifiled</label>
-													     				</div>
-												     				</div>
-												     			</div>
-												     		</div>
-												     		<div class="form-group button-form">
-												     			<button type="submit">Done</button>
-												     		</div>
-												     	</form>
-											     	</div>
-											     	<div data-dismiss="modal" class="close">
-											     		<img src="assets/images/x.png" alt="">
-											     	</div>
+											     	<app-preference-customer></app-preference-customer>
 											    </div>
 											  </div>
 											</div>

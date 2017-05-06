@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
 import { UserInfoService } from '../../services/user-info.service';
+declare var $:any;
 
 @Component({
   selector: 'edit-page', 
@@ -11,7 +12,8 @@ import { UserInfoService } from '../../services/user-info.service';
 })
 export class EditPage implements OnInit {
     
-    public base64textString:String="";
+    public base64textString:string="";
+    public photoThumnail:string="";
 
     constructor(private http: Http, private userInfoService: UserInfoService) {
         
@@ -34,7 +36,9 @@ export class EditPage implements OnInit {
 		.map(response => response.json())
 		.subscribe(
 		  response  => {
-			  console.log(response); 
+              this.photoThumnail = response.base64encodedThumbnail;
+              //console.log(this.photoThumnail);
+              $("#profilePic").css("background","url("+this.photoThumnail+")");
 		  },
           error =>  {
 		  

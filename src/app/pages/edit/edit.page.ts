@@ -14,9 +14,11 @@ export class EditPage implements OnInit {
     
     public base64textString:string="";
     public photoThumnail:string="";
+    private isPhotoUploaded:boolean = false;
+    public showUploadLink:boolean = false; 
 
     constructor(private http: Http, private userInfoService: UserInfoService) {
-        
+        this.showUploadLink = false;
     }
 
     ngOnInit() {
@@ -24,6 +26,7 @@ export class EditPage implements OnInit {
     }
 
     imageUpload(event) {
+      this.isPhotoUploaded = true;
       this.base64textString = event;
 	  let body = { "base64Content" : this.base64textString}; 
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -38,11 +41,21 @@ export class EditPage implements OnInit {
 		  response  => {
               this.photoThumnail = response.base64encodedThumbnail;
               //console.log(this.photoThumnail);
-              $("#profilePic").css("background","url("+this.photoThumnail+")");
+              $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
 		  },
           error =>  {
 		  
 		  } 
 		);
-	}  
+	}
+  onPhotoHover(){
+    if(this.isPhotoUploaded){
+      this.showUploadLink = true; 
+    }
+  }
+  onPhotoLeave(){
+    if(this.isPhotoUploaded){
+      this.showUploadLink = false;
+    }
+  }  
 }

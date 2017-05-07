@@ -1,44 +1,104 @@
-<h2>preference</h2>
+<h2>Edit profile</h2>
 											     	<div class="form-login">
 											     		<form action="">
 												     		<div class="form-group">
-												     			<label for="">Location</label>
-												     			<input type="text" placeholder="Enter your location" class="form-control map-pointer" ng2-google-place-autocomplete/> 
+												     			<label class="title_edit_page b-title" for="">Nickname</label>
+												     			<input type="text" placeholder="name" class="form-control">
+												     		</div>
+												     		<!-- new-code -->
+															<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Age</label>
+												     			<div class="row gender">
+												     				<div class="form-group form_age">
+												     					<div class="col-md-4">
+													     					<input type="radio" id="show" name="age" > <label for="show">Show</label>
+													     				</div>
+												     				</div>
+												     				
+												     			</div>
+												     		</div>
+												     		<!-- end new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Location</label>
+												     			<input type="text" id="location" placeholder="Enter your location" class="form-control"> 
 												     		</div>
 												     		<div class="form-group">
-												     			<label for="age">Age range </label>
-												     			<input type="hidden" id="age" class="form-control"> 
-												     			<div id="slider-range"></div>
-												     		</div>
-												     		<div class="form-group">
-												     			<label for="">Gender</label>
+												     			<label class="title_edit_page b-title" for="">Gender</label>
 												     			<div class="row gender">
 												     				<div class="form-group">
 												     					<div class="col-md-4">
-													     					<input type="radio" id="male2" name="gender" > <label for="male2">Male</label>
+													     					<input type="radio" id="male" name="gender" > <label for="male">Male</label>
 													     				</div>
 													     				<div class="col-md-4">
-													     					<input type="radio" id="female2" name="gender" > <label for="female2">FeMale</label>
+													     					<input type="radio" id="female" name="gender" > <label for="female">FeMale</label>
 													     				</div>
 													     				<div class="col-md-4">
-													     					<input type="radio" id="trans2" name="gender" > <label for="trans2" >Trans</label>
+													     					<input type="radio" id="trans" name="gender" > <label for="trans" >Trans</label>
 													     				</div>
 												     				</div>
 												     				<div class="form-group">
 													     				<div class="col-md-4" >
-													     					<input type="radio" id="orthers2" name="gender" > <label for="orthers2">Others</label>
+													     					<input type="radio" id="orthers" name="gender" > <label for="orthers">Others</label>
 													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="specifiled2" name="gender" ><label for="specifiled2">Not specifiled</label>
+													     				<div class="col-md-4 not_spec">
+													     					<input type="radio" id="specifiled" name="gender" ><label for="specifiled">Not specifiled</label>
 													     				</div>
 												     				</div>
 												     			</div>
 												     		</div>
+												     		<!-- new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page" for="" style="color:#4b4b4b; font-weight: 700;">Work days</label>
+												     			<div class="row gender">
+												     				<div class="form-group form_work">
+													     				<div class="col-md-2 col-hire">
+													     					<input type="radio" id="female2" name="work_days1" > <label for="female2">Mo</label>
+													     				</div>
+													     				<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans2" name="work_days2" > <label for="trans2" >Tu</label>
+													     				</div>
+													     				<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans3" name="work_days3" > <label for="trans3" >We</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans4" name="work_days4" > <label for="trans4" >Th</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans5" name="work_days5" > <label for="trans5" >Fr</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans6" name="work_days6" > <label for="trans6" >Sa</label>
+													     				</div>
+																		<div class="col-md-2 col-hire">
+													     					<input type="radio" id="trans7" name="work_days7" > <label for="trans7" >Su</label>
+													     				</div>
+																						
+												     				</div>
+												     				
+												     			</div>
+												     		</div>
+												     		<div class="form-group clearfix">
+												     			<label class="title_edit_page b-title" for="" >Work hours</label><br>
+												     			<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label><input type="text" class="form-control" style="width:50px;float:left"> 
+												     			<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label><input type="text" class="form-control" style="width:50px;float:left"> 
+												     			<button type="submit" class="add_time">+ add time slot</button>
+												     		</div>
+												     		<!-- end new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">About</label>
+												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you"></textarea>
+												     		</div>
+												     		<!-- new-code -->
+												     		<div class="form-group">
+												     			<label class="title_edit_page b-title" for="">Service</label>
+												     			<textarea name="" id="" rows="7" class="form-control" placeholder="List the services you are offering"></textarea>
+												     		</div>
+												     		<!-- end new-code -->
 												     		<div class="form-group button-form">
 												     			<button type="submit">Done</button>
 												     		</div>
 												     	</form>
 											     	</div>
-											     	<div data-dismiss="modal" class="close">
-											     		<img src="assets/images/x.png" alt="">
+											     	<div class="close">
+											     		<img src="images/x.png" alt="">
 											     	</div>

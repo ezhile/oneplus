@@ -20,6 +20,7 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { EditProfessionalComponent } from './components/edit-professional/edit-professional.component';
 import { PreferenceCustomerComponent } from './components/preference-customer/preference-customer.component';
+import { PreferenceProfessionalComponent } from './components/preference-professional/preference-professional.component';
 import { PwdValidator } from './validators/password.validator';
 import { UserInfoService } from './services/user-info.service';
 import { DirectivesModule } from './modules/directives.module'; 
@@ -38,8 +39,9 @@ import { DirectivesModule } from './modules/directives.module';
     EditCustomerComponent,
     EditProfessionalComponent,
     PreferenceCustomerComponent,
+    PreferenceProfessionalComponent,
     PwdValidator
-  ],
+  ], 
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,

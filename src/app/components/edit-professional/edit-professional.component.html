@@ -1,9 +1,9 @@
 <h2>Edit profile</h2>
 											     	<div class="form-login">
-											     		<form action="">
+											     		<form action="" action="" (ngSubmit)="editProfessionalSend()" #editProfessionalForm="ngForm">
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Nickname</label>
-												     			<input type="text" placeholder="name" class="form-control">
+												     			<input type="text" placeholder="name" class="form-control"  [(ngModel)]="model.nickname" name="nickname" #name="ngModel">
 												     		</div>
 												     		<!-- new-code -->
 															<div class="form-group">
@@ -20,29 +20,16 @@
 												     		<!-- end new-code -->
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Location</label>
-												     			<input type="text" id="location" placeholder="Enter your location" class="form-control"> 
+												     			<input type="text" id="location2" placeholder="Enter your location" name="address2" class="form-control" [(ngModel)] = "address2" (setAddress)="onAddressChange2($event)" (lat)='lat=$event' (lng)='lng=$event'  ng2-google-place-autocomplete> 
 												     		</div>
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Gender</label>
 												     			<div class="row gender">
 												     				<div class="form-group">
-												     					<div class="col-md-4">
-													     					<input type="radio" id="male" name="gender" > <label for="male">Male</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="female" name="gender" > <label for="female">FeMale</label>
-													     				</div>
-													     				<div class="col-md-4">
-													     					<input type="radio" id="trans" name="gender" > <label for="trans" >Trans</label>
-													     				</div>
-												     				</div>
-												     				<div class="form-group">
-													     				<div class="col-md-4" >
-													     					<input type="radio" id="orthers" name="gender" > <label for="orthers">Others</label>
-													     				</div>
-													     				<div class="col-md-4 not_spec">
-													     					<input type="radio" id="specifiled" name="gender" ><label for="specifiled">Not specifiled</label>
-													     				</div>
+												     					<div class="col-md-4"  *ngFor="let option of optionsGender">
+																			<input type="checkbox" id="{{option.name}}" name="optionsGender" value="{{option.value}}"
+																						[(ngModel)]="option.checked"> <label for="{{option.name}}"> {{option.name}}</label>
+																		</div> 
 												     				</div>
 												     			</div>
 												     		</div>
@@ -51,27 +38,10 @@
 												     			<label class="title_edit_page" for="" style="color:#4b4b4b; font-weight: 700;">Work days</label>
 												     			<div class="row gender">
 												     				<div class="form-group form_work">
-													     				<div class="col-md-2 col-hire">
-													     					<input type="radio" id="female2" name="work_days1" > <label for="female2">Mo</label>
-													     				</div>
-													     				<div class="col-md-2 col-hire">
-													     					<input type="radio" id="trans2" name="work_days2" > <label for="trans2" >Tu</label>
-													     				</div>
-													     				<div class="col-md-2 col-hire">
-													     					<input type="radio" id="trans3" name="work_days3" > <label for="trans3" >We</label>
-													     				</div>
-																		<div class="col-md-2 col-hire">
-													     					<input type="radio" id="trans4" name="work_days4" > <label for="trans4" >Th</label>
-													     				</div>
-																		<div class="col-md-2 col-hire">
-													     					<input type="radio" id="trans5" name="work_days5" > <label for="trans5" >Fr</label>
-													     				</div>
-																		<div class="col-md-2 col-hire">
-													     					<input type="radio" id="trans6" name="work_days6" > <label for="trans6" >Sa</label>
-													     				</div>
-																		<div class="col-md-2 col-hire">
-													     					<input type="radio" id="trans7" name="work_days7" > <label for="trans7" >Su</label>
-													     				</div>
+													     				<div class="col-md-2 col-hire" *ngFor="let option of optionsWorkingDays">
+													     					<input type="checkbox" id="{{option.name}}" name="optionsWorkingDays" value="{{option.value}}"
+																						[(ngModel)]="option.checked"> <label for="{{option.name}}"> {{option.name}}</label>
+													     				</div>													     				
 																						
 												     				</div>
 												     				
@@ -86,12 +56,12 @@
 												     		<!-- end new-code -->
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">About</label>
-												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you"></textarea>
+												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you" [(ngModel)]="model.about" name="about" #name="ngModel"></textarea>
 												     		</div>
 												     		<!-- new-code -->
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Service</label>
-												     			<textarea name="" id="" rows="7" class="form-control" placeholder="List the services you are offering"></textarea>
+												     			<textarea name="" id="" rows="7" class="form-control" placeholder="List the services you are offering" [(ngModel)]="model.serviceList" name="serviceList" #name="ngModel"></textarea>
 												     		</div>
 												     		<!-- end new-code -->
 												     		<div class="form-group button-form">

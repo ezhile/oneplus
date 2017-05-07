@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Renderer, Output, EventEmitter, HostListener, OnInit} from '@angular/core';
-declare  var $:any;
+declare  var $:any; 
 
 @Directive({ selector: '[photo-upload]' })
 export class PhotoUploadDirective implements OnInit {

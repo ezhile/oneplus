@@ -30,5 +30,10 @@ export const environment = {
           method : "get",
           url : "../assets/mock/profile_view_success.json"
       }
+      ,
+      preferenceEdit:{
+          method : "get",
+          url : "../assets/mock/profile_view_success.json"
+      }
   }
 };

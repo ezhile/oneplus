@@ -47,9 +47,11 @@ export class EditCustomerComponent implements OnInit {
         console.log(body);
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
-	
+    let apiUrl = environment.api.profileEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+    //let apiUrl = environment.api.profileEdit.url.replace("{uuid}",UserInfoService.user-id);
+
 	  this.http[environment.api.profileEdit.method]
-        (environment.api.profileEdit.url, JSON.stringify(body), options)
+        (apiUrl, JSON.stringify(body), options)
 		.map(response => response.json())
 		.subscribe(
 		  response  => {

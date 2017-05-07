@@ -40,6 +40,7 @@ export class ViewPage implements OnInit {
 	
 	loadViewPage(){		
 		let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+		////let apiUrl = environment.api.profileView.url.replace("{uuid}",UserInfoService.user-id);
 		 this.http[environment.api.profileView.method]
         (apiUrl)
 		.map(response => response.json())

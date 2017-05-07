@@ -962,6 +962,54 @@ button.add_time {
 .change-profile-box .modal-content form input[type=radio]:checked + label:after{
   display: block;
 }
+
+/** for checkbox**/
+.change-profile-box .modal-content form input[type=checkbox]{
+    display: none;
+}
+.change-profile-box .modal-content form input[type=checkbox] + label{
+    display: inline-block;
+    padding-left: 23px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    line-height: 20px;
+    cursor: pointer;
+    position: relative;
+    font-weight: normal;
+    font-family: "SFNS Display";
+    font-size: 20px;
+}
+.change-profile-box .modal-content form input[type=checkbox] + label:before{
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #fff;
+  content: "";
+}
+.change-profile-box .modal-content form .card[type=checkbox] + label:before{
+  background: #EBEBEB;
+}
+.change-profile-box .modal-content form input[type=checkbox] + label:after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 9px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: url(assets/images/check.png) no-repeat;
+  display: none;
+}
+.change-profile-box .modal-content form .card[type=checkbox]:checked + label:after {
+  display: none;
+}
+
+.change-profile-box .modal-content form input[type=checkbox]:checked + label:after{
+  display: block;
+}
+
 .change-profile-box .modal-content .button-form{
   text-align: center;
 } 

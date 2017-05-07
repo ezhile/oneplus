@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { EditCustomer } from '../../models/edit-customer.model';
+import { PreferenceCustomer } from '../../models/preference-customer.model';
 import { UserInfoService } from '../../services/user-info.service';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,8 +15,16 @@ declare var $:any;
 export class PreferenceCustomerComponent implements AfterViewInit {
     public lat:any;
     public lng:any;
-    public address:any;
+    public addressPreferenceCustomer:any;
     public getAdrress:string;  
+    optionsGender = [ 
+      {name:'Male', value:'1', checked:true},
+      {name:'FeMale', value:'2', checked:false},
+      {name:'Trans', value:'3', checked:false},
+      {name:'Others', value:'4', checked:false},
+      {name:'Not specifiled', value:'5', checked:false}
+    ]
+
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         
     }
@@ -24,34 +32,49 @@ export class PreferenceCustomerComponent implements AfterViewInit {
     } 
 
 
-    model = new EditCustomer('', '','','');
-    onAddressChange(e){
+    model = new PreferenceCustomer('', '','');
+    onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;
     }
 
-    editCustomerSend(){
+    preferenceCustomerSend(){
         
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
             "latitude" : this.lat
           }
-          this.customerEditSubmit(); 
+          this.model.gender=[];
+          for(var x in this.optionsGender) {
+              if(this.optionsGender[x].checked) {
+                  this.model.gender.push(this.optionsGender[x].name);
+              }
+          }
+          this.model.ageRange= {
+            "min": "0",
+            "max": "0"
+          };
+          console.log('genderss');
+          console.log(this.model.gender);
+          console.log(this.getAdrress);
+          this.customerPreferenceubmit(); 
     }
-    customerEditSubmit() {
+    customerPreferenceubmit() {
+    let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+    //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",UserInfoService.user-id);
 	  let body = {
-            "nickname" : this.model.nickname,
-            "gender" : this.model.genderType,
-            "about" : this.model.about,
-            "location" : this.model.location
+
+            "location" : this.model.location,
+            "gender" :this.model.gender,
+            ageRange:this.model.ageRange
         } 
         console.log(body);
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
 	
-	  this.http[environment.api.profileEdit.method]
-        (environment.api.profileEdit.url, JSON.stringify(body), options)
+	  this.http[environment.api.preferenceEdit.method]
+        (apiUrl, JSON.stringify(body), options)
 		.map(response => response.json())
 		.subscribe(
 		  response  => {

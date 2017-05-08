@@ -62,5 +62,9 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 		  } 
 		);
 	}
+	
+	myOnChange(e){
+		console.log(e)
+	}
 }
 

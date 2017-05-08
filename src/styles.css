@@ -7,6 +7,24 @@
   src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v21/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
 }
 
+.irs-line, .irs-bar {
+	height: 5px !important;
+}
+.irs-bar {
+	background: #ed5d5d !important;
+	border: 1px solid #c5c5c5 !important;
+}
+.irs-slider.from,  .irs-slider.to {
+	box-shadow: 0 1px 1px, 0 0 0px !important;
+	background: #fff !important;
+	border-radius: 50% !important;
+}
+.irs-slider {
+	top: 21px !important;
+}
+.irs-from , .irs-min, .irs-max, .irs-to {
+	display: none !important;	
+}
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;

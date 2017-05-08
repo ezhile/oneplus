@@ -24,7 +24,7 @@ import { PreferenceProfessionalComponent } from './components/preference-profess
 import { PwdValidator } from './validators/password.validator';
 import { UserInfoService } from './services/user-info.service';
 import { DirectivesModule } from './modules/directives.module'; 
- 
+ import { IonRangeSliderModule } from "ng2-ion-range-slider";
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +53,8 @@ import { DirectivesModule } from './modules/directives.module';
         deps: [Http]
     }),
     GooglePlaceModule,
-    DirectivesModule
+    DirectivesModule,
+	IonRangeSliderModule
   ], 
   providers: [UserInfoService],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+declare var $:any;
 
 @Component({
   selector: 'app-edit-customer',
@@ -55,12 +56,17 @@ export class EditCustomerComponent implements OnInit {
 		.map(response => response.json())
 		.subscribe(
 		  response  => {
-              console.log(response)	  
+              console.log(response);
+              this.closeModel();	  
 		  },
           error =>  {
 		  alert('error');
+      this.closeModel();
 		  } 
 		);
 	}
+  closeModel(){
+     $(".change-profile-boxs").modal("hide");
+  }
 }
 

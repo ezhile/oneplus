@@ -32,15 +32,16 @@ export class ViewPage implements OnInit {
 		address:""
 	};
 	userViewRate={};
-	isCustomer=false;
+	isCustomer=true;
 	userServiceMessages={};
 	userWorkingHours='';
 	userServiceMsgText=''; 
 	workingHours=[];
 	
-	loadViewPage(){		
+	loadViewPage(){	
+		//this.checkIsCustomer();	
 		let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-		////let apiUrl = environment.api.profileView.url.replace("{uuid}",UserInfoService.user-id);
+		////let apiUrl = environment.api.profileView.url.replace("{uuid}",this.UserInfoService.user-id);
 		 this.http[environment.api.profileView.method]
         (apiUrl)
 		.map(response => response.json())
@@ -75,5 +76,12 @@ export class ViewPage implements OnInit {
 			UserWorkingHourArr.push(timesrt);
 		}
 		this.userWorkingHours=UserWorkingHourArr.join();
+	}
+	checkIsCustomer(){
+		if(this.userInfoService['user-roles'][0] === "ROLE_PROFESSIONAL"){
+			this.isCustomer=false;
+		}else{
+			this.isCustomer=true;
+		}
 	}
 }

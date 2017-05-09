@@ -1,4 +1,4 @@
-export class PreferenceCustomer {
+export class PreferenceProfessional {
   constructor(
     public ageRange: any,
     public gender: any,

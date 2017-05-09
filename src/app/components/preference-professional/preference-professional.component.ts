@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { EditCustomer } from '../../models/edit-customer.model';
+import { PreferenceProfessional } from '../../models/preference-professional.model';
 import { UserInfoService } from '../../services/user-info.service';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,54 +17,79 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     public lng:any;
     public address:any;
     public getAdrress:string;  
+    optionsGender = [ 
+      {name:'Male', value:'1', checked:true},
+      {name:'FeMale', value:'2', checked:false},
+      {name:'Trans', value:'3', checked:false},
+      {name:'Others', value:'4', checked:false}
+    ]
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         
     }
     ngAfterViewInit() {
+      this.model.ageRange={
+        "min": '0',
+         "max": '25'
+      } 
     } 
 
 
-    model = new EditCustomer('', '','','');
+    model = new PreferenceProfessional('','','');
     onAddressChange(e){
         
         this.getAdrress = e.formatted_address;
     }
 
-    editCustomerSend(){
+    preferenceProfessionalSend(){
         
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
             "latitude" : this.lat
           }
-          this.customerEditSubmit(); 
+          this.model.gender=[];
+          for(var x in this.optionsGender) {
+              if(this.optionsGender[x].checked) {
+                  this.model.gender.push(this.optionsGender[x].name);
+              }
+          }
+          this.preferenceEditSubmit(); 
     }
-    customerEditSubmit() {
+    preferenceEditSubmit() {
+    let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+    //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",UserInfoService.user-id);
 	  let body = {
-            "nickname" : this.model.nickname,
-            "gender" : this.model.genderType,
-            "about" : this.model.about,
-            "location" : this.model.location
-        } 
+
+            "location" : this.model.location,
+            "gender" :this.model.gender,
+            "ageRange":this.model.ageRange
+        }
         console.log(body);
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
 	
-	  this.http[environment.api.profileEdit.method]
-        (environment.api.profileEdit.url, JSON.stringify(body), options)
+	  this.http[environment.api.preferenceEdit.method]
+        (apiUrl, JSON.stringify(body), options)
 		.map(response => response.json())
 		.subscribe(
 		  response  => {
-              console.log(response)	  
+              console.log(response)	 ;
+              this.closeModel(); 
 		  },
           error =>  {
 		  alert('error');
+      this.closeModel(); 
 		  } 
 		);
 	}
+
+  closeModel(){
+     $(".change-preference").modal("hide");
+  }
 	
 	myOnChange(e){
-		console.log(e)
+    this.model.ageRange.min=Math.round( e.from_percent);
+    this.model.ageRange.max=Math.round( e.to_percent);
 	}
 }
-
+ 

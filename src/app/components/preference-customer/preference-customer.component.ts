@@ -29,6 +29,10 @@ export class PreferenceCustomerComponent implements AfterViewInit {
         
     }
     ngAfterViewInit() {
+        this.model.ageRange={
+        "min": '0',
+         "max": '25'
+      } 
     } 
 
 
@@ -51,10 +55,6 @@ export class PreferenceCustomerComponent implements AfterViewInit {
                   this.model.gender.push(this.optionsGender[x].name);
               }
           }
-          this.model.ageRange= {
-            "min": "0",
-            "max": "0"
-          };
           console.log('genderss');
           console.log(this.model.gender);
           console.log(this.getAdrress);
@@ -78,12 +78,21 @@ export class PreferenceCustomerComponent implements AfterViewInit {
 		.map(response => response.json())
 		.subscribe(
 		  response  => {
-              console.log(response)	  
+              console.log(response);
+              this.closeModel();	  
 		  },
           error =>  {
 		  alert('error');
+      this.closeModel();
 		  } 
 		);
+	}
+  closeModel(){
+     $(".change-preference").modal("hide");
+  }
+  myOnChange(e){
+    this.model.ageRange.min=Math.round( e.from_percent);
+    this.model.ageRange.max=Math.round( e.to_percent);
 	}
 }
 

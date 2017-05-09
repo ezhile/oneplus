@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+declare var $:any;
 
 @Component({
   selector: 'app-edit-professional',
@@ -14,7 +15,7 @@ import { environment } from '../../../environments/environment';
 export class EditProfessionalComponent implements OnInit {
     public lat:any;
     public lng:any;
-    public address2:any;
+    public address:any;
     public getAdrress:string;   
     optionsGender = [ 
       {name:'Male', value:'1', checked:true},
@@ -40,7 +41,7 @@ export class EditProfessionalComponent implements OnInit {
     } 
     model = new EditProfessional('', false,'','','','','','');
     
-    onAddressChange2(e){
+    onAddressChange(e){
         
         this.getAdrress = e.formatted_address;
     }
@@ -58,6 +59,12 @@ export class EditProfessionalComponent implements OnInit {
                   this.model.gender.push(this.optionsGender[x].name);
               }
           }
+          this.model.workingDays=[];
+          for(var x in this.optionsWorkingDays) {
+              if(this.optionsWorkingDays[x].checked) {
+                  this.model.workingDays.push(this.optionsWorkingDays[x].name);
+              }
+          }
           this.professionalEditSubmit(); 
     }
     professionalEditSubmit() {
@@ -65,23 +72,34 @@ export class EditProfessionalComponent implements OnInit {
             "nickname" : this.model.nickname,
             "gender" : this.model.gender,
             "about" : this.model.about,
-            "location" : this.model.location
+            "location" : this.model.location,
+            "genderShow": this.model.genderShow,
+            "serviceList": this.model.serviceList,
+            "workingDays": this.model.workingDays,
+            "workingHours": this.model.workingHours
         } 
         console.log(body);
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
+    let apiUrl = environment.api.profileEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+    //let apiUrl = environment.api.profileEdit.url.replace("{uuid}",UserInfoService.user-id);
 	
 	  this.http[environment.api.profileEdit.method]
-        (environment.api.profileEdit.url, JSON.stringify(body), options)
+        (apiUrl, JSON.stringify(body), options)
 		.map(response => response.json())
 		.subscribe(
 		  response  => {
-              console.log(response)	  
+              console.log(response);
+              this.closeModel(); 
 		  },
           error =>  {
 		  alert('error');
+      this.closeModel();
 		  } 
 		);
 	}
+  closeModel(){
+     $(".change-profile-boxs").modal("hide");
+  }
 }
 

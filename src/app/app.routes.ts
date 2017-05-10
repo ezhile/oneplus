@@ -13,8 +13,8 @@ export const appRoutes: Routes = [
       children:[
           { path: '', redirectTo: 'view', pathMatch: 'full'},
           { path: 'view', component: ViewPage },
-          { path: 'edit', component: EditPage },
-          { path: 'edit-professional', component: EditProfessionalPage }
+          { path: 'editCustomer', component: EditPage },
+          { path: 'editProfessional', component: EditProfessionalPage }
       ]
   },
   { path: '', redirectTo: 'home', pathMatch: 'full'},

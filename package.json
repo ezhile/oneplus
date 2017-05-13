@@ -52,6 +52,9 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "typescript": "~2.2.0",
+	"webpack": "fulls1z3/webpack#v2.2.1-harmony",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+	"uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22"
   }
 }

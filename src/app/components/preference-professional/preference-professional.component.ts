@@ -17,6 +17,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     public lng:any;
     public address:any;
     public getAdrress:string;  
+    public addressPreferenceCustomer:any;  
     optionsGender = [ 
       {name:'Male', value:'1', checked:true},
       {name:'FeMale', value:'2', checked:false},
@@ -31,6 +32,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
         "min": '0',
          "max": '25'
       } 
+	  this.addressPreferenceCustomer = '';
     } 
 
 
@@ -90,6 +92,10 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 	myOnChange(e){
     this.model.ageRange.min=Math.round( e.from_percent);
     this.model.ageRange.max=Math.round( e.to_percent);
+	}
+	
+	onAddressPreferenceCustomerChange(e) {
+		
 	}
 }
  

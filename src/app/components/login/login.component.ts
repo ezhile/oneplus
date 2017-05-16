@@ -44,7 +44,11 @@ export class LoginComponent implements OnInit {
 			  if(response["user-id"]){
                   this.userInfoService.userInfo = response;
                   $(".login-modal-box").modal("hide");
-                  this.router.navigate(['/profile']);
+									if(response["user-roles"]=="ROLE_PROFESSIONAL"){
+										this.router.navigate(['/profile/editProfessional']);
+									}else{
+										this.router.navigate(['/profile/editCustomer']);
+									}      
 			  }  
 			  if(response.code==="ERR_ACCESS_DENIED"){
 				  this.errorMessage = response.errors[0];

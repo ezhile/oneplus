@@ -16,7 +16,9 @@ export class EditPage implements OnInit {
     public photoThumnail:string="";
     private isPhotoUploaded:boolean = false;
     public showUploadLink:boolean = false; 
-
+	public spinLoader:boolean = false;
+    public hidedefault:boolean = false;
+	
     constructor(private http: Http, private userInfoService: UserInfoService) {
         this.showUploadLink = false;
     }
@@ -40,6 +42,8 @@ export class EditPage implements OnInit {
 		.map(response => response.json())
 		.subscribe(
 		  response  => {
+				this.spinLoader = false;
+				this.hidedefault = true;
               this.photoThumnail = response.base64encodedThumbnail;
               //console.log(this.photoThumnail);
               $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");

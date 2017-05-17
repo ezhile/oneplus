@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { HomePage } from './pages/home/home.page';
 import { ProfilePage } from './pages/profile/profile.page';
 import { ViewPage } from './pages/view/view.page'; 
-import { EditPage } from './pages/edit/edit.page';
+import { EditCustomerPage } from './pages/edit-customer/edit-customer.page';
 import { EditProfessionalPage } from './pages/edit-professional/edit-professional.page';
 import { LoginComponent } from './components/login/login.component'; 
 import { SignupComponent } from './components/signup/signup.component';
@@ -31,7 +31,7 @@ import { DirectivesModule } from './modules/directives.module';
     HomePage, 
 	  ProfilePage,
 	  ViewPage,
-	  EditPage,
+	  EditCustomerPage,
     EditProfessionalPage,
     LoginComponent,
     SignupComponent,

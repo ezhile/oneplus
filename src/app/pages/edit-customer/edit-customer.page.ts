@@ -6,11 +6,11 @@ import { UserInfoService } from '../../services/user-info.service';
 declare var $:any;
 
 @Component({
-  selector: 'edit-page', 
-  templateUrl: 'edit.page.html',
-  styleUrls: ['edit.page.css']
+  selector: 'edit-customer-page', 
+  templateUrl: 'edit-customer.page.html',
+  styleUrls: ['edit-customer.page.css']
 })
-export class EditPage implements OnInit {
+export class EditCustomerPage implements OnInit {
     
     public base64textString:string="";
     public photoThumnail:string="";

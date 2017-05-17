@@ -37,7 +37,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 
 
     model = new PreferenceProfessional('','','');
-    onAddressChange(e){
+    onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;
     }
@@ -93,9 +93,6 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     this.model.ageRange.min=Math.round( e.from_percent);
     this.model.ageRange.max=Math.round( e.to_percent);
 	}
-	
-	onAddressPreferenceCustomerChange(e) {
-		
-	}
+  
 }
  

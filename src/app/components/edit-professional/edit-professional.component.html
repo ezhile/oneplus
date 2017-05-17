@@ -22,7 +22,7 @@
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Location</label>
 												     			<!--<input type="text" id="location2" placeholder="Enter your location" name="address2" class="form-control" [(ngModel)] = "address2" ng2-google-place-autocomplete> -->
-																 <input type="text" class="form-control map-pointer" ng2-google-place-autocomplete />
+																 <input type="text" class="form-control map-pointer" name="address" [(ngModel)] = "address" (setAddress)="onAddressChange($event)" (lat)='lat=$event' (lng)='lng=$event'  ng2-google-place-autocomplete />
 												     		</div>
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Gender</label>

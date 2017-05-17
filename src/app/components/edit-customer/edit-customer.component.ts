@@ -29,8 +29,7 @@ export class EditCustomerComponent implements OnInit {
         this.getAdrress = e.formatted_address;
     }
 
-    editCustomerSend(){
-        
+    editCustomerSend(){		
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -46,10 +45,11 @@ export class EditCustomerComponent implements OnInit {
             "location" : this.model.location
         } 
         console.log(body);
+		const uuid = this.userInfoService.userInfo['user-id'];
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
-    let apiUrl = environment.api.profileEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-    //let apiUrl = environment.api.profileEdit.url.replace("{uuid}",UserInfoService.user-id);
+    //let apiUrl = environment.api.profileEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+    let apiUrl = environment.api.profileEdit.url.replace("{uuid}",uuid);
 
 	  this.http[environment.api.profileEdit.method]
         (apiUrl, JSON.stringify(body), options)

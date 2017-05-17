@@ -58,8 +58,9 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
           this.preferenceEditSubmit(); 
     }
     preferenceEditSubmit() {
-    let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-    //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",UserInfoService.user-id);
+    //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+	const uuid = this.userInfoService.userInfo['user-id'];
+    let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
 	  let body = {
 
             "location" : this.model.location,

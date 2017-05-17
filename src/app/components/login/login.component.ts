@@ -42,7 +42,10 @@ export class LoginComponent implements OnInit {
 			  this.errorMessage="";
 			  this.submitted = false;
 			  if(response["user-id"]){
-                  this.userInfoService.userInfo = response;
+				// session storage for user
+				this.userInfoService.setItem(response);
+               //this.userInfoService.userInfo = response;
+				 
                   $(".login-modal-box").modal("hide");
 									if(response["user-roles"]=="ROLE_PROFESSIONAL"){
 										this.router.navigate(['/profile/editProfessional']);

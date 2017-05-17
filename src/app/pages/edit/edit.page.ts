@@ -31,8 +31,9 @@ export class EditPage implements OnInit {
 	  let body = { "base64Content" : this.base64textString}; 
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
-      let apiUrl = environment.api.photoUpload.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-      console.log(this.userInfoService);
+	  const uuid = this.userInfoService.userInfo['user-id'];
+      let apiUrl = environment.api.photoUpload.url.replace("{uuid}", uuid);
+      
 	
 	  this.http[environment.api.photoUpload.method]
         (apiUrl, JSON.stringify(body), options)

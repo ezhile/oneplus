@@ -2291,3 +2291,17 @@ footer .one-plus-logo {
 .filePicker{
     display: none !important;
 }
+
+/* Photo upload styles */
+.spinner-loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px; 
+}
+.profile-mouseover, .hidedefault  {
+	display: none;
+}
+.showMouseover:hover .profile-mouseover {
+	display: block;
+}

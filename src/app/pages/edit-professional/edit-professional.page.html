@@ -1,4 +1,4 @@
-
+﻿
 		
 		<div class="container-content">
 			<div class="main-profile">
@@ -9,13 +9,22 @@
 							<div class="row">
 								<div class="col-md-3 left">
 									<div class="avatar">
-										<div class="main-avatar">
-											<p><a href="">+Add <br>a profile <br> picture</a></p>
-											<div class="clearfix"></div>
-											
-										</div>
+										<div id="profilePic" class="main-avatar" [ngClass]="{'showMouseover': hidedefault }">
+												<div *ngIf="spinLoader === false"> 
+													<p>
+													<a href="javascript:void(0);" photo-upload (onComplete)="imageUpload($event)">
+														<span [ngClass]="{'hidedefault': hidedefault}">+Add <br>a profile <br> picture</span>
+														<span class="profile-mouseover">+Add <br>a profile<br>picture</span>
+													</a>
+													</p>												
+												</div>								
+												<div class="spinner-loader" *ngIf="spinLoader === true">
+													<i class="fa fa-spinner fa-3x fa-spin" aria-hidden="true"></i>
+												</div>
+												<div class="clearfix"></div>											
+											</div>
 
-									</div>
+										</div>
 									<p class="star">
 											<span><i class="md-icon md-24 ">star</i></span>
 											<span><i class="md-icon md-24 ">star</i></span>
@@ -89,9 +98,23 @@
 							<div class="col-md-10 col-md-offset-1">
 								<div class="row">
 									<div class="col-md-3">
-										<div class="add-picture">
-											<p><a href="">+Add <br>a picture</a></p>
+										<div class="avatar">
+										<div id="profilePic" class="main-avatar" [ngClass]="{'showMouseover': hidedefault }">
+											<div *ngIf="spinLoader === false"> 
+												<p>
+												<a href="javascript:void(0);" photo-upload (onComplete)="imageUpload($event)">
+													<span [ngClass]="{'hidedefault': hidedefault}">+Add <br>a profile <br> picture</span>
+													<span class="profile-mouseover">+Add <br>a profile<br>picture</span>
+												</a>
+												</p>												
+											</div>								
+											<div class="spinner-loader" *ngIf="spinLoader === true">
+												<i class="fa fa-spinner fa-3x fa-spin" aria-hidden="true"></i>
+											</div>
+											<div class="clearfix"></div>											
 										</div>
+
+									</div> 
 									</div>
 								</div>
 							</div>
@@ -605,4 +628,4 @@
 				</div>
 			</div>
 		</div>
-	
+	    

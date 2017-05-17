@@ -16,7 +16,7 @@ export class EditPage implements OnInit {
     public photoThumnail:string="";
     private isPhotoUploaded:boolean = false;
     public showUploadLink:boolean = false; 
-	public spinLoader:boolean = false;
+  	public spinLoader:boolean = false;
     public hidedefault:boolean = false;
 	
     constructor(private http: Http, private userInfoService: UserInfoService) {

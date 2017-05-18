@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
 import { EditCustomer } from '../../models/edit-customer.model';
 import { UserInfoService } from '../../services/user-info.service';
 import { Http, Headers, RequestOptions  } from '@angular/http';
@@ -17,6 +17,8 @@ export class EditCustomerComponent implements OnInit {
     public lng:any;
     public address:any;
     public getAdrress:string;  
+
+     @Output() onEditCustomerComplete: EventEmitter<string> = new EventEmitter<string>();
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         
     }
@@ -53,10 +55,11 @@ export class EditCustomerComponent implements OnInit {
 
 	  this.http[environment.api.profileEdit.method]
         (apiUrl, JSON.stringify(body), options)
-		.map(response => response.json())
+		.map(response => response)
 		.subscribe(
 		  response  => {
               console.log(response);
+              this.onEditCustomerComplete.emit(response);
               this.closeModel();	  
 		  },
           error =>  {

@@ -23,8 +23,27 @@ export class EditCustomerPage implements OnInit {
         this.showUploadLink = false;
     }
 
-    ngOnInit() {
+    userViewObj={
+      rating: "",
+      favoritesCount:""
+    };
+    userViewProfile={
+      nickname:"",
+      about:"",
+      gender:""
+    };
+    userViewLocation={
+      address:""
+    };
+    userViewRate={};
+    isCustomer=true;
+    userServiceMessages={};
+    userWorkingHours='';
+    userServiceMsgText=''; 
+    workingHours=[];
 
+    ngOnInit() {
+      this.loadViewPage();
     }
 
     imageUpload(event) {
@@ -63,4 +82,60 @@ export class EditCustomerPage implements OnInit {
       this.showUploadLink = false;
     }
   }  
+
+  loadViewPage(){	
+		//this.checkIsCustomer();	
+		//let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+		const uuid = this.userInfoService.userInfo['user-id'];
+		let apiUrl = environment.api.profileView.url.replace("{uuid}", uuid);
+		 this.http[environment.api.profileView.method]
+        (apiUrl)
+		.map(response => response.json())
+		.subscribe(
+		  response  => {
+			    
+				//this.userViewObj=JSON.parse(response);
+				this.userViewObj=response;
+				this.userViewProfile=response.profile;	
+				this.userViewLocation=response.profile.location;
+				this.userServiceMessages=response.profile.services;
+				this.userViewRate=response.profile.rate;
+				this.workingHours = response.profile.workingHours
+				this.updateUserServiceMessage();
+				
+		  },
+          error =>  {}
+		);
+	}
+
+  updateUserServiceMessage(){
+		const obj=this.userServiceMessages;
+		this.userServiceMsgText='';
+		for(let i in obj){
+		
+				this.userServiceMsgText=this.userServiceMsgText + obj[i].category+' '+obj[i].name+' ';
+			
+		}
+		let UserWorkingHourArr=[]
+		for(let j in this.workingHours){
+			var timesrt=' ';
+			timesrt=timesrt+this.workingHours[j]['from']+'-'+this.workingHours[j]['to'];
+			UserWorkingHourArr.push(timesrt);
+		}
+		this.userWorkingHours=UserWorkingHourArr.join();
+	}
+
+  editCustomerCallDone(event){
+    console.log('event called');
+    let response=JSON.parse(event._body);
+    this.userViewObj=response;
+    this.userViewProfile=response.profile;	
+    this.userViewLocation=response.profile.location;
+    this.userServiceMessages=response.profile.services;
+    this.userViewRate=response.profile.rate;
+    this.workingHours = response.profile.workingHours
+    this.updateUserServiceMessage(); 
+  }
+
+
 }

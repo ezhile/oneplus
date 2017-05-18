@@ -30,9 +30,9 @@
 										</p>
 								</div>
 								<div class="col-md-7 right">
-									<p class="name">Nickname <span>Gender</span></p>
-									<p class="age">Age</p>
-									<p class="address">City, Country</p>
+									<p class="name">{{userViewProfile.nickname}} <span>{{userViewProfile.gender}}</span></p>
+									<p class="age">Age {{userViewProfile.age}}</p>
+									<p class="address">{{userViewLocation.address}}</p>
 									<div class="row bottom">
 										<div class="col-md-6">
 											<a href="" data-toggle="modal" data-target=".change-profile-boxs">Edit profile</a>
@@ -40,7 +40,7 @@
 											<div class="modal fade login-box change-profile-box change-profile-boxs" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 											  <div class="modal-dialog modal-smd" role="document">
 											    <div class="modal-content">
-											     	<app-edit-customer></app-edit-customer>
+											     	<app-edit-customer (onEditCustomerComplete)="editCustomerCallDone($event)"></app-edit-customer>
 											    </div>
 											  </div>
 											</div> 
@@ -58,13 +58,13 @@
 									</div>
 									<div class="favorite">
 										<p><i class="md-icon md-48">favorite</i></p>
-										<p>0</p>
+										<p>{{userViewObj.favoritesCount}}</p>
 									</div>
 								</div>
 							</div>
 							<div class="more-profile">
 								<p class="title">About</p>
-								<p class="des">Add a description about you</p>
+								<p class="des">{{userViewProfile.about}}</p>
 							</div>
 						</div>
 					</div>

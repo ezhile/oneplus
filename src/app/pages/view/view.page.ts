@@ -79,7 +79,7 @@ export class ViewPage implements OnInit {
 		this.userWorkingHours=UserWorkingHourArr.join();
 	}
 	checkIsCustomer(){
-		if(this.userInfoService['user-roles'][0] === "ROLE_PROFESSIONAL"){
+		if(this.userInfoService.userInfo['user-roles'][0] === "ROLE_PROFESSIONAL"){
 			this.isCustomer=false;
 		}else{
 			this.isCustomer=true;

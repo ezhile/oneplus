@@ -1,0 +1,58 @@
+{
+  "id" : "aea6729b5b6b678d015b70c47f88000a",
+  "email" : "prof1@example.com",
+  "enabled" : true,
+  "subscription" : {
+    "activated" : true
+  },
+  "profile" : {
+    "birthdate" : "29-04-1978",
+    "age" : 38,
+    "gender" : "FEMALE",
+    "location" : {
+      "address" : "Weserstr. 81, 12059 Berlin Deutschland"
+    },
+    "nickname" : "profinewww",
+    "about" : "All about me",
+    "rate" : {
+      "amount" : 435.0,
+      "currency" : "EUR"
+    },
+    "workingHours" : [ {
+      "from" : "12:00",
+      "to" : "18:00"
+    }, {
+      "from" : "21:00",
+      "to" : "12:00"
+    } ],
+    "services" : [ {
+      "category" : "CAT1",
+      "name" : "Service1"
+    }, {
+      "category" : "CAT1",
+      "name" : "Service2"
+    }, {
+      "category" : "CAT2",
+      "name" : "Service3"
+    } ]
+  },
+  "preferences" : {
+    "location" : {
+      "address" : "Muellerstr. 15"
+    },
+    "ageRange" : {
+      "min" : 25,
+      "max" : 43
+    },
+    "genders" : "MALE,FEMALE"
+  },
+  "favorites" : [ {
+    "favouredUser" : "yyyyyyyyyb678d015b70c47f88000a"
+  }, {
+    "favouredUser" : "xxxxxxxxx678d015b70c47f88000a"
+  }, {
+    "favouredUser" : "zzzzzzzzz678d015b70c47f88000a"
+  } ],
+  "favoritesCount" : 22,
+  "rating" : 3
+}

@@ -24,7 +24,7 @@ export const environment = {
       },
       profileEdit:{
           method : "get",
-          url : "../assets/mock/profile_view_success.json"
+          url : "../assets/mock/edit_professional_success.json"
       },
       photoUpload:{
           method : "get",

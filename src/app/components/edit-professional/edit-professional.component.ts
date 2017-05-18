@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
 import { EditProfessional } from '../../models/edit-professional.model';
 import { UserInfoService } from '../../services/user-info.service';
 import { Http, Headers, RequestOptions  } from '@angular/http';
@@ -17,6 +17,10 @@ export class EditProfessionalComponent implements OnInit {
     public lng:any;
     public address:any;
     public getAdrress:string;   
+    //Output() onEditProfessionalComplete: EventEmitter<string> = new EventEmitter<string>();
+
+    @Output() onEditProfeesionalComplete: EventEmitter<string> = new EventEmitter<string>();
+
     optionsGender = [ 
       {name:'Male', value:'1', checked:true},
       {name:'FeMale', value:'2', checked:false},
@@ -87,10 +91,12 @@ export class EditProfessionalComponent implements OnInit {
 	
 	  this.http[environment.api.profileEdit.method]
         (apiUrl, JSON.stringify(body), options)
-		.map(response => response.json())
+		.map(response => response)
 		.subscribe(
 		  response  => {
               console.log(response);
+              this.onEditProfeesionalComplete.emit(response);
+
               this.closeModel(); 
 		  },
           error =>  {

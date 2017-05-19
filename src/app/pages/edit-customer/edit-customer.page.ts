@@ -55,7 +55,7 @@ export class EditCustomerPage implements OnInit {
 	  let options = new RequestOptions({ headers: headers });
 	  const uuid = this.userInfoService.userInfo['user-id'];
       let apiUrl = environment.api.photoUpload.url.replace("{uuid}", uuid);
-      
+      this.spinLoader = true;
 	
 	  this.http[environment.api.photoUpload.method]
         (apiUrl, JSON.stringify(body), options)

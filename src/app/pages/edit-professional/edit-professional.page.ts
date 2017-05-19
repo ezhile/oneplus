@@ -31,12 +31,15 @@ export class EditProfessionalPage implements OnInit {
     userViewProfile={
       nickname:"",
       about:"",
-      gender:""
+      gender:"",
+      age:""
     };
     userViewLocation={
       address:""
     };
-    userViewRate={};
+    userViewRate={
+      amount:""
+    };
     isCustomer=true;
     userServiceMessages={};
     userWorkingHours='';

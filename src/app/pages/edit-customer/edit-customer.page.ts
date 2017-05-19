@@ -30,7 +30,8 @@ export class EditCustomerPage implements OnInit {
     userViewProfile={
       nickname:"",
       about:"",
-      gender:""
+      gender:"",
+      age:""
     };
     userViewLocation={
       address:""

@@ -25,7 +25,7 @@
 											</div>
 
 										</div>
-									<p class="star">
+									<p class="star" [starRating]='userViewObj.rating'>
 											<span><i class="md-icon md-24 ">star</i></span>
 											<span><i class="md-icon md-24 ">star</i></span>
 											<span><i class="md-icon md-24 ">star</i></span>
@@ -66,7 +66,7 @@
 									</div>
 									<div class="favorite">
 										<p><i class="md-icon md-48">favorite</i></p>
-										<p>0</p>
+										<p>{{userViewObj.favoritesCount}}</p>
 									</div>
 								</div>
 							</div>

@@ -97,11 +97,21 @@ export class EditCustomerPage implements OnInit {
 			    
 				//this.userViewObj=JSON.parse(response);
 				this.userViewObj=response;
-				this.userViewProfile=response.profile;	
-				this.userViewLocation=response.profile.location;
-				this.userServiceMessages=response.profile.services;
-				this.userViewRate=response.profile.rate;
-				this.workingHours = response.profile.workingHours
+					  if(response.profile){
+              this.userViewProfile=response.profile;
+              if(response.profile.location){
+                this.userViewLocation=response.profile.location;
+              }
+              if(response.profile.services){
+                this.userServiceMessages=response.profile.services;
+              }
+              if(response.profile.rate){
+                this.userViewRate=response.profile.rate;
+              }
+              if(response.profile.workingHours){
+                this.workingHours = response.profile.workingHours;
+              }
+          };	
 				this.updateUserServiceMessage();
 				
 		  },
@@ -130,11 +140,21 @@ export class EditCustomerPage implements OnInit {
     console.log('event called');
     let response=JSON.parse(event._body);
     this.userViewObj=response;
-    this.userViewProfile=response.profile;	
-    this.userViewLocation=response.profile.location;
-    this.userServiceMessages=response.profile.services;
-    this.userViewRate=response.profile.rate;
-    this.workingHours = response.profile.workingHours
+    if(response.profile){
+        this.userViewProfile=response.profile;
+        if(response.profile.location){
+          this.userViewLocation=response.profile.location;
+        }
+        if(response.profile.services){
+          this.userServiceMessages=response.profile.services;
+        }
+        if(response.profile.rate){
+          this.userViewRate=response.profile.rate;
+        }
+        if(response.profile.workingHours){
+          this.workingHours = response.profile.workingHours;
+        }
+    };
     this.updateUserServiceMessage(); 
   }
 

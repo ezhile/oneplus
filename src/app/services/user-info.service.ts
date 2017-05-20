@@ -8,10 +8,13 @@ export class UserInfoService {
         this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'));       
 	}
 	
-	setItem(item: any) {
+	set(item: any) {
 		sessionStorage.setItem('userInfo', JSON.stringify(item));
 		this.userInfo = JSON.parse(sessionStorage.getItem('userInfo')); 
 	}
-	
 
+	get(item:any){
+		let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+		return userInfo[item];
+	}
 }

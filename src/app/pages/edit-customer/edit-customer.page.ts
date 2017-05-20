@@ -53,7 +53,7 @@ export class EditCustomerPage implements OnInit {
 	  let body = { "base64Content" : this.base64textString}; 
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });
-	  const uuid = this.userInfoService.userInfo['user-id'];
+	  const uuid = this.userInfoService.get('user-id');
       let apiUrl = environment.api.photoUpload.url.replace("{uuid}", uuid);
       this.spinLoader = true;
 	
@@ -87,7 +87,7 @@ export class EditCustomerPage implements OnInit {
   loadViewPage(){	
 		//this.checkIsCustomer();	
 		//let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-		const uuid = this.userInfoService.userInfo['user-id'];
+		const uuid = this.userInfoService.get('user-id');
 		let apiUrl = environment.api.profileView.url.replace("{uuid}", uuid);
 		 this.http[environment.api.profileView.method]
         (apiUrl)

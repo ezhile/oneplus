@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 			  this.submitted = false;
 			  if(response["user-id"]){
 				// session storage for user
-				this.userInfoService.setItem(response);
+				this.userInfoService.set(response);
                //this.userInfoService.userInfo = response;
 				 
                   $(".login-modal-box").modal("hide");

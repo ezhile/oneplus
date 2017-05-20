@@ -41,7 +41,7 @@ export class ViewPage implements OnInit {
 	loadViewPage(){	
 		//this.checkIsCustomer();	
 		//let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-		const uuid = this.userInfoService.userInfo['user-id'];
+		const uuid = this.userInfoService.get('user-id');
 		let apiUrl = environment.api.profileView.url.replace("{uuid}", uuid);
 		 this.http[environment.api.profileView.method]
         (apiUrl)
@@ -79,7 +79,7 @@ export class ViewPage implements OnInit {
 		this.userWorkingHours=UserWorkingHourArr.join();
 	}
 	checkIsCustomer(){
-		if(this.userInfoService.userInfo['user-roles'][0] === "ROLE_PROFESSIONAL"){
+		if(this.userInfoService.get('user-roles')[0] === "ROLE_PROFESSIONAL"){
 			this.isCustomer=false;
 		}else{
 			this.isCustomer=true;

@@ -61,7 +61,7 @@ export class PreferenceCustomerComponent implements AfterViewInit {
           this.customerPreferenceubmit(); 
     }
     customerPreferenceubmit() {
-		const uuid = this.userInfoService.userInfo['user-id'];
+		const uuid = this.userInfoService.get('user-id');
     //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
     let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
 	  let body = {

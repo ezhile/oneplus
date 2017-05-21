@@ -51,9 +51,11 @@
 												     		</div>
 												     		<div class="form-group clearfix">
 												     			<label class="title_edit_page b-title" for="" >Work hours</label><br>
-												     			<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label><input type="text" class="form-control" style="width:50px;float:left"> 
-												     			<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label><input type="text" class="form-control" style="width:50px;float:left"> 
-												     			<button type="submit" class="add_time">+ add time slot</button>
+												     			<div *ngFor="let slot of timeSlots;let isLast = last" class="row no-margin">
+																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label><input type="text" class="form-control" style="width:50px;float:left"> 
+												     				<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label><input type="text" class="form-control" style="width:50px;float:left"> 
+												     				<button [hidden]="!isLast" type="button" (click)="addTimeSlot();" class="add_time">+ add time slot</button>
+																</div> 
 												     		</div>
 												     		<!-- end new-code -->
 												     		<div class="form-group">

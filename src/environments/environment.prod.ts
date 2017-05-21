@@ -18,7 +18,7 @@ export const environment = {
           url : "http://46.38.242.27:8082/api/user/{uuid}"
       },
       profileEdit:{
-          method : "post",
+          method : "put",
           url : "http://46.38.242.27:8082/api/user/{uuid}/profile"
       },
       photoUpload:{
@@ -26,7 +26,7 @@ export const environment = {
           url : "http://46.38.242.27:8082/api/user/{uuid}/profile/picture"
       },
       preferenceEdit:{
-          method : "post",
+          method : "put",
           url : "http://46.38.242.27:8082//api/user/{uuid}/preference"
       }
       

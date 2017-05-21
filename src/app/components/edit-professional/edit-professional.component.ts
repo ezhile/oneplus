@@ -16,10 +16,14 @@ export class EditProfessionalComponent implements OnInit {
     public lat:any;
     public lng:any;
     public address:any;
-    public getAdrress:string;   
+    public getAdrress:string;  
     //Output() onEditProfessionalComplete: EventEmitter<string> = new EventEmitter<string>();
 
     @Output() onEditProfeesionalComplete: EventEmitter<string> = new EventEmitter<string>();
+
+    timeSlots = [
+        {from:"00:00", to:"00:00"}
+    ];
 
     optionsGender = [ 
       {name:'Male', value:'1', checked:true},
@@ -44,6 +48,11 @@ export class EditProfessionalComponent implements OnInit {
 
     } 
     model = new EditProfessional('', false,'','','','','','');
+
+    addTimeSlot(){
+        //alert("asasas")
+        this.timeSlots.push({"from":"00:00", "to":"00:00"});
+    }
     
     onAddressChange(e){
         
@@ -72,16 +81,51 @@ export class EditProfessionalComponent implements OnInit {
           this.professionalEditSubmit(); 
     }
     professionalEditSubmit() {
-	  let body = {
-            "nickname" : this.model.nickname,
-            "gender" : this.model.gender,
-            "about" : this.model.about,
-            "location" : this.model.location,
-            "genderShow": this.model.genderShow,
-            "serviceList": this.model.serviceList,
-            "workingDays": this.model.workingDays,
-            "workingHours": this.model.workingHours
-        } 
+	//   let body = {
+    //         "nickname" : this.model.nickname,
+    //         "gender" : this.model.gender,
+    //         "about" : this.model.about,
+    //         "location" : this.model.location,
+    //         "genderShow": this.model.genderShow,
+    //         "serviceList": this.model.serviceList,
+    //         "workingDays": this.model.workingDays,
+    //         "workingHours": this.model.workingHours
+    //     } 
+
+       let body = {
+	"nickname" : "nebur",
+	"gender" : "MALE",
+	"about" : "die Nr. 1 in deutschlands",
+	"location" : {
+		"address" : "Berlin, Deutschland",
+		"longitude" : "13.447541999999999",
+		"latitude" : "52.4799174"
+	},
+        "showAge" : false,
+        "workDays" : ["mo","tu","we"],
+        "workingHours" : [ {
+            "from" : "09:00",
+            "to" : "12:00"
+         }, {
+           "from" : "13:00",
+           "to" : "18:00"
+        } , {
+           "from" : "19:00",
+           "to" : "21:00"
+        } ],
+       "services" : [{
+            "category" : "SERVICE",
+            "key": "SERVICE1"
+       },
+       {
+            "category" : "GARDEROBE",
+            "key": "SERVICE6"
+       }],
+      "hourlyRate" : {
+           "amount" : 15.0,
+            "currency" : "EUR"
+        }
+};
         console.log(body);
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });

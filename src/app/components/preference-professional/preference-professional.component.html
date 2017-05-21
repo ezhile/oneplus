@@ -10,7 +10,7 @@
 												     			<label for="age">Age range <span>{{model.ageRange.min}}</span> - <span>{{model.ageRange.max}}</span></label>
 												     			<input type="hidden" id="age" class="form-control"> 
 												     			<div id="slider-range"></div>
-			<ion-range-slider #advancedSliderElement type="double"  force_edges="true" grid_num="10"  grid_snap="false" data-from="0" data-to="25" (onChange)="myOnChange($event)"></ion-range-slider>
+			<ion-range-slider #advancedSliderElement type="double"  force_edges="true" grid_num="10"  grid_snap="false" data-from="21" data-to="25" [min]="21" (onChange)="myOnChange($event)"></ion-range-slider>
 												     		</div> 
 												     		<div class="form-group"> 
 												     			<label for="">Gender <span style="color:#afafaf">All</span></label>

@@ -2305,3 +2305,6 @@ footer .one-plus-logo {
 .showMouseover:hover .profile-mouseover {
 	display: block;
 }
+.no-margin{
+  margin: 0 !important;
+}

@@ -19,17 +19,17 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     public getAdrress:string;  
     public addressPreferenceCustomer:any;  
     optionsGender = [ 
-      {name:'Male', value:'1', checked:true},
-      {name:'FeMale', value:'2', checked:false},
-      {name:'Trans', value:'3', checked:false},
-      {name:'Others', value:'4', checked:false}
+      {name:'Male', value:'MALE', checked:true},
+      {name:'FeMale', value:'FEMALE', checked:false},
+      {name:'Trans', value:'TRANS', checked:false},
+      {name:'Others', value:'OTHERS', checked:false}
     ]
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         
     }
     ngAfterViewInit() {
       this.model.ageRange={
-        "min": '0',
+        "min": '21',
          "max": '25'
       } 
 	  this.addressPreferenceCustomer = '';
@@ -52,7 +52,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
           this.model.gender=[];
           for(var x in this.optionsGender) {
               if(this.optionsGender[x].checked) {
-                  this.model.gender.push(this.optionsGender[x].name);
+                  this.model.gender.push(this.optionsGender[x].value);
               }
           }
           this.preferenceEditSubmit(); 
@@ -61,12 +61,29 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
 	const uuid = this.userInfoService.get('user-id');
     let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
-	  let body = {
+	//   let body = {
 
-            "location" : this.model.location,
-            "gender" :this.model.gender,
-            "ageRange":this.model.ageRange
+    //         "location" : this.model.location,
+    //         "genders" :this.model.gender,
+    //         "ageRange":this.model.ageRange
+    //     }
+
+    let body = {
+   	"location" : {
+		"address" : "Berlin, Deutschland",
+		"longitude" : "13.447541999999999",
+		"latitude" : "52.4799174"
+	},
+       "genders" : ["FEMALE", "MALE"],
+       "ageRange" : {
+            "min" : 25,
+            "max" : 45
+        },
+       "feeRange" : {
+           "min" : 50,
+           "max" : 100
         }
+};
         console.log(body);
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
 	  let options = new RequestOptions({ headers: headers });

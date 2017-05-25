@@ -30,9 +30,9 @@ export class PreferenceCustomerComponent implements AfterViewInit {
     }
     ngAfterViewInit() {
         this.model.ageRange={
-        "min": '0',
-         "max": '25'
-      } 
+			"min": '21',
+			"max": '100'
+		} 
     } 
 
 
@@ -92,8 +92,8 @@ export class PreferenceCustomerComponent implements AfterViewInit {
      $(".change-preference").modal("hide");
   }
   myOnChange(e){
-    this.model.ageRange.min=Math.round( e.from_percent);
-    this.model.ageRange.max=Math.round( e.to_percent);
+    this.model.ageRange.min=Math.round( e.from);
+    this.model.ageRange.max=Math.round( e.to);
 	}
 }
 

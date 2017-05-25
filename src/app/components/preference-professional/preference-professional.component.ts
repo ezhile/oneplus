@@ -30,7 +30,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     ngAfterViewInit() {
       this.model.ageRange={
         "min": '21',
-         "max": '25'
+        "max": '100'
       } 
 	  this.addressPreferenceCustomer = '';
     } 
@@ -110,8 +110,8 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
   }
 	
 	myOnChange(e){
-    this.model.ageRange.min=Math.round( e.from_percent);
-    this.model.ageRange.max=Math.round( e.to_percent);
+    this.model.ageRange.min=Math.round( e.from);
+    this.model.ageRange.max=Math.round( e.to);
 	}
   
 }

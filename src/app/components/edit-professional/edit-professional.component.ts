@@ -127,7 +127,9 @@ export class EditProfessionalComponent implements OnInit {
         }
 };
         console.log(body);
+	  const token = this.userInfoService.get('access_token');
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('Authorization','Bearer '+token);
 	  let options = new RequestOptions({ headers: headers });
     //let apiUrl = environment.api.profileEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
 	const uuid = this.userInfoService.get('user-id');

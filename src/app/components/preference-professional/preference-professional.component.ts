@@ -85,7 +85,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
         }
 };
         console.log(body);
-        const token = this.userInfoService.get('access_token');
+      const token = this.userInfoService.get('access_token');
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
       headers.append('Authorization','Bearer '+token);
 	  let options = new RequestOptions({ headers: headers });

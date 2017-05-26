@@ -135,6 +135,14 @@ export class EditProfessionalPage implements OnInit {
           error =>  {}
 		);
 	}
+	
+	
+	getItemObjects = [{category: 'Angular', key: 'any'},{category: 'React', key: 'any1'}, {category: 'Node', key: 'any2'}];	
+	setItemObjects = [];
+	onItemAdded(e) {		
+		this.setItemObjects.push(e);	
+		console.log(this.setItemObjects);		
+	}
   updateUserServiceMessage(){
 		const obj=this.userServiceMessages;
 		this.userServiceMsgText='';

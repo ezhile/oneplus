@@ -70,6 +70,14 @@
 									</div>
 								</div>
 							</div>
+							<div>
+
+							<tag-input  (onAdd)="onItemAdded($event)" [ngModel]="setItemObjects">
+								<tag-input-dropdown [autocompleteItems]="getItemObjects" [identifyBy]="'key'" [displayBy]="'category'">
+								</tag-input-dropdown>
+							</tag-input>
+							
+							</div>
 							<div class="more-profile">
 								<p class="title">About</p>
 								<p class="des">{{userViewProfile.about}}</p>

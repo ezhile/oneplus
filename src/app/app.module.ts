@@ -25,6 +25,9 @@ import { PwdValidator } from './validators/password.validator';
 import { UserInfoService } from './services/user-info.service';
 import { DirectivesModule } from './modules/directives.module'; 
  import { IonRangeSliderModule } from "ng2-ion-range-slider";
+ import { TagInputModule } from 'ng2-tag-input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed! 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +57,9 @@ import { DirectivesModule } from './modules/directives.module';
     }),
     GooglePlaceModule,
     DirectivesModule,
-	IonRangeSliderModule
+	IonRangeSliderModule,
+	TagInputModule,
+	BrowserAnimationsModule
   ], 
   providers: [UserInfoService],
   bootstrap: [AppComponent]

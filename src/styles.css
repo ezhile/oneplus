@@ -2311,3 +2311,6 @@ footer .one-plus-logo {
 .ng2-tag-input.ng2-tag-input--focused{
   border-bottom: 2px solid #ed5d5d !important;
 }
+.ng2-dropdown-menu {
+	z-index: 9999 !important;
+}

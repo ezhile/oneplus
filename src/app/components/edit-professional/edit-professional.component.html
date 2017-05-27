@@ -94,7 +94,7 @@
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Service</label>
 												     			<!--<textarea name="" id="" rows="7" class="form-control" placeholder="List the services you are offering" [(ngModel)]="model.serviceList" name="serviceList" #name="ngModel"></textarea>-->
-																 <tag-input  (onAdd)="onItemAdded($event)" name="services" [ngModel]="setItemObjects">
+																 <tag-input [onlyFromAutocomplete]="true"  (onAdd)="onItemAdded($event)" name="services" [ngModel]="setItemObjects">
 																	<tag-input-dropdown [autocompleteItems]="getItemObjects" [identifyBy]="'key'" [displayBy]="'category'">
 																	</tag-input-dropdown>
 																</tag-input>

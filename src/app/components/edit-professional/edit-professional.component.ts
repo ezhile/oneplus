@@ -41,13 +41,16 @@ export class EditProfessionalComponent implements OnInit {
       {name:'Sa', value:'6', checked:false},
       {name:'Su', value:'7', checked:false}
     ];
+    userCurrency = [ {id: '1', key:'USD'},
+           {id: '2', key: 'EUR'},
+           {id: '3', key: 'IND'}];
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         
     }
     ngOnInit() {
 
     } 
-    model = new EditProfessional('', false,'','','','','','');
+    model = new EditProfessional('', false,'','','','','','','');
 
     addTimeSlot(){
         //alert("asasas")
@@ -78,21 +81,40 @@ export class EditProfessionalComponent implements OnInit {
                   this.model.workingDays.push(this.optionsWorkingDays[x].name);
               }
           }
+          this.model.serviceList = [{
+                    "category" : "SERVICE",
+                    "key": "SERVICE1"
+            },
+            {
+                    "category" : "GARDEROBE",
+                    "key": "SERVICE6"
+            }];
+            this.model.workingHours= [ {
+            "from" : "09:00",
+            "to" : "12:00"
+         }, {
+           "from" : "13:00",
+           "to" : "18:00"
+        } , {
+           "from" : "19:00",
+           "to" : "21:00"
+        } ]
           this.professionalEditSubmit(); 
     }
     professionalEditSubmit() {
-	//   let body = {
-    //         "nickname" : this.model.nickname,
-    //         "gender" : this.model.gender,
-    //         "about" : this.model.about,
-    //         "location" : this.model.location,
-    //         "genderShow": this.model.genderShow,
-    //         "serviceList": this.model.serviceList,
-    //         "workingDays": this.model.workingDays,
-    //         "workingHours": this.model.workingHours
-    //     } 
+	    let body = {
+           "nickname" : this.model.nickname,
+          "gender" : this.model.gender,
+             "about" : this.model.about,
+             "location" : this.model.location,
+             "showAge" : this.model.genderShow,
+           "serviceList": this.model.serviceList,
+           "workDays": this.model.workingDays,
+            "workingHours": this.model.workingHours,
+             "hourlyRate": this.model.hourlyRate
+        } 
 
-       let body = {
+      /* let body = {
 	"nickname" : "nebur",
 	"gender" : "MALE",
 	"about" : "die Nr. 1 in deutschlands",
@@ -125,7 +147,7 @@ export class EditProfessionalComponent implements OnInit {
            "amount" : 15.0,
             "currency" : "EUR"
         }
-};
+};*/
         console.log(body);
 	  const token = this.userInfoService.get('access_token');
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -137,7 +159,7 @@ export class EditProfessionalComponent implements OnInit {
 	
 	  this.http[environment.api.profileEdit.method]
         (apiUrl, JSON.stringify(body), options)
-		.map(response => response)
+		.map(response => response) 
 		.subscribe(
 		  response  => {
               console.log(response);

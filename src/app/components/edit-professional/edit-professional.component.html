@@ -49,6 +49,29 @@
 												     				
 												     			</div>
 												     		</div>
+
+															 <div class="form-group col-lg-12 col-sm-12 col-md-12 col-xs-12 proffesional-work-rate">
+												     			<label class="title_edit_page" for="" style="color:#4b4b4b; font-weight: 700;">work rate</label>
+												     			<div>
+												     				<div class="form-group col-lg-6 col-sm-6 col-md-6 col-xs-6 currency-container">
+																		 <label class="title_edit_page b-title" for="" >Currency</label><br>
+													     				<select required name="userCurrency" [(ngModel)]="model.hourlyRate.currency" id="professional-currency-dropdown"  >
+																			<option selected disabled  value="">Currency</option>
+																			<option *ngFor="let curr of userCurrency" [value]="curr.key">{{curr.key}}</option>
+																		</select>												     				
+																						
+												     				</div>
+																	 <div class="form-group col-lg-6 col-sm-6 col-md-6 col-xs-6 profesional-rate-container">
+																		 <label class="title_edit_page b-title" for="" >Rate</label><br>
+																			<input type="number"  name="optionsWorkingDays" value="0" 
+																						[(ngModel)]="model.hourlyRate.amount"/>											     				
+																						
+												     				</div>
+												     				 
+												     			</div>
+												     		</div>
+
+															 
 												     		<div class="form-group clearfix">
 												     			<label class="title_edit_page b-title" for="" >Work hours</label><br>
 												     			<div *ngFor="let slot of timeSlots;let isLast = last" class="row no-margin">

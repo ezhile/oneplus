@@ -12,6 +12,15 @@
 												     			<div id="slider-range"></div>
 			<ion-range-slider #advancedSliderElement type="double"  data-min="21" data-max="100" (onChange)="myOnChange($event)"></ion-range-slider>
 												     		</div> 
+
+															 <div class="form-group">
+												     			<label for="fees">Fees range <span>{{model.feesRange.min}}</span> - <span>{{model.feesRange.max}}</span></label>
+												     			<input type="hidden" id="feesRange" class="form-control"> 
+												     			<div id="slider-range"></div>
+			<ion-range-slider #advancedSliderElement type="double"  data-min="25" data-max="75" (onChange)="myOnfeesRangeChange($event)"></ion-range-slider>
+												     		</div> 
+
+
 												     		<div class="form-group"> 
 												     			<label for="">Gender <span style="color:#afafaf">All</span></label>
 												     			<div class="row gender">
@@ -19,7 +28,7 @@
 												     					<div class="col-md-4"  *ngFor="let option of optionsGender">
 																			<input type="checkbox" id="{{option.name}}1" name="optionsGender" value="{{option.value}}"
 																						[(ngModel)]="option.checked"> <label for="{{option.name}}1"> {{option.name}}</label>
-																		</div> 
+											 							</div> 
 													     				
 												     				</div>
 												     			</div>

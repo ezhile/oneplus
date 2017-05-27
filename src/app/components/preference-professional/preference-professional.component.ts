@@ -32,11 +32,15 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
         "min": '21',
         "max": '100'
       } 
+      this.model.feesRange={
+        "min": '25',
+        "max": '75'
+      } 
 	  this.addressPreferenceCustomer = '';
     } 
 
 
-    model = new PreferenceProfessional('','','');
+    model = new PreferenceProfessional('','','','');
     onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;
@@ -61,14 +65,15 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
 	const uuid = this.userInfoService.get('user-id');
     let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
-	//   let body = {
+	   let body = {
 
-    //         "location" : this.model.location,
-    //         "genders" :this.model.gender,
-    //         "ageRange":this.model.ageRange
-    //     }
+             "location" : this.model.location,
+             "genders" :this.model.gender,
+            "ageRange":this.model.ageRange,
+            "feeRange":this.model.feesRange
+        }
 
-    let body = {
+    /*let body = {
    	"location" : {
 		"address" : "Berlin, Deutschland",
 		"longitude" : "13.447541999999999",
@@ -82,8 +87,8 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
        "feeRange" : {
            "min" : 50,
            "max" : 100
-        }
-};
+        } 
+};*/
         console.log(body);
       const token = this.userInfoService.get('access_token');
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -113,6 +118,12 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     this.model.ageRange.min=Math.round( e.from);
     this.model.ageRange.max=Math.round( e.to);
 	}
+
+    myOnfeesRangeChange(e){
+    this.model.feesRange.min=Math.round( e.from);
+    this.model.feesRange.max=Math.round( e.to);
+	}
+
   
 }
  

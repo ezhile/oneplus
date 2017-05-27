@@ -3,11 +3,12 @@ export class EditProfessional {
     public nickname: string,
     public genderShow: boolean,
     public about: string,
-    public serviceList: string,
+    public serviceList: any,
     public location: any,
     public gender: any,
     public workingDays: any,
-    public workingHours: any
+    public workingHours: any,
+    public hourlyRate:any
   ) {  
     this.location={
       "address" : "",
@@ -17,6 +18,10 @@ export class EditProfessional {
 	this.gender=[];
 	this.workingDays=[];
 	this.workingHours=[];
+  this.hourlyRate={
+    "amount" : 15.0,
+    "currency" : "EUR"
+  };
   }
 }
 

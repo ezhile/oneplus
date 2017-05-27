@@ -94,12 +94,6 @@ export class EditProfessionalComponent implements OnInit {
             "longitude" : this.lng,
             "latitude" : this.lat
           }
-          this.model.gender=[];
-          for(var x in this.optionsGender) {
-              if(this.optionsGender[x].checked) {
-                  this.model.gender.push(this.optionsGender[x].value);
-              }
-          }
           this.model.workingDays=[];
           for(var x in this.optionsWorkingDays) {
               if(this.optionsWorkingDays[x].checked) {
@@ -123,13 +117,14 @@ export class EditProfessionalComponent implements OnInit {
         } , {
            "from" : "19:00",
            "to" : "21:00"
-        } ]
+        } ];
+        console.log(this.timeSlots);
           this.professionalEditSubmit(); 
     }
     professionalEditSubmit() {
 	    let body = {
            "nickname" : this.model.nickname,
-           "gender" : "MALE",
+           "gender" : this.model.gender,
            "about" : this.model.about,
            "location" : this.model.location,
            "showAge" : this.model.genderShow,

@@ -71,9 +71,8 @@ export class EditProfessionalPage implements OnInit {
 		  response  => {
 				this.spinLoader = false;
 				this.hidedefault = true;
-              this.photoThumnail = response.base64encodedThumbnail;
-              //console.log(this.photoThumnail);
-              $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
+        this.photoThumnail = response.base64encodedThumbnail;
+        $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
 		  },
           error =>  {
 		  
@@ -139,8 +138,8 @@ export class EditProfessionalPage implements OnInit {
 	
 	getItemObjects = [{category: 'Angular', key: 'any'},{category: 'React', key: 'any1'}, {category: 'Node', key: 'any2'}];	
 	setItemObjects = [];
-	onItemAdded(e) {		
-		this.setItemObjects.push(e);	
+	onItemAdded(item) {		
+		this.setItemObjects.push(item);	
 		console.log(this.setItemObjects);		
 	}
   updateUserServiceMessage(){
@@ -162,26 +161,17 @@ export class EditProfessionalPage implements OnInit {
 
   editProfesionalCallDone(event){
     console.log('event called');
-    let response=JSON.parse(event._body);
-    this.userViewObj=response;
-    if(response.profile){
-          this.userViewProfile=response.profile;
-          if(response.profile.location){
-            this.userViewLocation=response.profile.location;
-          }
-          if(response.profile.services){
-            this.userServiceMessages=response.profile.services;
-          }
-          if(response.profile.rate){
-            this.userViewRate=response.profile.rate;
-          }
-          if(response.profile.workingHours){
-            this.workingHours = response.profile.workingHours;
-          }
-        };	
+    let response=event;
+    this.userViewProfile.about = response.about;
+    this.userViewProfile.age = response.age;
+    this.userViewProfile.gender = response.gender;
+    this.userViewProfile.nickname = response.nickname;
+    this.userViewLocation.address = response.location.address;
+    this.workingHours = response.workingHours;
+    this.userViewRate.amount = response.hourlyRate.amount;
+
+    this.photoThumnail = response.picture.base64encodedThumbnail;
+    $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
     this.updateUserServiceMessage(); 
   }
-
-
-
 }

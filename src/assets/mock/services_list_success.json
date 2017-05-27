@@ -1,0 +1,22 @@
+[ {
+  "key" : "SERVICE5",
+  "category" : "GARDEROBE"
+}, {
+  "key" : "SERVICE6",
+  "category" : "GARDEROBE"
+}, {
+  "key" : "SERVICE7",
+  "category" : "GARDEROBE"
+}, {
+  "key" : "SERVICE1",
+  "category" : "SERVICE"
+}, {
+  "key" : "SERVICE2",
+  "category" : "SERVICE"
+}, {
+  "key" : "SERVICE3",
+  "category" : "SERVICE"
+}, {
+  "key" : "SERVICE4",
+  "category" : "SERVICE"
+} ]

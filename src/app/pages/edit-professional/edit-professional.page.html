@@ -46,7 +46,7 @@
 											<div class="modal fade login-box change-profile-box change-profile-boxs" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 											  <div class="modal-dialog modal-smd" role="document">
 											    <div class="modal-content">
-											     	<app-edit-professional (onEditProfeesionalComplete)="editProfesionalCallDone($event)"></app-edit-professional>
+											     	<app-edit-professional (onEditProfesionalComplete)="editProfesionalCallDone($event)"></app-edit-professional>
 											    </div>
 											  </div>
 											</div>
@@ -65,17 +65,17 @@
 										</div>
 									</div>
 									<div class="favorite">
-										<p><i class="md-icon md-48">favorite</i></p>
+										<p><i class="md-icon md-48">favorite</i></p> 
 										<p>{{userViewObj.favoritesCount}}</p>
 									</div>
 								</div>
 							</div>
 							<div>
 
-							<tag-input  (onAdd)="onItemAdded($event)" [ngModel]="setItemObjects">
+							<!--<tag-input  (onAdd)="onItemAdded($event)" name="services" [ngModel]="setItemObjects">
 								<tag-input-dropdown [autocompleteItems]="getItemObjects" [identifyBy]="'key'" [displayBy]="'category'">
 								</tag-input-dropdown>
-							</tag-input>
+							</tag-input>-->
 							
 							</div>
 							<div class="more-profile">

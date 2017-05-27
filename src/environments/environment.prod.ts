@@ -28,6 +28,10 @@ export const environment = {
       preferenceEdit:{
           method : "put",
           url : "http://46.38.242.27:8082/api/user/{uuid}/preference"
+      },
+      servicesList:{
+          method : "get",
+          url : "http://46.38.242.27:8082/api/metadata/service"
       }
       
   }

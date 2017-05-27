@@ -2308,3 +2308,6 @@ footer .one-plus-logo {
 .no-margin{
   margin: 0 !important;
 }
+.ng2-tag-input.ng2-tag-input--focused{
+  border-bottom: 2px solid #ed5d5d !important;
+}

@@ -50,30 +50,28 @@ export class EditCustomerPage implements OnInit {
     imageUpload(event) {
       this.isPhotoUploaded = true;
       this.base64textString = event;
-	  let body = { "base64Content" : this.base64textString}; 
-	  const token = this.userInfoService.get('access_token');
-	  let headers = new Headers({ 'Content-Type': 'application/json' });
-    headers.append('Authorization','Bearer '+token);
-	  let options = new RequestOptions({ headers: headers });
-	  const uuid = this.userInfoService.get('user-id');
+	    let body = { "base64Content" : this.base64textString}; 
+	    const token = this.userInfoService.get('access_token');
+	    let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('Authorization','Bearer '+token);
+	    let options = new RequestOptions({ headers: headers });
+	    const uuid = this.userInfoService.get('user-id');
       let apiUrl = environment.api.photoUpload.url.replace("{uuid}", uuid);
       this.spinLoader = true;
 	
 	  this.http[environment.api.photoUpload.method]
         (apiUrl, JSON.stringify(body), options)
-		.map(response => response.json())
-		.subscribe(
-		  response  => {
-				this.spinLoader = false;
-				this.hidedefault = true;
-              this.photoThumnail = response.base64encodedThumbnail;
-              //console.log(this.photoThumnail);
-              $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
-		  },
+		    .map(response => response.json())
+		    .subscribe(
+		      response  => {
+				    this.spinLoader = false;
+				    this.hidedefault = true;
+            this.photoThumnail = response.base64encodedThumbnail;
+            $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
+		      },
           error =>  {
-		  
-		  } 
-		);
+		      } 
+		  );
 	}
   onPhotoHover(){
     if(this.isPhotoUploaded){
@@ -144,23 +142,16 @@ export class EditCustomerPage implements OnInit {
 
   editCustomerCallDone(event){
     console.log('event called');
-    let response=JSON.parse(event._body);
-    this.userViewObj=response;
-    if(response.profile){
-        this.userViewProfile=response.profile;
-        if(response.profile.location){
-          this.userViewLocation=response.profile.location;
-        }
-        if(response.profile.services){
-          this.userServiceMessages=response.profile.services;
-        }
-        if(response.profile.rate){
-          this.userViewRate=response.profile.rate;
-        }
-        if(response.profile.workingHours){
-          this.workingHours = response.profile.workingHours;
-        }
-    };
+    let response=event;
+    this.userViewProfile.about = response.about;
+    this.userViewProfile.age = response.age;
+    this.userViewProfile.gender = response.gender;
+    this.userViewProfile.nickname = response.nickname;
+    this.userViewLocation.address = response.location.address;
+    this.spinLoader = false;
+		this.hidedefault = true;
+    this.photoThumnail = response.picture.base64encodedThumbnail;
+    $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
     this.updateUserServiceMessage(); 
   }
 

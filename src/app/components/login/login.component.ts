@@ -50,8 +50,7 @@ export class LoginComponent implements OnInit {
 									if(response["user-roles"]=="ROLE_PROFESSIONAL"){
 										this.router.navigate(['/profile/editProfessional']);
 									}else{
-										//this.router.navigate(['/profile/editCustomer']);
-										this.router.navigate(['/profile/editProfessional']);
+										this.router.navigate(['/profile/editCustomer']);
 									}      
 			  }  
 			  if(response.code==="ERR_ACCESS_DENIED"){

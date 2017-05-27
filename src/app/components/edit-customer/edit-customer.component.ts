@@ -52,12 +52,11 @@ export class EditCustomerComponent implements OnInit {
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
       headers.append('Authorization','Bearer '+token);
 	  let options = new RequestOptions({ headers: headers });
-    //let apiUrl = environment.api.profileEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
     let apiUrl = environment.api.profileEdit.url.replace("{uuid}",uuid);
 
 	  this.http[environment.api.profileEdit.method]
         (apiUrl, JSON.stringify(body), options)
-		.map(response => response)
+		.map(response => response.json())
 		.subscribe(
 		  response  => {
               console.log(response);

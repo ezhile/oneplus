@@ -9,7 +9,7 @@ declare  var $:any;
 @Component({
   selector: 'edit-professional-page', 
   templateUrl: 'edit-professional.page.html',
-  styleUrls: ['edit-professional.page.css']
+  styleUrls: ['edit-professional.page.css'] 
 })
 export class EditProfessionalPage implements OnInit {
     
@@ -169,7 +169,8 @@ export class EditProfessionalPage implements OnInit {
     this.userViewLocation.address = response.location.address;
     this.workingHours = response.workingHours;
     this.userViewRate.amount = response.hourlyRate.amount;
-
+    this.spinLoader = false;
+		this.hidedefault = true;
     this.photoThumnail = response.picture.base64encodedThumbnail;
     $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
     this.updateUserServiceMessage(); 

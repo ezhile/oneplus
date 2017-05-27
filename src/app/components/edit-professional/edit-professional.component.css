@@ -3,11 +3,16 @@
 }
 #professional-currency-dropdown{
     font-size: 16px;
+    width:90px;
     height:25px;
 }
-
+#professional-hourly-rate{
+    width:90px;
+    height:25px;
+    font-size: 16px;
+}
 .profesional-rate-container{
-
+padding-left: 0px;
 }
 .proffesional-work-rate{
     padding-left: 0px;

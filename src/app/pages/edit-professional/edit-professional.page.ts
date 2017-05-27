@@ -41,7 +41,7 @@ export class EditProfessionalPage implements OnInit {
       amount:""
     };
     isCustomer=true;
-    userServiceMessages={};
+    userServiceMessages=[];
     userWorkingHours='';
     userServiceMsgText=''; 
     workingHours=[];
@@ -137,7 +137,7 @@ export class EditProfessionalPage implements OnInit {
 	
 	
 	getItemObjects = [{category: 'Angular', key: 'any'},{category: 'React', key: 'any1'}, {category: 'Node', key: 'any2'}];	
-	setItemObjects = [];
+	setItemObjects = [];   
 	onItemAdded(item) {		
 		this.setItemObjects.push(item);	
 		console.log(this.setItemObjects);		
@@ -147,7 +147,7 @@ export class EditProfessionalPage implements OnInit {
 		this.userServiceMsgText='';
 		for(let i in obj){
 		
-				this.userServiceMsgText=this.userServiceMsgText + obj[i].category+' '+obj[i].name+' ';
+				this.userServiceMsgText=this.userServiceMsgText + obj[i].category+' '+obj[i].key+' ';
 			
 		}
 		let UserWorkingHourArr=[]
@@ -169,6 +169,7 @@ export class EditProfessionalPage implements OnInit {
     this.userViewLocation.address = response.location.address;
     this.workingHours = response.workingHours;
     this.userViewRate.amount = response.hourlyRate.amount;
+    this.userServiceMessages = response.services;
     this.spinLoader = false;
 		this.hidedefault = true;
     this.photoThumnail = response.picture.base64encodedThumbnail;

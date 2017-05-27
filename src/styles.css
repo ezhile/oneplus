@@ -2314,3 +2314,9 @@ footer .one-plus-logo {
 .ng2-dropdown-menu {
 	z-index: 9999 !important;
 }
+input.ng2-tag-input__text-input {
+    background-color: transparent !important;
+}
+input.ng2-tag-input__text-input::placeholder {
+    color:#999;
+}

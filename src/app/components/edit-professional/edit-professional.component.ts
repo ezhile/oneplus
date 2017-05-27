@@ -49,13 +49,7 @@ export class EditProfessionalComponent implements OnInit {
 
     } 
     model = new EditProfessional('', false,'','','',[],'','','');
-
-    getItemObjects = [{category: 'Angular', key: 'any'},{category: 'React', key: 'any1'}, {category: 'Node', key: 'any2'}];	
-	setItemObjects = []; 
-	onItemAdded(item) {		
-		this.setItemObjects.push(item);	
-		console.log(this.setItemObjects);		
-	}
+    availableServices = [];
     
     getServicesList(){
         const token = this.userInfoService.get('access_token');
@@ -68,7 +62,7 @@ export class EditProfessionalComponent implements OnInit {
 		    .map(response => response.json()) 
 		    .subscribe(
 		        response  => {
-                    this.getItemObjects = response;            
+                    this.availableServices = response;            
 		        },
                 error =>  {
 		        } 

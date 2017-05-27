@@ -24,3 +24,9 @@ padding-left: 0px;
     padding-left: 10px !important;
     padding-right: 10px !important;
 }
+.inputStyle{
+    height: 51px!important;
+    font-family: SFNS Display !important;
+    font-size: 20px !important;
+    padding: 10px 10px !important;
+}

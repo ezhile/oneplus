@@ -5,7 +5,7 @@ export class EditProfessional {
     public about: string,
     public serviceList: any,
     public location: any,
-    public gender: string,
+    public gender: Array<string>,
     public workingDays: any,
     public workingHours: any,
     public hourlyRate:any

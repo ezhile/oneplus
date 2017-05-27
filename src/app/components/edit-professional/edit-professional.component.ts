@@ -41,16 +41,14 @@ export class EditProfessionalComponent implements OnInit {
       {name:'Sa', value:'sa', checked:false},
       {name:'Su', value:'su', checked:false}
     ];
-    userCurrency = [ {id: '1', key:'USD'},
-           {id: '2', key: 'EUR'},
-           {id: '3', key: 'IND'}];
+    userCurrency = [ {id: '1', key:'USD'}, {id: '2', key: 'EUR'}, {id: '3', key: 'GBP'}];
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
         this.getServicesList();
     }
     ngOnInit() {
 
     } 
-    model = new EditProfessional('', false,'','','','','','','');
+    model = new EditProfessional('', false,'','','',[],'','','');
 
     getItemObjects = [{category: 'Angular', key: 'any'},{category: 'React', key: 'any1'}, {category: 'Node', key: 'any2'}];	
 	setItemObjects = []; 

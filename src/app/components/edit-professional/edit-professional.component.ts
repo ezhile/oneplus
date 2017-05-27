@@ -78,8 +78,7 @@ export class EditProfessionalComponent implements OnInit {
     }
 
     addTimeSlot(){
-        //alert("asasas")
-        this.timeSlots.push({"from":"00:00", "to":"00:00"});
+        this.timeSlots.push({"from":"00:00", "to":"00:00"}); 
     }
     
     onAddressChange(e){
@@ -93,6 +92,12 @@ export class EditProfessionalComponent implements OnInit {
             "address" : this.getAdrress,
             "longitude" : this.lng,
             "latitude" : this.lat
+          }
+          this.model.gender=[];
+          for(var x in this.optionsGender) {
+              if(this.optionsGender[x].checked) {
+                  this.model.gender.push(this.optionsGender[x].value);
+              }
           }
           this.model.workingDays=[];
           for(var x in this.optionsWorkingDays) {
@@ -117,14 +122,13 @@ export class EditProfessionalComponent implements OnInit {
         } , {
            "from" : "19:00",
            "to" : "21:00"
-        } ];
-        console.log(this.timeSlots);
+        } ]
           this.professionalEditSubmit(); 
     }
     professionalEditSubmit() {
 	    let body = {
            "nickname" : this.model.nickname,
-           "gender" : this.model.gender,
+           "gender" : "MALE",
            "about" : this.model.about,
            "location" : this.model.location,
            "showAge" : this.model.genderShow,

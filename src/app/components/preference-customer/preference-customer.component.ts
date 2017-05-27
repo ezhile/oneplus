@@ -18,11 +18,11 @@ export class PreferenceCustomerComponent implements AfterViewInit {
     public addressPreferenceCustomer:any;
     public getAdrress:string;  
     optionsGender = [ 
-      {name:'Male', value:'1', checked:true},
-      {name:'FeMale', value:'2', checked:false},
-      {name:'Trans', value:'3', checked:false},
-      {name:'Others', value:'4', checked:false},
-      {name:'Not specifiled', value:'5', checked:false}
+      {name:'Male', value:'MALE', checked:true},
+      {name:'FeMale', value:'FEMALE', checked:false},
+      {name:'Trans', value:'TRANS', checked:false},
+      {name:'Others', value:'OTHER', checked:false},
+      {name:'Not specified', value:'NOT_SPECIFIED', checked:false}
     ]
 
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
@@ -30,13 +30,9 @@ export class PreferenceCustomerComponent implements AfterViewInit {
     }
     ngAfterViewInit() {
         this.model.ageRange={
-			"min": '21',
-			"max": '100'
-		} 
-    this.model.feesRange={
-        "min": '25',
-        "max": '75'
-      } 
+			    "min": '21',
+			    "max": '100'
+		    } 
     } 
 
 
@@ -56,57 +52,47 @@ export class PreferenceCustomerComponent implements AfterViewInit {
           this.model.gender=[];
           for(var x in this.optionsGender) {
               if(this.optionsGender[x].checked) {
-                  this.model.gender.push(this.optionsGender[x].name);
+                  this.model.gender.push(this.optionsGender[x].value);
               }
           }
-          console.log('genderss');
-          console.log(this.model.gender);
-          console.log(this.getAdrress);
+
           this.customerPreferenceubmit(); 
     }
     customerPreferenceubmit() {
-		const uuid = this.userInfoService.get('user-id');
-    //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-    let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
-	 let body = {
-
-             "location" : this.model.location,
-             "genders" :this.model.gender,
-            "ageRange":this.model.ageRange,
-            "feeRange":this.model.feesRange
-        }
-        console.log(body);
-	  const token = this.userInfoService.get('access_token');
-	  let headers = new Headers({ 'Content-Type': 'application/json' });
+		  const uuid = this.userInfoService.get('user-id');
+      let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
+	    let body = {
+        "location" : this.model.location,
+        "genders" :this.model.gender,
+        "ageRange":this.model.ageRange
+      }
+      console.log(body);
+	    const token = this.userInfoService.get('access_token');
+	    let headers = new Headers({ 'Content-Type': 'application/json' });
       headers.append('Authorization','Bearer '+token);
-	  let options = new RequestOptions({ headers: headers });
+	    let options = new RequestOptions({ headers: headers });
 	
-	  this.http[environment.api.preferenceEdit.method]
+	    this.http[environment.api.preferenceEdit.method]
         (apiUrl, JSON.stringify(body), options)
-		.map(response => response.json())
-		.subscribe(
-		  response  => {
+		    .map(response => response.json())
+		    .subscribe(
+		      response  => {
               console.log(response);
               this.closeModel();	  
-		  },
+		      },
           error =>  {
-		  alert('error');
-      this.closeModel();
-		  } 
-		);
+		          alert('error');
+              this.closeModel();
+		      } 
+		    );
 	}
   closeModel(){
      $(".change-preference").modal("hide");
   }
-  myOnChange(e){
+  onAgeChange(e){
     this.model.ageRange.min=Math.round( e.from);
     this.model.ageRange.max=Math.round( e.to);
 	}
-  
-  myOnfeesRangeChange(e){
-    this.model.feesRange.min=Math.round( e.from);
-    this.model.feesRange.max=Math.round( e.to);
-	}
-  
+    
 }
 

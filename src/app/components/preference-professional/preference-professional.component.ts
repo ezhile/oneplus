@@ -114,12 +114,12 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
      $(".change-preference").modal("hide");
   }
 	
-	myOnChange(e){
+	onAgeChange(e){
     this.model.ageRange.min=Math.round( e.from);
     this.model.ageRange.max=Math.round( e.to);
 	}
 
-    myOnfeesRangeChange(e){
+    onFeesChange(e){
     this.model.feesRange.min=Math.round( e.from);
     this.model.feesRange.max=Math.round( e.to);
 	}

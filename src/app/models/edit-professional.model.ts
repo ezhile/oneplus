@@ -5,7 +5,7 @@ export class EditProfessional {
     public about: string,
     public serviceList: any,
     public location: any,
-    public gender: any,
+    public gender: string,
     public workingDays: any,
     public workingHours: any,
     public hourlyRate:any
@@ -15,7 +15,6 @@ export class EditProfessional {
       "longitude" : "",
       "latitude" : ""
     };
-	this.gender=[];
 	this.workingDays=[];
 	this.workingHours=[];
   this.hourlyRate={

@@ -29,8 +29,8 @@
 												     			<div class="row gender">
 												     				<div class="form-group">
 												     					<div class="col-md-4"  *ngFor="let option of optionsGender"> 
-																			<input type="checkbox" id="{{option.name}}" name="optionsGender" value="{{option.value}}"
-																						[(ngModel)]="option.checked"> <label for="{{option.name}}"> {{option.name}}</label>
+																			<input type="radio" id="{{option.name}}" name="optionsGender" value="{{option.value}}"
+																						[(ngModel)]="model.gender"> <label for="{{option.name}}"> {{option.name}}</label>
 																		</div> 
 												     				</div>
 												     			</div>

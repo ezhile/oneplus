@@ -33,10 +33,14 @@ export class PreferenceCustomerComponent implements AfterViewInit {
 			"min": '21',
 			"max": '100'
 		} 
+    this.model.feesRange={
+        "min": '25',
+        "max": '75'
+      } 
     } 
 
 
-    model = new PreferenceCustomer('', '','');
+    model = new PreferenceCustomer('', '','','');
     onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;
@@ -64,14 +68,17 @@ export class PreferenceCustomerComponent implements AfterViewInit {
 		const uuid = this.userInfoService.get('user-id');
     //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
     let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
-	  let body = {
+	 let body = {
 
-            "location" : this.model.location,
-            "gender" :this.model.gender,
-            ageRange:this.model.ageRange
-        } 
+             "location" : this.model.location,
+             "genders" :this.model.gender,
+            "ageRange":this.model.ageRange,
+            "feeRange":this.model.feesRange
+        }
         console.log(body);
+	  const token = this.userInfoService.get('access_token');
 	  let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('Authorization','Bearer '+token);
 	  let options = new RequestOptions({ headers: headers });
 	
 	  this.http[environment.api.preferenceEdit.method]
@@ -95,5 +102,11 @@ export class PreferenceCustomerComponent implements AfterViewInit {
     this.model.ageRange.min=Math.round( e.from);
     this.model.ageRange.max=Math.round( e.to);
 	}
+  
+  myOnfeesRangeChange(e){
+    this.model.feesRange.min=Math.round( e.from);
+    this.model.feesRange.max=Math.round( e.to);
+	}
+  
 }
 

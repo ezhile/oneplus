@@ -29,7 +29,7 @@
     "ng2-google-place-autocomplete": "^1.4.2",
     "ng2-ion-range-slider": "^1.0.2",
     "ng2-nouislider": "^1.6.0",
-    "ng2-tag-input": "^1.2.9",
+    "ng2-tag-input": "1.2.8",
     "ng2-translate": "^5.0.0",
     "nouislider": "^9.2.0",
     "rxjs": "^5.1.0",

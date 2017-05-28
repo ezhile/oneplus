@@ -38,8 +38,9 @@
 												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you" [(ngModel)]="model.about" name="about" #name="ngModel"></textarea>
 												     		</div>
 												     		<div class="form-group button-form">
-												     			<button type="submit" >Done</button>
+												     			<button [disabled]="submitted" [ngClass]="{'btn-active':!submitted , 'btn-inactive': submitted }" type="submit">Done</button>
 												     		</div>
+															 <div class="text-center" *ngIf="submitted"> Sending Details.....<img class="imageLoader" src="assets/images/loader.gif" ></div>
 												     	</form>
 											     	</div>
 											     	<div data-dismiss="modal" class="close">

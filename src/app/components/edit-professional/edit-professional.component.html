@@ -53,7 +53,7 @@
 															 <div class="form-group col-lg-12 col-sm-12 col-md-12 col-xs-12 proffesional-work-rate">
 												     			<label class="title_edit_page" for="" style="color:#4b4b4b; font-weight: 700;">Hourly rate</label>
 												     			<div class="row no-margin"> 
-																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">Rate</label><input type="number" id="professional-hourly-rate" class="form-control inputStyle" name="optionsWorkingDays" value="0" [(ngModel)]="model.hourlyRate.amount" placeholder="amount" style="width:80px;float:left"/>  
+																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">Rate</label><input type="number" id="professional-hourly-rate" class="form-control inputStyle" name="optionsWorkingDays" value="0" [(ngModel)]="model.hourlyRate.amount" placeholder="amount" min="0" style="width:105px;float:left"/>  
 												     				<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">Currency</label><select required name="userCurrency" [(ngModel)]="model.hourlyRate.currency" id="professional-currency-dropdown" class="form-control inputStyle" style="width:100px;float:left"><option selected disabled  value="">Currency</option><option *ngFor="let curr of userCurrency" [value]="curr.key">{{curr.key}}</option></select> 
 																</div>
 																 <!--<div>
@@ -79,7 +79,7 @@
 															 
 												     		<div class="form-group clearfix">
 												     			<label class="title_edit_page b-title" for="" >Work hours</label><br>
-												     			<div *ngFor="let slot of timeSlots;let isLast = last; let id = index;" class="row no-margin"> 
+												     			<div *ngFor="let slot of model.workingHours;let isLast = last; let id = index;" class="row no-margin"> 
 																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label><input type="text" class="form-control pad-lt-rt-10" name="from{{id}}" [(ngModel)]="slot.from" style="width:80px;float:left">  
 												     				<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label><input type="text" class="form-control pad-lt-rt-10" name="to{{id}}" [(ngModel)]="slot.to" style="width:80px;float:left"> 
 												     				<button [hidden]="!isLast" type="button" (click)="addTimeSlot();" class="add_time timeslot-btn">+ add time slot</button> 
@@ -93,8 +93,8 @@
 												     		<!-- new-code -->
 												     		<div class="form-group">
 												     			<label class="title_edit_page b-title" for="">Service</label>
-												     			<!--<textarea name="" id="" rows="7" class="form-control" placeholder="List the services you are offering" [(ngModel)]="model.serviceList" name="serviceList" #name="ngModel"></textarea>-->
-																 <tag-input [onlyFromAutocomplete]="true" name="services" [ngModel]="model.serviceList"> 
+												     			<!--<textarea name="" id="" rows="7" class="form-control" placeholder="List the services you are offering" [(ngModel)]="model.serviceList" name="serviceList" #name="ngModel"></textarea>--> 
+																 <tag-input [onlyFromAutocomplete]="true" name="services" [(ngModel)]="model.serviceList"> 
 																	<tag-input-dropdown [autocompleteItems]="availableServices" [identifyBy]="'key'" [displayBy]="'key'">
 																	</tag-input-dropdown>
 																</tag-input>

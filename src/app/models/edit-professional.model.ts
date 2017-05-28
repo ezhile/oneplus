@@ -7,7 +7,7 @@ export class EditProfessional {
     public location: any,
     public gender: Array<string>,
     public workingDays: any,
-    public workingHours: any,
+    public workingHours: Array<any>,
     public hourlyRate:any
   ) {  
     this.location={

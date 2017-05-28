@@ -21,10 +21,6 @@ export class EditProfessionalComponent implements OnInit {
 
     @Output() onEditProfesionalComplete: EventEmitter<string> = new EventEmitter<string>();
 
-    timeSlots = [
-        {from:"00:00", to:"00:00"}
-    ];
-
     optionsGender = [ 
       {name:'Male', value:'MALE', checked:true},
       {name:'FeMale', value:'FEMALE', checked:false},
@@ -43,13 +39,27 @@ export class EditProfessionalComponent implements OnInit {
     ];
     userCurrency = [ {id: '1', key:'USD'}, {id: '2', key: 'EUR'}, {id: '3', key: 'GBP'}];
     constructor(private http: Http, private router: Router, private userInfoService: UserInfoService) {
-        this.getServicesList();
+        
     }
     ngOnInit() {
+        this.model.workingHours = [
+            {from:"00:00", to:"00:00"}
+        ];
 
+        this.getServicesList();
     } 
-    model = new EditProfessional('', false,'','','',[],'','','');
+    model = new EditProfessional('', false,'','','',[],'',[],'');
+    
     availableServices = [];
+
+    removeDupeKeys(serviceList){ 
+       let services = serviceList
+        for(var i in services){
+            delete services[i].display;
+            delete services[i].value;
+        }
+        return services;
+    }
     
     getServicesList(){
         const token = this.userInfoService.get('access_token');
@@ -70,7 +80,7 @@ export class EditProfessionalComponent implements OnInit {
     }
 
     addTimeSlot(){
-        this.timeSlots.push({"from":"00:00", "to":"00:00"}); 
+        this.model.workingHours.push({"from":"00:00", "to":"00:00"}); 
     }
     
     onAddressChange(e){
@@ -97,24 +107,6 @@ export class EditProfessionalComponent implements OnInit {
                   this.model.workingDays.push(this.optionsWorkingDays[x].value);
               }
           }
-          this.model.serviceList = [{
-                    "category" : "SERVICE",
-                    "key": "SERVICE1"
-            },
-            {
-                    "category" : "GARDEROBE",
-                    "key": "SERVICE6"
-            }];
-            this.model.workingHours= [ {
-            "from" : "09:00",
-            "to" : "12:00"
-         }, {
-           "from" : "13:00",
-           "to" : "18:00"
-        } , {
-           "from" : "19:00",
-           "to" : "21:00"
-        } ]
           this.professionalEditSubmit(); 
     }
     professionalEditSubmit() {
@@ -124,7 +116,7 @@ export class EditProfessionalComponent implements OnInit {
            "about" : this.model.about,
            "location" : this.model.location,
            "showAge" : this.model.genderShow,
-           "serviceList": this.model.serviceList,
+           "serviceList": this.removeDupeKeys(this.model.serviceList),
            "workDays": this.model.workingDays,
            "workingHours": this.model.workingHours,
            "hourlyRate": this.model.hourlyRate

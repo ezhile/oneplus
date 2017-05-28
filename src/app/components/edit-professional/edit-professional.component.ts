@@ -49,7 +49,7 @@ export class EditProfessionalComponent implements OnInit {
         this.getServicesList();
     } 
     model = new EditProfessional('', false,'','','','','',[],''); 
-    
+    submitted = false;
     availableServices = [];
 
     removeDupeKeys(serviceList){ 
@@ -89,17 +89,11 @@ export class EditProfessionalComponent implements OnInit {
     }
 
     editProfessionalSend(){
-        
+          this.submitted = true;
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
             "latitude" : this.lat
-          }
-          this.model.gender=[];
-          for(var x in this.optionsGender) {
-              if(this.optionsGender[x].checked) {
-                  this.model.gender.push(this.optionsGender[x].value);
-              }
           }
           this.model.workingDays=[];
           for(var x in this.optionsWorkingDays) {
@@ -112,7 +106,7 @@ export class EditProfessionalComponent implements OnInit {
     professionalEditSubmit() {
 	    let body = {
            "nickname" : this.model.nickname,
-           "gender" : "MALE",
+           "gender" : this.model.gender,
            "about" : this.model.about,
            "location" : this.model.location,
            "showAge" : this.model.genderShow,

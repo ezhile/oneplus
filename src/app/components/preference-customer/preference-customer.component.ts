@@ -37,13 +37,14 @@ export class PreferenceCustomerComponent implements AfterViewInit {
 
 
     model = new PreferenceCustomer('', '','','');
+    submitted = false;
     onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;
     }
 
     preferenceCustomerSend(){
-        
+          this.submitted = true;
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -88,6 +89,7 @@ export class PreferenceCustomerComponent implements AfterViewInit {
 	}
   closeModel(){
      $(".change-preference").modal("hide");
+     this.submitted = false;
   }
   onAgeChange(e){
     this.model.ageRange.min=Math.round( e.from);

@@ -26,12 +26,14 @@ export class EditCustomerComponent implements OnInit {
 
     } 
     model = new EditCustomer('', '','','');
+    submitted = false;
     onAddressChange(e){
         
         this.getAdrress = e.formatted_address;
     }
 
-    editCustomerSend(){		
+    editCustomerSend(){	
+          this.submitted = true;	
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -71,6 +73,7 @@ export class EditCustomerComponent implements OnInit {
 	}
   closeModel(){
      $(".change-profile-boxs").modal("hide");
+     this.submitted = false;
   }
 }
 

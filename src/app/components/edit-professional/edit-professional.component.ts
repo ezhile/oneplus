@@ -48,12 +48,12 @@ export class EditProfessionalComponent implements OnInit {
 
         this.getServicesList();
     } 
-    model = new EditProfessional('', false,'','','',[],'',[],'');
+    model = new EditProfessional('', false,'','','','','',[],''); 
     
     availableServices = [];
 
     removeDupeKeys(serviceList){ 
-       let services = serviceList
+       let services = serviceList;
         for(var i in services){
             delete services[i].display;
             delete services[i].value;

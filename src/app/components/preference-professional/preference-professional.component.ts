@@ -41,6 +41,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 
 
     model = new PreferenceProfessional('','','','');
+    submitted = false;
     onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;
@@ -48,6 +49,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 
     preferenceProfessionalSend(){
         
+         this.submitted = true;
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -112,6 +114,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 
   closeModel(){
      $(".change-preference").modal("hide");
+     this.submitted = false;
   }
 	
 	onAgeChange(e){

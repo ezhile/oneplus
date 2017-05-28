@@ -2320,3 +2320,11 @@ input.ng2-tag-input__text-input {
 input.ng2-tag-input__text-input::placeholder {
     color:#999;
 }
+.btn-active{
+    opacity: 1;
+}
+.btn-inactive{
+    opacity: 0.5;
+}
+
+

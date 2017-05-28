@@ -50,6 +50,7 @@ export class EditProfessionalComponent implements OnInit {
     } 
     model = new EditProfessional('', false,'','','','','','','');
     availableServices = [];
+    submitted = false;
     
     getServicesList(){
         const token = this.userInfoService.get('access_token');
@@ -79,7 +80,7 @@ export class EditProfessionalComponent implements OnInit {
     }
 
     editProfessionalSend(){
-        
+          this.submitted = true;
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -148,6 +149,7 @@ export class EditProfessionalComponent implements OnInit {
 		);
 	}
   closeModel(){
+      this.submitted = false;
      $(".change-profile-boxs").modal("hide");
   }
 }

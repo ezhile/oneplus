@@ -101,9 +101,10 @@
 												     		</div>
 												     		<!-- end new-code -->
 												     		<div class="form-group button-form">
-												     			<button type="submit">Done</button>
+												     			<button [disabled]="submitted" [ngClass]="{'btn-active':!submitted , 'btn-inactive': submitted }" type="submit">Done</button>
 												     		</div>
-												     	</form>
+															 <div class="text-center" *ngIf="submitted"> Sending Details.....<img class="imageLoader" src="assets/images/loader.gif" ></div>
+												     	</form> 
 											     	</div>
 											     	<div data-dismiss="modal" class="close">
 											     		<img src="assets/images/x.png" alt="">

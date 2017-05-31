@@ -140,6 +140,7 @@ export class EditProfessionalComponent implements OnInit {
 		);
 	}
   closeModel(){
+      this.submitted = false;
      $(".change-profile-boxs").modal("hide");
   }
 }

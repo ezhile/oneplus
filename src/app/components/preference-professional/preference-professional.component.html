@@ -1,7 +1,7 @@
 <h2 class="title_popup_pre">preference</h2>
 											     	<p class="under_h2" style="color:#000; margin:0px;margin-bottom: 15px;">choose who can see you</p>
 											     	<div class="form-login">
-											     		<form action="" (ngSubmit)="preferenceProfessionalSend()" #preferenceProfessionalForm="ngForm">
+											     		<form  action="" (ngSubmit)="preferenceProfessionalSend(preferenceProfessionalForm)" #preferenceProfessionalForm="ngForm">
 												     		<div class="form-group">
 												     			<label for="">Location <span style="color:#afafaf">Everybody</span></label>
 												     			<input type="text" placeholder="Enter your location" name="addressPreferenceCustomer" class="form-control map-pointer" [(ngModel)] = "addressPreferenceCustomer" (setAddress)="onAddressPreferenceCustomerChange($event)" (lat)='lat=$event' (lng)='lng=$event'  ng2-google-place-autocomplete/> 
@@ -10,7 +10,7 @@
 												     			<label for="age">Age range <span>{{model.ageRange.min}}</span> - <span>{{model.ageRange.max}}</span></label>
 												     			<input type="hidden" id="age" class="form-control"> 
 												     			<div id="slider-range"></div>
-			<ion-range-slider #advancedSliderElement type="double"  data-min="21" data-max="100" (onChange)="onAgeChange($event)"></ion-range-slider>
+			<ion-range-slider #advancedSliderElement type="double"  data-min="{{model.ageRange.min}}" data-max="{{model.ageRange.max}}" (onChange)="onAgeChange($event)"></ion-range-slider>
 												     		</div> 
 
 															 <div class="form-group">

@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+import {NgForm} from '@angular/forms';
 declare var $:any;
 
 @Component({
@@ -18,6 +19,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     public address:any;
     public getAdrress:string;  
     public addressPreferenceCustomer:any;  
+    showForm:boolean = true;
     optionsGender = [ 
       {name:'Male', value:'MALE', checked:true},
       {name:'FeMale', value:'FEMALE', checked:false},
@@ -47,7 +49,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
         this.getAdrress = e.formatted_address;
     }
 
-    preferenceProfessionalSend(){
+    preferenceProfessionalSend(preferenceProfessionalForm:NgForm){
         
          this.submitted = true;
           this.model.location={
@@ -61,9 +63,9 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
                   this.model.gender.push(this.optionsGender[x].value);
               }
           }
-          this.preferenceEditSubmit(); 
+          this.preferenceEditSubmit(preferenceProfessionalForm); 
     }
-    preferenceEditSubmit() {
+    preferenceEditSubmit(preferenceProfessionalForm) {
     //let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
 	const uuid = this.userInfoService.get('user-id');
     let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
@@ -103,18 +105,20 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 		.subscribe(
 		  response  => {
               console.log(response)	 ;
-              this.closeModel(); 
+              this.closeModel(preferenceProfessionalForm); 
 		  },
           error =>  {
 		  alert('error');
-      this.closeModel(); 
+      this.closeModel(preferenceProfessionalForm); 
 		  } 
 		);
 	}
 
-  closeModel(){
+  closeModel(preferenceProfessionalForm){
      $(".change-preference").modal("hide");
      this.submitted = false;
+    this.resetModel();
+    preferenceProfessionalForm.resetForm(); 
   }
 	
 	onAgeChange(e){
@@ -126,6 +130,15 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     this.model.feesRange.min=Math.round( e.from);
     this.model.feesRange.max=Math.round( e.to);
 	}
+    resetModel(){
+//this.model = new PreferenceProfessional('','','','');
+        this.model.ageRange.min=Math.round( 21);
+    this.model.ageRange.max=Math.round( 100);
+      //this.model.feesRange={
+       // "min": '25',
+       // "max": '75'
+      //} 
+    }
 
   
 }

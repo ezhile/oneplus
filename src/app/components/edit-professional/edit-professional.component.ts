@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+import {NgForm} from '@angular/forms';
 declare var $:any;
 
 @Component({
@@ -88,7 +89,7 @@ export class EditProfessionalComponent implements OnInit {
         this.getAdrress = e.formatted_address;
     }
 
-    editProfessionalSend(){
+    editProfessionalSend(editProfessionalForm:NgForm){ 
           this.submitted = true;
           this.model.location={
             "address" : this.getAdrress,
@@ -101,9 +102,9 @@ export class EditProfessionalComponent implements OnInit {
                   this.model.workingDays.push(this.optionsWorkingDays[x].value);
               }
           }
-          this.professionalEditSubmit(); 
+          this.professionalEditSubmit(editProfessionalForm); 
     }
-    professionalEditSubmit() {
+    professionalEditSubmit(editProfessionalForm) {
 	    let body = {
            "nickname" : this.model.nickname,
            "gender" : this.model.gender,
@@ -131,17 +132,24 @@ export class EditProfessionalComponent implements OnInit {
 		  response  => {
               console.log(response);
               this.onEditProfesionalComplete.emit(response);
-              this.closeModel(); 
+              this.closeModel(editProfessionalForm); 
 		  },
           error =>  {
 		    alert('error');
-            this.closeModel();
+            this.closeModel(editProfessionalForm);
 		  } 
 		);
 	}
-  closeModel(){
+  closeModel(editProfessionalForm){
       this.submitted = false;
      $(".change-profile-boxs").modal("hide");
+      editProfessionalForm.resetForm(); 
+      this.clearForm();
+  }
+  clearForm(){
+    this.model.workingHours = [
+            {from:"00:00", to:"00:00"}
+        ];
   }
 }
 

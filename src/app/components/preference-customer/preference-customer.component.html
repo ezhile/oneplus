@@ -1,6 +1,6 @@
 <h2>preference</h2> 
 					 						     	<div class="form-login">
-											     		<form action="" (ngSubmit)="preferenceCustomerSend()" #preferenceCustomerForm="ngForm">
+											     		<form action="" (ngSubmit)="preferenceCustomerSend(preferenceCustomerForm)" #preferenceCustomerForm="ngForm">
 												     		<div class="form-group">
 												     			<label for="">Location</label>
 												     			<input type="text" placeholder="Enter your location" name="addressPreferenceCustomer" class="form-control map-pointer" [(ngModel)] = "addressPreferenceCustomer" (setAddress)="onAddressPreferenceCustomerChange($event)" (lat)='lat=$event' (lng)='lng=$event'  ng2-google-place-autocomplete/> 

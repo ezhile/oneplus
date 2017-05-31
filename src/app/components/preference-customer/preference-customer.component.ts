@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+import {NgForm} from '@angular/forms';
 declare var $:any;
 
 @Component({
@@ -43,7 +44,7 @@ export class PreferenceCustomerComponent implements AfterViewInit {
         this.getAdrress = e.formatted_address;
     }
 
-    preferenceCustomerSend(){
+    preferenceCustomerSend(preferenceCustomerForm:NgForm){
           this.submitted = true;
           this.model.location={
             "address" : this.getAdrress,
@@ -57,9 +58,9 @@ export class PreferenceCustomerComponent implements AfterViewInit {
               }
           }
 
-          this.customerPreferenceubmit(); 
+          this.customerPreferenceubmit(preferenceCustomerForm); 
     }
-    customerPreferenceubmit() {
+    customerPreferenceubmit(preferenceCustomerForm) {
 		  const uuid = this.userInfoService.get('user-id');
       let apiUrl = environment.api.preferenceEdit.url.replace("{uuid}",uuid);
 	    let body = {
@@ -79,22 +80,33 @@ export class PreferenceCustomerComponent implements AfterViewInit {
 		    .subscribe(
 		      response  => {
               console.log(response);
-              this.closeModel();	  
+              this.closeModel(preferenceCustomerForm);	  
 		      },
           error =>  {
 		          alert('error');
-              this.closeModel();
+              this.closeModel(preferenceCustomerForm);
 		      } 
 		    );
 	}
-  closeModel(){
+  closeModel(preferenceCustomerForm){
      $(".change-preference").modal("hide");
      this.submitted = false;
+     preferenceCustomerForm.resetForm();
+     this.resetModel();
   }
   onAgeChange(e){
     this.model.ageRange.min=Math.round( e.from);
     this.model.ageRange.max=Math.round( e.to);
 	}
+   resetModel(){
+//this.model = new PreferenceProfessional('','','','');
+        this.model.ageRange.min=Math.round( 21);
+    this.model.ageRange.max=Math.round( 100);
+      //this.model.feesRange={
+       // "min": '25',
+       // "max": '75'
+      //} 
+    }
     
 }
 

@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+import {NgForm} from '@angular/forms';
 declare var $:any;
 
 @Component({
@@ -32,16 +33,16 @@ export class EditCustomerComponent implements OnInit {
         this.getAdrress = e.formatted_address;
     }
 
-    editCustomerSend(){	
+    editCustomerSend(editCustomerForm:NgForm){	
           this.submitted = true;	
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
             "latitude" : this.lat
           }
-          this.customerEditSubmit(); 
+          this.customerEditSubmit(editCustomerForm); 
     }
-    customerEditSubmit() {
+    customerEditSubmit(editCustomerForm) {
 	  let body = {
             "nickname" : this.model.nickname,
             "gender" : this.model.genderType,
@@ -63,17 +64,18 @@ export class EditCustomerComponent implements OnInit {
 		  response  => {
               console.log(response);
               this.onEditCustomerComplete.emit(response);
-              this.closeModel();	  
+              this.closeModel(editCustomerForm);	  
 		  },
           error =>  {
 		  alert('error');
-      this.closeModel();
+      this.closeModel(editCustomerForm);
 		  } 
 		);
 	}
-  closeModel(){
+  closeModel(editCustomerForm){
      $(".change-profile-boxs").modal("hide");
      this.submitted = false;
+     editCustomerForm.resetForm();
   }
 }
 

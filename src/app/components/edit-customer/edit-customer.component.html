@@ -1,6 +1,6 @@
 <h2>Edit profile</h2>
 											     	<div class="form-login">
-											     		<form action="" (ngSubmit)="editCustomerSend()" #editCustomerForm="ngForm">
+											     		<form action="" (ngSubmit)="editCustomerSend(editCustomerForm)" #editCustomerForm="ngForm">
 												     		<div class="form-group">
 												     			<label for="" class="b-title">Nickname</label>
 												     			<input type="text" placeholder="Name" class="form-control"  [(ngModel)]="model.nickname" name="nickname" #name="ngModel" >

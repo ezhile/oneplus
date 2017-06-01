@@ -76,12 +76,13 @@
 												     			</div>-->
 												     		</div>
 
-															 
-												     		<div class="form-group clearfix">
+								     		<div class="form-group clearfix">
 												     			<label class="title_edit_page b-title" for="" >Work hours</label><br>
-												     			<div *ngFor="let slot of model.workingHours;let isLast = last; let id = index;" class="row no-margin"> 
-																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label><input type="text" class="form-control pad-lt-rt-10" name="from{{id}}" [(ngModel)]="slot.from" style="width:80px;float:left">  
-												     				<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label><input type="text" class="form-control pad-lt-rt-10" name="to{{id}}" [(ngModel)]="slot.to" style="width:80px;float:left"> 
+												     			<div *ngFor="let slot of model.workingHours;let isLast = last; let id = index;" class="row no-margin input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true"> 
+																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label>
+																	<input type="text" name="from{{id}}" class="form-control timepicker" [(ngModel)]="slot.from" value="13:14" style="width:118px;float:left">  
+												     				<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label>
+																	<input type="text" name="to{{id}}" class="form-control timepicker" [(ngModel)]="slot.to" value="13:14" style="width:118px;float:left"> 
 												     				<button [hidden]="!isLast" type="button" (click)="addTimeSlot();" class="add_time timeslot-btn">+ add time slot</button> 
 																</div> 
 												     		</div>
@@ -109,3 +110,5 @@
 											     	<div data-dismiss="modal" class="close">
 											     		<img src="assets/images/x.png" alt="">
 											     	</div>
+													
+													

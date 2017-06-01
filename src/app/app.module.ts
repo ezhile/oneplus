@@ -27,7 +27,7 @@ import { DirectivesModule } from './modules/directives.module';
  import { IonRangeSliderModule } from "ng2-ion-range-slider";
  import { TagInputModule } from 'ng2-tag-input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed! 
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +47,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
   ], 
   imports: [
     RouterModule.forRoot(appRoutes),
+	NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,

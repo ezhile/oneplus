@@ -19,7 +19,7 @@ export class EditProfessionalComponent implements OnInit {
     public address:any;
     public getAdrress:string;  
     //Output() onEditProfessionalComplete: EventEmitter<string> = new EventEmitter<string>();
-
+time = {hour: 13, minute: 30};
     @Output() onEditProfesionalComplete: EventEmitter<string> = new EventEmitter<string>();
 
     optionsGender = [ 
@@ -82,6 +82,7 @@ export class EditProfessionalComponent implements OnInit {
 
     addTimeSlot(){
         this.model.workingHours.push({"from":"00:00", "to":"00:00"}); 
+		console.log(this.model.workingHours)
     }
     
     onAddressChange(e){
@@ -152,4 +153,10 @@ export class EditProfessionalComponent implements OnInit {
         ];
   }
 }
+
+$(document).ready(function(){
+	$(document).on('click','.timepicker',function(){
+	  $('.clockpicker').clockpicker();
+	});	
+});
 

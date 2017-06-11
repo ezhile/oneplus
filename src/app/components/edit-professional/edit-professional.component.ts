@@ -81,7 +81,7 @@ time = {hour: 13, minute: 30};
     }
 
     addTimeSlot(){
-        this.model.workingHours.push({"from":"00:00", "to":"00:00"}); 
+        this.model.workingHours.push({"from":"00:00", "to":"00:00"});
 		console.log(this.model.workingHours)
     }
     
@@ -136,7 +136,7 @@ time = {hour: 13, minute: 30};
               this.closeModel(editProfessionalForm); 
 		  },
           error =>  {
-		    alert('error');
+		    alert(error.code);
             this.closeModel(editProfessionalForm);
 		  } 
 		);
@@ -153,10 +153,4 @@ time = {hour: 13, minute: 30};
         ];
   }
 }
-
-$(document).ready(function(){
-	$(document).on('click','.timepicker',function(){
-	  $('.clockpicker').clockpicker();
-	});	
-});
 

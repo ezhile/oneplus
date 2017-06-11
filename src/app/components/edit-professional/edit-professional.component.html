@@ -78,12 +78,16 @@
 
 								     		<div class="form-group clearfix">
 												     			<label class="title_edit_page b-title" for="" >Work hours</label><br>
-												     			<div *ngFor="let slot of model.workingHours;let isLast = last; let id = index;" class="row no-margin input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true"> 
+												     			<div *ngFor="let slot of model.workingHours;let isLast = last; let id = index;" class="row no-margin d-inline-box"> 
+																	<div class="input-group fromclock" data-placement="right" data-align="top" data-autoclose="true" clock-picker> 
 																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px;">From</label>
-																	<input type="text" name="from{{id}}" class="form-control timepicker" [(ngModel)]="slot.from" value="13:14" style="width:118px;float:left">  
-												     				<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label>
-																	<input type="text" name="to{{id}}" class="form-control timepicker" [(ngModel)]="slot.to" value="13:14" style="width:118px;float:left"> 
-												     				<button [hidden]="!isLast" type="button" (click)="addTimeSlot();" class="add_time timeslot-btn">+ add time slot</button> 
+																	<input type="text" name="from{{id}}" class="form-control timepicker" [(ngModel)]="slot.from" (keydown)="false;" value="00:00" style="width:86px;float:left">  
+																	</div>
+																	<div class="input-group toclock" data-placement="right" data-align="top" data-autoclose="true" clock-picker>
+																	<label for="" style="float:left; margin-top: 10px; margin-right: 10px; margin-left: 10px">To</label>  
+																	<input type="text" name="to{{id}}" class="form-control timepicker" [(ngModel)]="slot.to" (keydown)="false;" value="00:00" style="width:86px;float:left"> 
+																	</div>
+																	 <button [hidden]="!isLast" type="button" (click)="addTimeSlot();" class="add_time timeslot-btn">+ add time slot</button> 
 																</div> 
 												     		</div>
 												     		<!-- end new-code -->

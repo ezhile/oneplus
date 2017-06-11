@@ -3,6 +3,7 @@ import { EditProfessional } from '../../models/edit-professional.model';
 import { UserInfoService } from '../../services/user-info.service';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
 import {NgForm} from '@angular/forms';
@@ -128,7 +129,8 @@ time = {hour: 13, minute: 30};
 	
 	  this.http[environment.api.profileEdit.method]
         (apiUrl, JSON.stringify(body), options)
-		.map(response => response.json()) 
+		.map(response => response.json())
+        .catch((error:any) => Observable.throw(error.json() || 'Server error')) 
 		.subscribe(
 		  response  => {
               console.log(response);
@@ -139,7 +141,7 @@ time = {hour: 13, minute: 30};
 		    alert(error.code);
             this.closeModel(editProfessionalForm);
 		  } 
-		);
+		); 
 	}
   closeModel(editProfessionalForm){
       this.submitted = false;

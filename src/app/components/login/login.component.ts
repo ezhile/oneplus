@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
 import { LoginUser } from '../../models/login-user.model';
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
 	  this.http[environment.api.login.method]
         (environment.api.login.url, JSON.stringify(body), options)
 		.map(response => response.json())
+		.catch((error:any) => Observable.throw(error.json() || 'Server error'))
 		.subscribe(
 		  response  => {
 			  this.errorMessage="";
@@ -58,7 +60,7 @@ export class LoginComponent implements OnInit {
 			  }		  
 		  },
           error =>  {
-		  let errorData = JSON.parse(error._body);
+		  let errorData = error;
 		  if(errorData){
 		      if(errorData.code==="ERR_ACCESS_DENIED"){
 				  this.errorMessage = errorData.errors[0];

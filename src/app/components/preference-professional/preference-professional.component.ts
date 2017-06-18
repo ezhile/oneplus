@@ -44,6 +44,8 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 
     model = new PreferenceProfessional('','','','');
     submitted = false;
+    errorMessage = '';
+    staticErrorMsg = 'Please fill the detail in the form';
     onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;
@@ -51,7 +53,8 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 
     preferenceProfessionalSend(preferenceProfessionalForm:NgForm){
         
-         this.submitted = true;
+          this.submitted = true;
+          this.errorMessage = '';
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -108,8 +111,9 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
               this.closeModel(preferenceProfessionalForm); 
 		  },
           error =>  {
-		  alert('error');
-      this.closeModel(preferenceProfessionalForm); 
+		  //alert('error');
+      //this.closeModel(preferenceProfessionalForm); 
+      this.showError(error);
 		  } 
 		);
 	}
@@ -119,6 +123,13 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
      this.submitted = false;
     this.resetModel();
     preferenceProfessionalForm.resetForm(); 
+  }
+   showError(error){
+    this.errorMessage = error.code;
+    this.submitted = false
+    if(!error.code){
+        this.errorMessage = this.staticErrorMsg;
+    }
   }
 	
 	onAgeChange(e){
@@ -134,6 +145,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
 //this.model = new PreferenceProfessional('','','','');
         this.model.ageRange.min=Math.round( 21);
     this.model.ageRange.max=Math.round( 100);
+    this.errorMessage = '';
       //this.model.feesRange={
        // "min": '25',
        // "max": '75'

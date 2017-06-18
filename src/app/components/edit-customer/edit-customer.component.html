@@ -37,6 +37,7 @@
 												     			<label for="" class="b-title">About</label>
 												     			<textarea name="" id="" rows="7" class="form-control" placeholder="Enter a short description about you" [(ngModel)]="model.about" name="about" #name="ngModel"></textarea>
 												     		</div>
+															 <div class="text-center text-danger errorMsgPadding" *ngIf="errorMessage !== ''"> {{errorMessage}}</div>
 												     		<div class="form-group button-form">
 												     			<button [disabled]="submitted" [ngClass]="{'btn-active':!submitted , 'btn-inactive': submitted }" type="submit">Done</button>
 												     		</div>

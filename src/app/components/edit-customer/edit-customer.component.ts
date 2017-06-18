@@ -28,6 +28,8 @@ export class EditCustomerComponent implements OnInit {
     } 
     model = new EditCustomer('', '','','');
     submitted = false;
+    errorMessage = '';
+    staticErrorMsg = 'Please fill the detail in the form';
     onAddressChange(e){
         
         this.getAdrress = e.formatted_address;
@@ -35,6 +37,7 @@ export class EditCustomerComponent implements OnInit {
 
     editCustomerSend(editCustomerForm:NgForm){	
           this.submitted = true;	
+          this.errorMessage = '';
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -67,8 +70,9 @@ export class EditCustomerComponent implements OnInit {
               this.closeModel(editCustomerForm);	  
 		  },
           error =>  {
-		  alert('error');
-      this.closeModel(editCustomerForm);
+		  //alert('error');
+      //this.closeModel(editCustomerForm);
+      this.showError(error);
 		  } 
 		);
 	}
@@ -76,6 +80,14 @@ export class EditCustomerComponent implements OnInit {
      $(".change-profile-boxs").modal("hide");
      this.submitted = false;
      editCustomerForm.resetForm();
+     this.errorMessage = '';
+  }
+  showError(error){
+    this.errorMessage = error.code;
+    this.submitted = false
+    if(!error.code){
+        this.errorMessage = this.staticErrorMsg;
+    }
   }
 }
 

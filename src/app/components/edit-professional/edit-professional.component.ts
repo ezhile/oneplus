@@ -53,6 +53,8 @@ time = {hour: 13, minute: 30};
     model = new EditProfessional('', false,'','','','','',[],''); 
     submitted = false;
     availableServices = [];
+    errorMessage = '';
+    staticErrorMsg = 'Please fill the detail in the form';
 
     removeDupeKeys(serviceList){ 
        let services = serviceList;
@@ -93,6 +95,7 @@ time = {hour: 13, minute: 30};
 
     editProfessionalSend(editProfessionalForm:NgForm){ 
           this.submitted = true;
+          this.errorMessage = '';
           this.model.location={
             "address" : this.getAdrress,
             "longitude" : this.lng,
@@ -138,18 +141,27 @@ time = {hour: 13, minute: 30};
               this.closeModel(editProfessionalForm); 
 		  },
           error =>  {
-		    alert(error.code);
-            this.closeModel(editProfessionalForm);
+            console.log(error);
+           //this.closeModel(editProfessionalForm);
+           this.showError(error);
 		  } 
 		); 
 	}
   closeModel(editProfessionalForm){
-      this.submitted = false;
-     $(".change-profile-boxs").modal("hide");
-      editProfessionalForm.resetForm(); 
-      this.clearForm();
+        this.submitted = false;
+        $(".change-profile-boxs").modal("hide");
+        editProfessionalForm.resetForm(); 
+        this.clearForm();      
+  }
+  showError(error){
+    this.errorMessage = error.code;
+    this.submitted = false
+    if(!error.code){
+        this.errorMessage = this.staticErrorMsg;
+    }
   }
   clearForm(){
+    this.errorMessage = '';
     this.model.workingHours = [
             {from:"00:00", to:"00:00"}
         ];

@@ -33,3 +33,6 @@ padding-left: 0px;
 .d-inline-box{
     display: -webkit-inline-box;
 }
+.errorMsgPadding{
+    padding-bottom: 15px;
+}

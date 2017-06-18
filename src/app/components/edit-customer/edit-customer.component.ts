@@ -29,7 +29,7 @@ export class EditCustomerComponent implements OnInit {
     model = new EditCustomer('', '','','');
     submitted = false;
     errorMessage = '';
-    staticErrorMsg = 'Please fill the detail in the form';
+    staticErrorMsg = 'Complete all the fields';
     onAddressChange(e){
         
         this.getAdrress = e.formatted_address;

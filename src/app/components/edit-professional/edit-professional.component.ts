@@ -54,7 +54,7 @@ time = {hour: 13, minute: 30};
     submitted = false;
     availableServices = [];
     errorMessage = '';
-    staticErrorMsg = 'Please fill the detail in the form';
+    staticErrorMsg = 'Complete all the fields';
 
     removeDupeKeys(serviceList){ 
        let services = serviceList;

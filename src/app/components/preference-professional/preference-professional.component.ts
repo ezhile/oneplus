@@ -45,7 +45,7 @@ export class PreferenceProfessionalComponent implements AfterViewInit {
     model = new PreferenceProfessional('','','','');
     submitted = false;
     errorMessage = '';
-    staticErrorMsg = 'Please fill the detail in the form';
+    staticErrorMsg = 'Complete all the fields';
     onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;

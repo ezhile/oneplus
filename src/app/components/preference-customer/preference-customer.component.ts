@@ -40,7 +40,7 @@ export class PreferenceCustomerComponent implements AfterViewInit {
     model = new PreferenceCustomer('', '','','');
     submitted = false;
     errorMessage = '';
-    staticErrorMsg = 'Please fill the detail in the form';
+    staticErrorMsg = 'Complete all the fields';
     onAddressPreferenceCustomerChange(e){
         
         this.getAdrress = e.formatted_address;

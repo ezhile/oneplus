@@ -3,35 +3,35 @@ export const environment = {
   api:{
       login:{
           method : "post",
-          url : "http://46.38.242.27:8082/api/login"
+          url : "http://185.16.61.51:8082/api/login"
       },
       register:{
           method : "post",
-          url : "http://46.38.242.27:8082/api/register"
+          url : "http://185.16.61.51:8082/api/register"
       },
       subscribe:{
           method : "post",
-          url : "http://46.38.242.27:8082/api/subscribe"
+          url : "http://185.16.61.51:8082/api/subscribe"
       },
       profileView:{
           method : "get",
-          url : "http://46.38.242.27:8082/api/user/{uuid}"
+          url : "http://185.16.61.51:8082/api/user/{uuid}"
       },
       profileEdit:{
           method : "put",
-          url : "http://46.38.242.27:8082/api/user/{uuid}/profile"
+          url : "http://185.16.61.51:8082/api/user/{uuid}/profile"
       },
       photoUpload:{
           method : "post",
-          url : "http://46.38.242.27:8082/api/user/{uuid}/profile/picture"
+          url : "http://185.16.61.51:8082/api/user/{uuid}/profile/picture"
       },
       preferenceEdit:{
           method : "put",
-          url : "http://46.38.242.27:8082/api/user/{uuid}/preference"
+          url : "http://185.16.61.51:8082/api/user/{uuid}/preference"
       },
       servicesList:{
           method : "get",
-          url : "http://46.38.242.27:8082/api/metadata/service"
+          url : "http://185.16.61.51:8082/api/metadata/service"
       }
       
   }

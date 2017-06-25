@@ -98,6 +98,9 @@ export class EditProfessionalPage implements OnInit {
     loadViewPage(){	
 		//this.checkIsCustomer();	
 		//let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
+    if(!this.userInfoService.get('user-id')){
+      this.router.navigate(['/home']);
+    }
 		const uuid = this.userInfoService.get('user-id');
     const token = this.userInfoService.get('access_token');
 	  let headers = new Headers({ 'Content-Type': 'application/json' });

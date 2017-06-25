@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { UserInfoService } from '../../services/user-info.service';
 declare var $:any;
@@ -19,7 +20,7 @@ export class EditCustomerPage implements OnInit {
   	public spinLoader:boolean = false;
     public hidedefault:boolean = false;
 	
-    constructor(private http: Http, private userInfoService: UserInfoService) {
+    constructor(private http: Http, private userInfoService: UserInfoService, private router: Router) {
         this.showUploadLink = false;
     }
 
@@ -85,6 +86,9 @@ export class EditCustomerPage implements OnInit {
   }  
 
   loadViewPage(){	
+    if(!this.userInfoService.get('user-id')){
+      this.router.navigate(['/home']);
+    }
 		//this.checkIsCustomer();	
 		//let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
 		const uuid = this.userInfoService.get('user-id');

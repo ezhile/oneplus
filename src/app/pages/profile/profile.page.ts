@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserInfoService } from '../../services/user-info.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'profile-page',
@@ -8,10 +9,15 @@ import { UserInfoService } from '../../services/user-info.service';
 })
 export class ProfilePage implements OnInit {
     
-    constructor(private userInfoService: UserInfoService) {
+    constructor(private userInfoService: UserInfoService, private router: Router) {
         
     }
     ngOnInit() {
         console.log(this.userInfoService.userInfo)
     }	
+    logOut(){
+        let data={}; 
+        this.userInfoService.set(data); 
+        this.router.navigate(['/home']);
+    }
 }

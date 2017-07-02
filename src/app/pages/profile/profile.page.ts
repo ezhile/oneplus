@@ -15,9 +15,8 @@ export class ProfilePage implements OnInit {
     ngOnInit() {
         console.log(this.userInfoService.userInfo)
     }	
-    logOut(){
-        let data={}; 
-        this.userInfoService.set(data); 
+    logOut(){        
+        sessionStorage.removeItem('userInfo');
         this.router.navigate(['/home']);
     }
 }

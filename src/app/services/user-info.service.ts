@@ -15,6 +15,19 @@ export class UserInfoService {
 
 	get(item:any){
 		let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+		if(!userInfo){
+			document.location.href="/";
+			return false;
+		}
 		return userInfo[item];
+	}
+	test(){
+		let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+		if(userInfo){
+			return true;
+		}else{
+			document.location.href="/";
+			return false;
+		}
 	}
 }

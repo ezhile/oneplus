@@ -86,17 +86,23 @@ export class EditCustomerPage implements OnInit {
   }  
 
   loadViewPage(){	
-    if(!this.userInfoService.get('user-id')){
-      this.router.navigate(['/home']);
-    }
+   // alert(this.userInfoService.get('user-id'));
+    //if(!this.userInfoService.get('user-id')){
+     // this.router.navigate(['/home']);
+   // }
 		//this.checkIsCustomer();	
 		//let apiUrl = environment.api.profileView.url.replace("{uuid}","9ee70f30-01ad-48e0-991f-adc73d291547");
-		const uuid = this.userInfoService.get('user-id');
-    const token = this.userInfoService.get('access_token');
-	  let headers = new Headers({ 'Content-Type': 'application/json' });
-    headers.append('Authorization','Bearer '+token);
-	  let options = new RequestOptions({ headers: headers });
-		let apiUrl = environment.api.profileView.url.replace("{uuid}", uuid);
+		  //if(!this.userInfoService.test()){
+        //return;
+     // }
+      const uuid = this.userInfoService.get('user-id');
+      const token = this.userInfoService.get('access_token');
+   
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('Authorization','Bearer '+token);
+      let options = new RequestOptions({ headers: headers });
+      let apiUrl = environment.api.profileView.url.replace("{uuid}", uuid);
+    
 		 this.http[environment.api.profileView.method]
         (apiUrl, options)
 		.map(response => response.json())

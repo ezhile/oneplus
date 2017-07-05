@@ -101,7 +101,8 @@
 							<div class="col-md-10 col-md-offset-1">
 								<div class="row">
 									<div class="col-md-3">
-										<div class="add-picture">
+										<div class="add-picture" ng2FileDrop [ng2FileDropAcceptMultiple]="true" (ng2FileDropHoverStart)="dragFileOverStart()" (ng2FileDropHoverEnd)="dragFileOverEnd()"
+                (ng2FileDropFilesDropped)="dragFilesDropped($event)" >
 											<p><a href="">+Add <br>a picture</a></p>
 										</div>
 									</div>

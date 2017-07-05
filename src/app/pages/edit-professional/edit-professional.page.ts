@@ -4,6 +4,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
+import { Ng2FileDropAcceptedFile, Ng2FileDropRejectedFile }  from 'ng2-file-drop';
 declare  var $:any;
 
 @Component({
@@ -179,4 +180,24 @@ export class EditProfessionalPage implements OnInit {
     $("#profilePic").css("background","url('data:image/jpeg;base64,"+this.photoThumnail+"')");
     this.updateUserServiceMessage(); 
   }
+
+  // File being dragged has moved into the drop region
+  private dragFileOverStart() {
+  }
+ 
+  // File being dragged has moved out of the drop region
+  private dragFileOverEnd() {
+  }
+ 
+  // File being dragged has been dropped and is valid
+  private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
+  }
+ 
+  // // File being dragged has been dropped and has been rejected
+  // private dragFileRejected(rejectedFile: Ng2FileDropRejectedFile) {
+  // }
+ 
+  // // Files being dragged have been dropped.
+  // private dragFilesDropped(droppedFile: Ng2FileDropFilesDropped) {
+  // }
 }

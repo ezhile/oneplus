@@ -5,6 +5,12 @@ import { Http, HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from 'ng2-translate';
 import { GooglePlaceModule } from 'ng2-google-place-autocomplete';
+import { DirectivesModule } from './modules/directives.module'; 
+import { IonRangeSliderModule } from "ng2-ion-range-slider";
+import { TagInputModule } from 'ng2-tag-input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed! 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2FileDropModule }  from 'ng2-file-drop';
 
 import { createTranslateLoader } from './app.lang.loader';
 import { appRoutes } from './app.routes'; 
@@ -23,11 +29,7 @@ import { PreferenceCustomerComponent } from './components/preference-customer/pr
 import { PreferenceProfessionalComponent } from './components/preference-professional/preference-professional.component';
 import { PwdValidator } from './validators/password.validator';
 import { UserInfoService } from './services/user-info.service';
-import { DirectivesModule } from './modules/directives.module'; 
- import { IonRangeSliderModule } from "ng2-ion-range-slider";
- import { TagInputModule } from 'ng2-tag-input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed! 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ], 
   imports: [
     RouterModule.forRoot(appRoutes),
-	NgbModule.forRoot(),
+	  NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -58,9 +60,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     }),
     GooglePlaceModule,
     DirectivesModule,
-	IonRangeSliderModule,
-	TagInputModule,
-	BrowserAnimationsModule
+	  IonRangeSliderModule,
+	  TagInputModule,
+	  BrowserAnimationsModule,
+    Ng2FileDropModule
   ], 
   providers: [UserInfoService],
   bootstrap: [AppComponent]

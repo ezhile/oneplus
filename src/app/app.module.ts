@@ -29,6 +29,8 @@ import { PreferenceCustomerComponent } from './components/preference-customer/pr
 import { PreferenceProfessionalComponent } from './components/preference-professional/preference-professional.component';
 import { PwdValidator } from './validators/password.validator';
 import { UserInfoService } from './services/user-info.service';
+import { FileuploadComponent } from './components/fileupload/fileupload.component';
+import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { UserInfoService } from './services/user-info.service';
     EditProfessionalComponent,
     PreferenceCustomerComponent,
     PreferenceProfessionalComponent,
-    PwdValidator
+    PwdValidator,
+    FileuploadComponent,
+    ImageCropperComponent
   ], 
   imports: [
     RouterModule.forRoot(appRoutes),

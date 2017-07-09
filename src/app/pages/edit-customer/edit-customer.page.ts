@@ -83,7 +83,7 @@ export class EditCustomerPage implements OnInit {
     if(this.isPhotoUploaded){
       this.showUploadLink = false;
     }
-  }  
+  }
 
   loadViewPage(){	
    // alert(this.userInfoService.get('user-id'));

@@ -4,11 +4,12 @@ import { ProfilePage } from './pages/profile/profile.page';
 import { ViewPage } from './pages/view/view.page'; 
 import { EditCustomerPage } from './pages/edit-customer/edit-customer.page';
 import { EditProfessionalPage } from './pages/edit-professional/edit-professional.page';
- 
+import { FileuploadComponent } from './components/fileupload/fileupload.component';
+
 export const appRoutes: Routes = [
   { path: 'home', component: HomePage },
-  { 
-      path: 'profile', 
+  {
+      path: 'profile',
       component: ProfilePage,
       children:[
           { path: '', redirectTo: 'view', pathMatch: 'full'},
@@ -17,6 +18,7 @@ export const appRoutes: Routes = [
           { path: 'editProfessional', component: EditProfessionalPage }
       ]
   },
+  { path: 'fileupload', component: FileuploadComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: HomePage }
 ];
